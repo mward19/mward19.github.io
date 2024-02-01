@@ -1,3 +1,56 @@
+:root {
+    --body-text-width: max(30rem, 65%);
+}
 body {
-    background-color: navy;
+    /*background-image: url("https://media.gettyimages.com/id/1387648084/photo/carnaval.jpg?s=612x612&w=gi&k=20&c=PXFiPbd5XRnrFLwhauMEihENk2pBKUBYoKb9JRA7e1o=");
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    background-color: gray;
+    color: #eeeeee;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.sticky-header {
+    display: sticky;
+    background: radial-gradient(circle at left, #1a2a82 0, #8c0500 75%, #25ad10 100%)
+}
+
+.sticky-header ul {
+    display: flex;
+    flex-direction: row; 
+    list-style-type: none;
+}
+
+.sticky-header a {
+    color: #eeeeee;
+}
+
+.sticky-header li {
+    margin: 1rem;
+    color: beige;
+}
+
+.summary {
+    width: var(--body-text-width);
+    margin: 0 auto;
+}
+
+.portrait {
+    display: block;
+    margin: 1rem auto;
+    --image-radius: min(70%, 400px);
+    max-width: var(--image-radius);
+    border-radius: calc(var(--image-radius));
+}
+
+.divider {
+    /* Set display so that it does not have anything next to it. */
+    display: block;
+    border: 1px solid #cccccc;
+    width: calc(var(--body-text-width) + 1rem);
+    margin: auto auto;
 }
