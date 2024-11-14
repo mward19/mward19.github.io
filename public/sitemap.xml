@@ -4,28 +4,35 @@
   
     
       <url>
-            <loc>//localhost:1313/projects/</loc>
+            <loc>//localhost:41063/projects/</loc>
+            <lastmod>2024-11-14T13:06:41-07:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>//localhost:41063/projects/visualize-voxels/</loc>
+            <lastmod>2024-11-14T13:06:41-07:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>//localhost:41063/projects/tomogram-datasets/</loc>
             <lastmod>2024-11-13T13:06:41-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/projects/tomogram-datasets/</loc>
-            <lastmod>2024-11-13T13:06:41-07:00</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>//localhost:1313/about/</loc>
+            <loc>//localhost:41063/about/</loc>
             <lastmod>2024-11-13T12:37:56-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/</loc>
+            <loc>//localhost:41063/</loc>
             <lastmod>2024-11-13T12:37:56-07:00</lastmod>
           </url>
     
