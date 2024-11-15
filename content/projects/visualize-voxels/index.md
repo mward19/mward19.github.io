@@ -29,20 +29,13 @@ n_flagellar_motors = [len(tomo.annotation_points()) for tomo in tomos]
 super_tomo = tomos[np.argsort(n_flagellar_motors)[-3]]
 
 viz(
-    super_tomo.get_data(), 
+    super_tomo.get_data(),
     marks=super_tomo.annotation_points(),
     markalpha=0.5,
+    axis=0,
     slices=np.linspace(80, 320, 100),
-    fps=15
-)
-
-viz(
-    super_tomo.get_data(), 
-    marks=super_tomo.annotation_points(),
-    fps=15,
-    slices=125,
-    axis=2
+    fps=16
 )
 ```
 
-Try playing with it <a href="/other/fun_tomos.html" target="_blank">here</a>.
+Try playing with it <a href="/other/viz_vox_demo.html" target="_blank">here</a>.
