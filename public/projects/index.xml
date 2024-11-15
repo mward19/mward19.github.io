@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Matthew Ward</title>
-    <link>/projects/</link>
+    <link>//localhost:1313/projects/</link>
     <description>Recent content in Projects on Matthew Ward</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 14 Nov 2024 13:06:41 -0700</lastBuildDate>
-    <atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>visualize-voxels</title>
-      <link>/projects/visualize-voxels/</link>
+      <link>//localhost:1313/projects/visualize-voxels/</link>
       <pubDate>Thu, 14 Nov 2024 13:06:41 -0700</pubDate>
-      <guid>/projects/visualize-voxels/</guid>
+      <guid>//localhost:1313/projects/visualize-voxels/</guid>
       <description></description>
     </item>
     <item>
       <title>tomogram-datasets</title>
-      <link>/projects/tomogram-datasets/</link>
+      <link>//localhost:1313/projects/tomogram-datasets/</link>
       <pubDate>Wed, 13 Nov 2024 13:06:41 -0700</pubDate>
-      <guid>/projects/tomogram-datasets/</guid>
+      <guid>//localhost:1313/projects/tomogram-datasets/</guid>
       <description></description>
     </item>
   </channel>
