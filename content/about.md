@@ -1,5 +1,5 @@
 +++
-date = '2024-11-13T12:37:56-07:00'
+showDate = false
 draft = false
 title = 'About me'
 +++
