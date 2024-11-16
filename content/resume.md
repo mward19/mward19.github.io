@@ -39,7 +39,7 @@ April 2026*
         {{< iconbox icon="/icons/c-plusplus.svg" alt="C++" label="C++" >}}
         {{< iconbox icon="/icons/java.svg" alt="Java" label="Java" >}}
         {{< iconbox icon="/icons/internet-svgrepo-com.svg" alt="HTML/CSS" label="HTML/CSS" >}}
-        {{< iconbox icon="/icons/terminal.svg" alt="Unix Shell" label="Unix&nbsp;Shell" >}}
+        {{< iconbox icon="/icons/terminal.svg" alt="Unix Shell" label="Unix Shell" >}}
     </div>
 </div>
 
