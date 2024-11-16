@@ -1,0 +1,4 @@
+<div class="flex flex-col items-center" style="transform: scale({{ .Get "scale" | default "1" }}); margin-inline: 5px;">
+    <img src="{{ .Get "icon" }}" alt="{{ .Get "alt" }}" class="w-12 h-12" style="margin: 0;">
+    <span style="margin: 0; font-size: 0.8rem;">{{ .Get "label" }}</span>
+</div>
