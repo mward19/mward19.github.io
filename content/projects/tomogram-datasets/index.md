@@ -1,10 +1,11 @@
 +++
 date = '2024-11-13T13:06:41-07:00'
+showDate = false
 draft = false
 title = 'tomogram-datasets'
 +++
 
-In the BYU Biophysics research group, we spend much of our time working with 3-dimensional images of bacteria called tomograms. Researchers have spent a lot of time looking for structures in these tomograms, and save their findings in annotation files. This repository contains code that makes it easier to navigate the web of tomograms and annotations we have, simplifying analysis and dataset creation. While it's something I'm still working on, I use it every day in my research.
+In the BYU Biophysics research group, we spend much of our time working with 3-dimensional images of bacteria called tomograms. Researchers have spent a lot of time looking for structures in these tomograms, and save their findings in annotation files. `tomogram_datasets` makes it easier to navigate the web of tomograms and annotations we have, simplifying analysis and dataset creation. While it's something I'm still working on, I use it every day in my research.
 
 The code is hosted on [GitHub](https://github.com/byu-biophysics/tomogram-datasets/tree/master).
 
