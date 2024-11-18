@@ -4,6 +4,11 @@ showDate = false
 draft = false
 title = 'visualize-voxels'
 +++
+
+*This project is hosted on [GitHub](https://www.github.com/mward19/visualize_voxels).*
+
+***
+
 | ![Helix](/video/helix_visualization.gif) |
 | ---------------------------------------- |
 | A helix plotted within a tomogram.|

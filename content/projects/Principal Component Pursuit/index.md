@@ -1,5 +1,5 @@
 +++
-date = '2024-11-13T14:06:41-07:00'
+date = '2024-11-13T13:05:41-07:00'
 showDate = false
 draft = false
 title = 'Principal Component Pursuit'
@@ -7,7 +7,12 @@ title = 'Principal Component Pursuit'
 
 {{< katex >}}
 
+*This project is hosted on [GitHub](https://www.github.com/mward19/pcp).*
+
+***
+
 ## Brief summary
+
 While looking for ways to work with and extract information from cryo-ET tomograms (noisy 3D images) in the summer of 2024, I read a [book](https://book-wright-ma.github.io/) about ways of making the most of messy data using linear algebra and optimization. In the process, I learned about Robust Principal Component Analysis (RPCA), which can be performed with Principal Component Pursuit (PCP). 
 
 Here I apply Principal Component Pursuit to a video I shot in my lab. Using this method, I am able to extract the background and foreground of a video, using nothing more than linear algebra and a simple convex optimization problem.
@@ -20,11 +25,13 @@ Here I apply Principal Component Pursuit to a video I shot in my lab. Using this
 
 This project is inspired by a common application of PCP: [identifying video segments in surveillance camera feeds](https://www.sciencedirect.com/science/article/pii/S1077314213002294?via%3Dihub) where something of interest is happening. The video above simulates this in just a few seconds.
 
-I have yet to successfully apply this method to tomograms, but my advisor and I thought it was fascinating, so we feel like we succeeded anyway! If you would like to learn more details, read the longer summary below.
+I have yet to successfully apply this method to tomograms, but my advisor and I thought it was fascinating, so we feel like we succeeded anyway! I implemented the method in Julia, a language I am coming to love. See my implementation code on [GitHub](https://www.github.com/mward19/pcp).
+
+If you would like to learn more details, read the longer summary below. 
 
 ## Longer summary
 ### What is this?
-This is an implementation and demonstration of Principal Component Pursuit, a way to solve the [Robust Principal Component Analysis problem](https://en.wikipedia.org/wiki/Robust_principal_component_analysis), which is here applied to a short video I shot.
+This is an implementation and demonstration of Principal Component Pursuit, a way to solve the [Robust Principal Component Analysis](https://en.wikipedia.org/wiki/Robust_principal_component_analysis) problem, which is here applied to a short video I shot.
 
 ### What am I seeing?
 I recorded the top video in my lab. I wanted a video with a mostly static background and something moving in the foreground.
