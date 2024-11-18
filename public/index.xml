@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Matthew Ward</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content in Home on Matthew Ward</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 13 Nov 2024 13:06:41 -0700</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>tomogram-datasets</title>
-      <link>//localhost:1313/projects/tomogram-datasets/</link>
+      <link>/projects/tomogram-datasets/</link>
       <pubDate>Wed, 13 Nov 2024 13:06:41 -0700</pubDate>
-      <guid>//localhost:1313/projects/tomogram-datasets/</guid>
+      <guid>/projects/tomogram-datasets/</guid>
       <description></description>
     </item>
     <item>
       <title>visualize-voxels</title>
-      <link>//localhost:1313/projects/visualize-voxels/</link>
+      <link>/projects/visualize-voxels/</link>
       <pubDate>Wed, 13 Nov 2024 12:06:41 -0700</pubDate>
-      <guid>//localhost:1313/projects/visualize-voxels/</guid>
+      <guid>/projects/visualize-voxels/</guid>
       <description></description>
     </item>
     <item>
       <title>About me</title>
-      <link>//localhost:1313/about/</link>
+      <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/about/</guid>
+      <guid>/about/</guid>
       <description></description>
     </item>
     <item>
       <title>Contact</title>
-      <link>//localhost:1313/contact/</link>
+      <link>/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/contact/</guid>
+      <guid>/contact/</guid>
       <description></description>
     </item>
     <item>
       <title>Resume</title>
-      <link>//localhost:1313/resume/</link>
+      <link>/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/resume/</guid>
+      <guid>/resume/</guid>
       <description></description>
     </item>
   </channel>
