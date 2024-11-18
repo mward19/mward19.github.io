@@ -43,24 +43,24 @@ April 2026*
     </div>
 </div>
 
-- [Object-oriented programming](https://github.com/mward19/qwixx/tree/master/src)
+- {{< special-link "https://github.com/mward19/qwixx/tree/master/src" >}}Object-oriented programming{{< /special-link >}}
 - Database management
 - High-performance computing
 - Git / GitHub
 - Excel
 
 ### Data Science & Machine Learning
-- [Data visualization](/projects/visualize-voxels)
-- [Data analysis](/projects/tomogram-datasets)
+- {{< special-link "/projects/visualize-voxels" >}}Data visualization{{< /special-link >}}
+- {{< special-link "/projects/tomogram-datasets" >}}Data analysis{{< /special-link >}}
 - Digital image processing
 - Computer vision
 - Machine learning
 - Deep learning
-- [Numerical and dynamic optimization](http://github.com/mward19/pcp)
+- {{< special-link "http://github.com/mward19/pcp" >}}Numerical and dynamic optimization{{< /special-link >}}
 
 ### Mathematics & Algorithms
 - Dynamic systems
-- [Numerical linear algebra](http://github.com/mward19/pcp)
+- {{< special-link "http://github.com/mward19/pcp" >}}Numerical linear algebra{{< /special-link >}}
 - Mathematical statistics
 
 ### Curriculum in 2025
