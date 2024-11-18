@@ -4,35 +4,42 @@
   
     
       <url>
-            <loc>//localhost:1313/projects/</loc>
+            <loc>/projects/principal-component-pursuit/</loc>
+            <lastmod>2024-11-13T14:06:41-07:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>/projects/</loc>
+            <lastmod>2024-11-13T14:06:41-07:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>/projects/tomogram-datasets/</loc>
             <lastmod>2024-11-13T13:06:41-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/projects/tomogram-datasets/</loc>
-            <lastmod>2024-11-13T13:06:41-07:00</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>//localhost:1313/</loc>
+            <loc>/</loc>
             <lastmod>2024-11-13T12:37:56-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/projects/visualize-voxels/</loc>
+            <loc>/projects/visualize-voxels/</loc>
             <lastmod>2024-11-13T12:06:41-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/about/</loc>
+            <loc>/about/</loc>
           </url>
     
   
@@ -40,13 +47,13 @@
   
     
       <url>
-            <loc>//localhost:1313/contact/</loc>
+            <loc>/contact/</loc>
           </url>
     
   
     
       <url>
-            <loc>//localhost:1313/resume/</loc>
+            <loc>/resume/</loc>
           </url>
     
   
