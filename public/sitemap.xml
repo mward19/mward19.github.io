@@ -4,22 +4,29 @@
   
     
       <url>
+            <loc>//localhost:1313/projects/my-weird-workflow/</loc>
+            <lastmod>2024-11-24T10:20:00-07:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
             <loc>//localhost:1313/projects/</loc>
-            <lastmod>2024-11-13T13:06:41-07:00</lastmod>
+            <lastmod>2024-11-24T10:20:00-07:00</lastmod>
           </url>
     
   
     
       <url>
             <loc>//localhost:1313/projects/tomogram-datasets/</loc>
-            <lastmod>2024-11-13T13:06:41-07:00</lastmod>
+            <lastmod>2024-11-13T14:00:00-07:00</lastmod>
           </url>
     
   
     
       <url>
             <loc>//localhost:1313/projects/principal-component-pursuit/</loc>
-            <lastmod>2024-11-13T13:05:41-07:00</lastmod>
+            <lastmod>2024-11-13T13:00:00-07:00</lastmod>
           </url>
     
   
@@ -33,7 +40,7 @@
     
       <url>
             <loc>//localhost:1313/projects/visualize-voxels/</loc>
-            <lastmod>2024-11-13T12:06:41-07:00</lastmod>
+            <lastmod>2024-11-13T12:00:00-07:00</lastmod>
           </url>
     
   

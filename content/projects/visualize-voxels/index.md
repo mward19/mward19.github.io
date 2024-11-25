@@ -1,6 +1,6 @@
 +++
-date = '2024-11-13T12:06:41-07:00'
-showDate = false
+date = '2024-11-13T12:00:00-07:00'
+showDate = true
 draft = false
 title = 'visualize-voxels'
 +++

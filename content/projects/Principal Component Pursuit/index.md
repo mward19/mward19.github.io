@@ -1,6 +1,6 @@
 +++
-date = '2024-11-13T13:05:41-07:00'
-showDate = false
+date = '2024-11-13T13:00:00-07:00'
+showDate = true
 draft = false
 title = 'Principal Component Pursuit'
 +++
