@@ -45,11 +45,9 @@ Conveniently, the tablet has little rubber feet that fit perfectly over my lapto
 
 ![Tablet on keyboard](/img/tablet-on-keyboard.jpg)
 
-When I *do* have room to spread out, I take advantage of the space so I can still use the keyboard for quick things and get my screen a little farther from my face.
+When I *do* have room to spread out, I take advantage of the space.
 
 ![Full setup](/img/devices-full-setup.jpg)
-
-Don't mind my ancient ThinkPad keyboard and trackpad haha... 🙈 It isn't dirty, just well-loved.
 
 ## My weird mouse
 
