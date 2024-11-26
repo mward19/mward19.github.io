@@ -1,13 +1,15 @@
 +++
-date = '2024-11-24T10:20:00-07:00'
+date = '2024-11-25T19:14:00-07:00'
 showDate = true
-draft = true
+draft = false
 title = 'My weird devices'
 +++
 
 {{< katex >}}
 
-My friends and family constantly remind me that the devices I use to interact with my computer are... weird. I suppose they're right. But every time they mention it, I can't help but express *why they're so great!* I get my work done faster, cheaper, and more comfortably than anyone else I know because of them. 
+My friends and family constantly remind me that the devices I use to interact with my computer are... weird. I suppose they're right. But every time they mention it, I can't help but express *why they're so great!* I get my work done faster, cheaper, and more comfortably than anyone I know because of them. 
+
+***
 
 ## My weird tablet
 
@@ -63,4 +65,5 @@ Because it's larger and wider than a normal mouse, it opens my hand up. That's t
 
 Also, all of my cables are orange. If any of my cables aren't orange, I wish they were. No, orange isn't my favorite color. I even think it looks a little obnoxious. But ever since the day I got my first orange cable, I haven't lost a single one (that is orange. I definitely lost an awesome black HDMI cable I had. Then I got an orange one. Haven't lost it 🤷‍♂️). I used to lose cables and chargers all the time. My wife is very happy about my obsession with orange cables&mdash;they've probably saved us like a hundred bucks by now, since I don't have to constantly buy replacement chargers and other important wires. 
 
-
+***
+I love my weird devices. I didn't get them because they were weird, I got them because of very specific needs I had, and they fulfilled my needs perfectly. As a bonus, they've been a marvelous conversation starter! 
