@@ -60,6 +60,12 @@
   
     
       <url>
+            <loc>//localhost:1313/projects/todo/</loc>
+          </url>
+    
+  
+    
+      <url>
             <loc>//localhost:1313/resume/</loc>
           </url>
     
