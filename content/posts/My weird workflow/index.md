@@ -2,7 +2,7 @@
 date = '2024-11-25T19:14:00-07:00'
 showDate = true
 draft = false
-title = 'My weird devices'
+title = 'Unconventional tools for faster, smarter, cheaper work'
 +++
 
 {{< katex >}}
@@ -58,10 +58,6 @@ That's when I discovered [trackballs](https://en.wikipedia.org/wiki/Trackball). 
 ![My hand on the trackball](/img/hand-on-trackball.jpg)
 
 Because it's larger and wider than a normal mouse, it opens my hand up. That's the real key, I think. It also takes up a lot less space because it stays in place unlike a mouse, which is a huge plus when I'm in a crowded study room or computer lab. I love the tactile feel of moving the ball around and scrolling with the ring, it feels more natural to me. It took time to get used to it, but at this point I use it everywhere, carrying it with me in my backpack. 
-
-## Orange cables
-
-Also, all of my cables are orange. If any of my cables aren't orange, I wish they were. No, orange isn't my favorite color. I even think it looks a little obnoxious. But ever since the day I got my first orange cable, I haven't lost a single one (that is orange. I definitely lost an awesome black HDMI cable I had. Then I got an orange one. Haven't lost it 🤷‍♂️). I used to lose cables and chargers all the time. My wife is very happy about my obsession with orange cables&mdash;they've probably saved us like a hundred bucks by now, since I don't have to constantly buy replacement chargers and other important wires. 
 
 ***
 I love my weird devices. I didn't get them because they were weird, I got them because of very specific needs I had, and they fulfilled my needs perfectly. As a bonus, they've been a marvelous conversation starter! 
