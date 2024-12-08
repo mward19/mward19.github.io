@@ -2,16 +2,10 @@
 date = '2024-11-25T19:14:00-07:00'
 showDate = true
 draft = false
-title = 'Unconventional tools for faster, smarter, cheaper work'
+title = 'A cheaper alternative to tablets'
 +++
 
 {{< katex >}}
-
-My friends and family constantly remind me that the devices I use to interact with my computer are... weird. I suppose they're right. But every time they mention it, I can't help but express *why they're so great!* I get my work done faster, cheaper, and more comfortably than anyone I know because of them. 
-
-***
-
-## My weird tablet
 
 As a student in applied mathematics, I spend much of my time writing code, taking lecture notes, and working out proofs, all at breakneck speed. Many of my peers use \\(\LaTeX\\) to take notes and do homework. While I appreciate \\(\LaTeX\\) and often use it for formal write-ups, I don't love not being able to quickly draw diagrams, change colors, make up new notation on the fly, etc. Handwriting is infinitely flexible, and in my experience, much quicker when I'm trying to pump out my homework and move on.
 
@@ -33,8 +27,6 @@ There's really nothing special about this specific model ([Huion H610PRO v2](htt
 
 I've been using my tablet for a year and a half now, and it's still working like new. I only had to replace the pen nib once because I was fiddling with it and lost it on the floor. Whoops!
 
-### How I use it
-
 The trickiest part about all this is how to set it up. Naturally with unstandardized hardware like a screenless tablet there are lots of driver issues and subtleties to keep in mind. In addition, I use Linux (Debian 12 with GNOME and KDE), so things are often a little less intuitive (but more fun). Huion (the manufacturer) makes a good driver, and I also like using [OpenTabletDriver](https://opentabletdriver.net/), an open-source alternative. Things get a little dicey with a multi-monitor setup but I think I've got it figured out now.
 
 I take notes in [Xournal++](https://xournalpp.github.io/). I love it. It's everything I needed in notetaking software and more. My tablet has eight buttons on the left, which I've mapped to the following in Xournal++: undo, delete, pencil, zoom in, zoom out, new page, the lasso selection tool, and the hand tool. I also have an on-screen icon in my GNOME panel to take screenshots ([Screenshot Tool](https://extensions.gnome.org/extension/1112/screenshot-tool/)), which is especially useful when I want to paste snippets from textbooks (all of which I access digitally) into my homework. As a result, my workflow is very fast! 
@@ -49,15 +41,16 @@ When I *do* have room to spread out, I take advantage of the space.
 
 ![Full setup](/img/devices-full-setup.jpg)
 
-## My weird mouse
+***
 
-Like most people, I used to use a normal mouse. I'm relatively tall, so I have big hands. Something about gripping a tiny plastic mouse, scrunching up my hand, and moving it around for hours like that made my hand and wrist start to hurt. It would be a real bummer to get carpal tunnel syndrome, so I took action before it was too late and started looking into alternatives to the usual mouse.
+People ask me about my tablet all the time&mdash;but usually it's after they've noticed my mouse. Like most people, I used to use a normal one. I'm relatively tall, so I have big hands. Something about gripping a tiny plastic mouse, scrunching up my hand, and moving it around for hours like that made my hand and wrist start to hurt. It would be a real bummer to get carpal tunnel syndrome, so I took action before it was too late and started looking into alternatives to the usual mouse.
 
-That's when I discovered [trackballs](https://en.wikipedia.org/wiki/Trackball). What a revelation! I picked up a [Kensington Orbit](https://a.co/d/iSgOWqH) a year and a half ago (a couple months after getting the tablet, I think) and have never looked back. Conveniently, my wrist and hand have never hurt since. 
+That's when I discovered [trackballs](https://en.wikipedia.org/wiki/Trackball). What a revelation! I picked up a [Kensington Orbit](https://a.co/d/iSgOWqH) a year and a half ago (a couple months after getting the tablet, I think) and have never looked back. My wrist and hand have never hurt since. 
 
 ![My hand on the trackball](/img/hand-on-trackball.jpg)
 
-Because it's larger and wider than a normal mouse, it opens my hand up. That's the real key, I think. It also takes up a lot less space because it stays in place unlike a mouse, which is a huge plus when I'm in a crowded study room or computer lab. I love the tactile feel of moving the ball around and scrolling with the ring, it feels more natural to me. It took time to get used to it, but at this point I use it everywhere, carrying it with me in my backpack. 
+Because it's larger and wider than a normal mouse, it opens my hand up. That's the real key, I think. It also takes up a lot less space because it stays in place unlike a mouse, which is a huge plus when I'm in a crowded study room or computer lab. I love the tactile feel of moving the ball around and scrolling with the ring, it feels more natural to me. It took time to get used to it, but these days I bring the thing everywhere.
 
 ***
-I love my weird devices. I didn't get them because they were weird, I got them because of very specific needs I had, and they fulfilled my needs perfectly. As a bonus, they've been a marvelous conversation starter! 
+
+This setup has been a game-changer for me as a student. It’s affordable, reliable, and works well with my workflow. Sometimes the best solutions are the ones you figure out by thinking a little outside the box. If nothing else, it’s been fun to experiment and find what works best for me.
