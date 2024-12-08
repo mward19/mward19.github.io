@@ -2,7 +2,7 @@
 date = '2024-11-25T19:14:00-07:00'
 showDate = true
 draft = false
-title = 'A cheaper alternative to tablets'
+title = 'A cheaper alternative to tablets, and the mouse to rule them all'
 +++
 
 {{< katex >}}
