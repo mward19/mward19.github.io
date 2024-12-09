@@ -20,12 +20,12 @@ April 2026*
 ## Skills
 
 ### Programming
-<div class="flex flex-col space-y-4" style="border-radius: 0.5rem; background-color: rgba(255, 255, 255, 0.05); margin: 0; padding: 1rem;">
-    <div class="flex justify-center m-0">
+<div class="flex flex-col" style="border-radius: 0.5rem; background-color: rgba(255, 255, 255, 0.05); margin: 0; padding: 1rem;">
+    <div class="flex justify-center">
         {{< iconbox icon="/icons/python.svg" alt="Python" label="Python" >}}
     </div>
     <!-- Grid Layout for Libraries -->
-    <div class="flex justify-center m-4">
+    <div class="flex justify-center">
         {{< iconbox icon="/icons/numpy.svg" alt="NumPy" label="NumPy" scale=0.8 >}}
         {{< iconbox icon="/icons/pandas-icon.svg" alt="Pandas" label="Pandas" scale=0.8 >}}
         {{< iconbox icon="/icons/Scikit_learn_logo_small.svg" alt="scikit-learn" label="scikit-learn" scale=0.8 >}}
@@ -33,7 +33,7 @@ April 2026*
     </div>
     <hr style="margin: 10px;">
     <!-- Grid Layout for Other Languages -->
-    <div class="flex justify-center m-4">
+    <div class="flex flex-wrap justify-center" style="row-gap: 0.5rem;">
         {{< iconbox icon="/icons/julia.svg" alt="Julia" label="Julia" >}}
         {{< iconbox icon="/icons/database-svgrepo-com.svg" alt="SQL" label="SQL" >}}
         {{< iconbox icon="/icons/c-plusplus.svg" alt="C++" label="C++" >}}
