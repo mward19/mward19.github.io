@@ -1,0 +1,42 @@
+{{ $icons := .Get "icons" }} <!-- A list of objects with icon path and label -->
+<div class="flex flex-col items-center iconbox">
+    {{ range $icons }}
+        <div class="icon-item">
+            <img src="{{ .icon }}" alt="{{ .label }}" class="w-12 h-12" style="margin: 5px;">
+            <span style="margin: 0; font-size: 0.8rem;">{{ .label }}</span>
+        </div>
+    {{ end }}
+</div>
+
+<style>
+    /* Default (light) mode styles */
+    .iconbox {
+      background-color: transparent;
+      color: inherit;
+      width: 100px; /* Adjust to the desired square size */
+      height: auto; /* Allow flexibility to accommodate all icons and labels */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      margin-inline: 5px;
+      border-radius: 16px;
+      padding: 10px;
+      flex-wrap: wrap; /* Allow icons to wrap if there are many */
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+    }
+
+    /* Dark mode styles */
+    .dark .iconbox {
+      background-color: rgba(200, 200, 225, 0.7);
+    }
+    .dark .iconbox span {
+      color: black;
+    }
+</style>

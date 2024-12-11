@@ -20,28 +20,51 @@ April 2026*
 ## Skills
 
 ### Programming
-<div class="flex flex-col" style="border-radius: 0.5rem; background-color: rgba(255, 255, 255, 0.05); margin: 0; padding: 1rem;">
-    <div class="flex justify-center">
-        {{< iconbox icon="/icons/python.svg" alt="Python" label="Python" >}}
+<div class="tech-box">
+    <i style="font-size: 1.3em; margin-bottom: 1em;">Proficient in</i>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 1em; border-color: rgba(150, 150, 150, 0.4); border-style: solid; border-width: 1px; border-radius: 1em; padding: 0.5em 1.5em;">
+        {{< library-box icon="/icons/numpy.svg" label="NumPy">}}
+        {{< library-box icon="/icons/pandas-icon.svg" label="Pandas">}}
+        {{< language-box icon="/icons/python.svg" label="Python" >}}
+        {{< library-box icon="/icons/Scikit_learn_logo_small.svg" label="scikit-learn">}}
+        {{< library-box icon="/icons/pytorch-icon.svg" label="PyTorch">}}
     </div>
-    <!-- Grid Layout for Libraries -->
-    <div class="flex justify-center">
-        {{< iconbox icon="/icons/numpy.svg" alt="NumPy" label="NumPy" scale=0.8 >}}
-        {{< iconbox icon="/icons/pandas-icon.svg" alt="Pandas" label="Pandas" scale=0.8 >}}
-        {{< iconbox icon="/icons/Scikit_learn_logo_small.svg" alt="scikit-learn" label="scikit-learn" scale=0.8 >}}
-        {{< iconbox icon="/icons/pytorch-icon.svg" alt="PyTorch" label="PyTorch" scale=0.8 >}}
-    </div>
-    <hr style="margin: 10px;">
-    <!-- Grid Layout for Other Languages -->
-    <div class="flex flex-wrap justify-center" style="row-gap: 0.5rem;">
-        {{< iconbox icon="/icons/julia.svg" alt="Julia" label="Julia" >}}
-        {{< iconbox icon="/icons/database-svgrepo-com.svg" alt="SQL" label="SQL" >}}
-        {{< iconbox icon="/icons/c-plusplus.svg" alt="C++" label="C++" >}}
-        {{< iconbox icon="/icons/java.svg" alt="Java" label="Java" >}}
-        {{< iconbox icon="/icons/internet-svgrepo-com.svg" alt="HTML/CSS" label="HTML/CSS" >}}
-        {{< iconbox icon="/icons/terminal.svg" alt="Unix Shell" label="Unix Shell" >}}
+    <div style="display: flex; margin-bottom: 1em;">
+        {{< language-box icon="/icons/julia.svg" label="Julia" >}}
+        {{< language-box icon="/icons/c-plusplus.svg" label="C++">}}
+        {{< language-box icon="/icons/database-svgrepo-com.svg" label="SQL">}}
+        {{< language-box icon="/icons/java.svg" label="Java">}}
+        {{< language-box icon="/icons/terminal5.png" label="Unix Shell">}}
     </div>
 </div>
+
+<div class="tech-box">
+    <i style="font-size: 1.3em; margin-bottom: 1em;">Experience with</i>
+    <div style="display: flex; margin-bottom: 1em;">
+        {{< language-box icon="/icons/blue-globe.svg" label="HTML/CSS" >}}
+        {{< language-box icon="/icons/vba.svg" label="VBA">}}
+        {{< language-box icon="/icons/systemverilog.svg" label="SystemVerilog">}}
+    </div>
+</div>
+
+<style>
+    .tech-box {
+        background-color: transparent;
+        border-radius: 1.2em;
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        padding: 0.75em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1em 0;
+    }
+    .dark .tech-box {
+        background-color: rgb(80, 80, 100);
+        border-width: 0;
+    }
+</style>
 
 - {{< special-link "https://github.com/mward19/qwixx/tree/master/src" >}}Object-oriented programming{{< /special-link >}}
 - Database management
