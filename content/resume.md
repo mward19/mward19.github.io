@@ -23,13 +23,17 @@ April 2026*
 <div class="tech-box">
     <i style="font-size: 1.3em; margin-bottom: 1em;">Proficient in</i>
     <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 1em; border-color: rgba(150, 150, 150, 0.4); border-style: solid; border-width: 1px; border-radius: 1em; padding: 0.5em 1.5em;">
-        {{< library-box icon="/icons/numpy.svg" label="NumPy">}}
-        {{< library-box icon="/icons/pandas-icon.svg" label="Pandas">}}
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            {{< library-box icon="/icons/numpy.svg" label="NumPy">}}
+            {{< library-box icon="/icons/pandas-icon.svg" label="Pandas">}}
+        </div>
         {{< language-box icon="/icons/python.svg" label="Python" >}}
-        {{< library-box icon="/icons/Scikit_learn_logo_small.svg" label="scikit-learn">}}
-        {{< library-box icon="/icons/pytorch-icon.svg" label="PyTorch">}}
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            {{< library-box icon="/icons/Scikit_learn_logo_small.svg" label="scikit-learn">}}
+            {{< library-box icon="/icons/pytorch-icon.svg" label="PyTorch">}}
+        </div>
     </div>
-    <div style="display: flex; margin-bottom: 1em;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 1em;">
         {{< language-box icon="/icons/julia.svg" label="Julia" >}}
         {{< language-box icon="/icons/c-plusplus.svg" label="C++">}}
         {{< language-box icon="/icons/database-svgrepo-com.svg" label="SQL">}}
@@ -40,7 +44,7 @@ April 2026*
 
 <div class="tech-box">
     <i style="font-size: 1.3em; margin-bottom: 1em;">Experience with</i>
-    <div style="display: flex; margin-bottom: 1em;">
+    <div style="display: flex; flex-wrap: wrap; margin-bottom: 1em;">
         {{< language-box icon="/icons/blue-globe.svg" label="HTML/CSS" >}}
         {{< language-box icon="/icons/vba.svg" label="VBA">}}
         {{< language-box icon="/icons/systemverilog.svg" label="SystemVerilog">}}
