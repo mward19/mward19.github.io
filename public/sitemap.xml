@@ -4,6 +4,20 @@
   
     
       <url>
+            <loc>//localhost:1313/projects/acme-volume-3-project/</loc>
+            <lastmod>2024-12-12T16:13:00-07:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>//localhost:1313/projects/</loc>
+            <lastmod>2024-12-12T16:13:00-07:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
             <loc>//localhost:1313/posts/my-weird-workflow/</loc>
             <lastmod>2024-11-25T19:14:00-07:00</lastmod>
           </url>
@@ -13,13 +27,6 @@
       <url>
             <loc>//localhost:1313/posts/</loc>
             <lastmod>2024-11-25T19:14:00-07:00</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>//localhost:1313/projects/</loc>
-            <lastmod>2024-11-13T14:00:00-07:00</lastmod>
           </url>
     
   
@@ -62,6 +69,12 @@
     
       <url>
             <loc>//localhost:1313/contact/</loc>
+          </url>
+    
+  
+    
+      <url>
+            <loc>//localhost:1313/projects/todo/</loc>
           </url>
     
   
