@@ -132,7 +132,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "185"
+    "wordCount": "2015"
   }
   </script>
     
@@ -558,8 +558,137 @@
 <hr>
 <p>As a student in BYU&rsquo;s <a href="http://acme.byu.edu" target="_blank" rel="noreferrer">Applied and Computational Mathematics Emphasis (ACME)</a>, this semester I took a class in modeling with data and uncertainty. In it my peers and I learned (among many other things) about the theoretical underpinnings of various classification and regression techniques. To enhance our practical understanding of machine learning, we were assigned an open-ended group project—given a list of a dozen or so datasets from <a href="http://www.kaggle.com" target="_blank" rel="noreferrer">Kaggle</a>, we were pick a dataset, ask some interesting question about the data, and attempt to answer it with the techniques we&rsquo;d learned this semester. Then we were to summarize our findings in a five-page paper.</p>
 <p>I wrote the paper (<a href="/other/Life_Expectancy_Paper.pdf">paper</a>, <a href="/other/Life_Expectancy_Paper_code.pdf">associated code</a>) with my classmate Rebecca Gee. She focused primarily on data preparation and understanding what the features in the dataset actually meant (what the heck is &ldquo;Income Composition of Resources&rdquo;? She figured it out), and I focused on the feature engineering and machine learning methods.</p>
-<p>I usually manage my code with Git and GitHub, but this time I opted for a simple Jupyter notebook in Google Colab.</p>
-
+<p>I usually manage my code with Git and GitHub, but this time I opted for a Jupyter notebook in Google Colab to avoid training the models on my system.</p>
+<p>The original paper is a pdf document, but for a better reading experience, I&rsquo;ll copy as best I can here.</p>
+<hr>
+<h1 id="predicting-future-life-expectancy-with-present-data" class="relative group">Predicting Future Life Expectancy with Present Data <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#predicting-future-life-expectancy-with-present-data" aria-label="Anchor">#</a></span></h1><h3 id="matthew-ward-rebecca-gee" class="relative group"><em>Matthew Ward, Rebecca Gee</em> <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#matthew-ward-rebecca-gee" aria-label="Anchor">#</a></span></h3><p><br>
+<strong>Abstract.</strong> Predicting life expectancy is crucial for understanding global health trends and guiding policy decisions. We aim to predict the life expectancy of a country five years into the future using socio-economic and health-related features. After engineering features to normalize trends and focus on deviations from global averages, we employ several machine learning models, including Random Forest and Gradient Boosting, to make predictions. Initial results demonstrate modest predictive performance when evaluated on unseen countries, with features like income composition and vaccination rates contributing significantly. However, cluster-based evaluation reveals that the models struggle to generalize across diverse regions, highlighting challenges in capturing global heterogeneity.</p>
+<h2 id="1-research-question-and-overview-of-the-data" class="relative group">1. Research question and overview of the data <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-research-question-and-overview-of-the-data" aria-label="Anchor">#</a></span></h2><p>Using the <a href="https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/data" target="_blank" rel="noreferrer">WHO Life Expectancy dataset</a>, <em>how well can we predict the life expectancy of a given country in 5 years from now?</em></p>
+<p>Previous research done with similar datasets used a variety of techniques. <a href="https://doi.org/10.1007/s42452-023-05404-w" target="_blank" rel="noreferrer">Lipesa, et al.</a> used extreme gradient boosting (XGBoost) and pointed to thinness, schooling, infant deaths and BMI as leading factors in Life Expectancy. <a href="https://ieeexplore.ieee.org/document/10441837" target="_blank" rel="noreferrer">Gill et al.</a> used linear regression to find a correlation between adult mortality and GDP per capita.</p>
+<p>The <a href="https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/data" target="_blank" rel="noreferrer">Life Expectancy Dataset</a> contains data from countries over a fifteen year period. Below we outline a few.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Explanation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><em>Life Expectancy</em></td>
+          <td>Average national life expectancy (years)</td>
+      </tr>
+      <tr>
+          <td><em>Alcohol</em></td>
+          <td>Alcohol consumed per capita (liters)</td>
+      </tr>
+      <tr>
+          <td><em>Percentage expenditure</em></td>
+          <td>Government expenditure on health (% of GDP)</td>
+      </tr>
+      <tr>
+          <td><em>Polio</em></td>
+          <td>Percent population vaccinated against polio</td>
+      </tr>
+      <tr>
+          <td>15 other features. See Appendix.</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p>This data captures a variety of different ideas useful in predicting life expectancy, for instance, immunizations, BMI and adult mortality seem to be good indicators of life expectancy. Other datasets with less information or less countries would be less suited to this model.</p>
+<p>One weakness of the dataset is an abundance of missing, incomplete or bad data, which we can correct or impute. The columns associated with diseases often use different metrics, and are therefore hard to compare. For example, it would be hard to ask which disease has the biggest impact on life expectancy, since each disease is not measured the same way.</p>
+<p>We will use this dataset to predict life expectancy in the future, and to determine what components most contribute to life expectancy.</p>
+<h2 id="2-data-cleaning--feature-engineering" class="relative group">2. Data Cleaning / Feature Engineering <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-data-cleaning--feature-engineering" aria-label="Anchor">#</a></span></h2><p>There were four countries (North and South Korea, Sudan, and South Sudan) that lacked a substantial portion of their data, necessitating their removal. We also dropped the Population column because it was missing data and was not a key feature of the model.</p>
+<p>We also noticed that there were problems with the ``GDP&quot; data column. Much of it was missing or inaccurate. For this reason, we chose to take the GDP from <a href="https://www.kaggle.com/ds/3065197" target="_blank" rel="noreferrer">another dataset</a>, which we verified had accurate and complete numbers by comparing a random subset of the numbers to those found by the <a href="https://databank.worldbank.org/indicator/NY.GDP.PCAP.CD/1ff4a498/Popular-Indicators" target="_blank" rel="noreferrer">World Bank</a>.</p>
+<p>We imputed the rest of the missing data using an <a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.KNNImputer.html" target="_blank" rel="noreferrer">imputer built with the k-Nearest Neighbors algorithm</a>.</p>
+<p>We hope that given statistics for a year of data, we can predict life expectancy five years later. Now, to do this, we will not simply train a model to predict life expectancy, since it is increasing worldwide.</p>
+<p align="center">
+  <img class="figure" src="/img/le_worldwide_mean.jpg" alt="Mean Life Expectancy worldwide" width="80%"/>
+  <br>
+  <em>Figure 1. Average life expectancy is increasing worldwide.</em>
+</p>
+<p>Thus we create new features that will more accurately indicate if the model is learning to predict meaningful trends.</p>
+<ul>
+<li><strong>Deviation from worldwide mean.</strong> Unlike life expectancy worldwide, this feature will on average be flat.</li>
+<li><strong>Deviation from worldwide mean in five years.</strong> Of course, it is not possible to calculate this feature for the last five years represented in the dataset. After calculating this feature wherever it is possible, we drop rows in the last five years.</li>
+<li><strong>Five-year change in deviation from worldwide mean.</strong> This is the output of our model. It should be relatively flat and close to zero, unlike a five-year change in life expectancy, which is normally greater than zero.</li>
+</ul>
+<h2 id="3-data-visualization-and-basic-analysis" class="relative group">3. Data Visualization and Basic Analysis <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-data-visualization-and-basic-analysis" aria-label="Anchor">#</a></span></h2><p align="center">
+  <img class="figure" src="/img/le_unstable.png" alt="Life expectancy trends in various countries compared with the mean" width="90%"/>
+  <br>
+  <em>Figure 2. Life expectancy is not always stable.</em>
+</p>
+<p>We have already seen that on average, life expectancy is increasing, however, it is not always stable. In some countries it wildly fluctuates, and in others it is quite continuous (Figure 2). Peru is an example of a country with a more or less constant rate of change in its life expectancy, matching the trend of the worldwide mean quite nicely. However, we see that in Spain, there was a sharp increase for about two years, after which it resumed it&rsquo;s previous value. Life expectancy in Iraq varies wildly around the mean and Rwanda increases steadily with a couple irregularities where life expectancy was much higher than one might expect.</p>
+<p>Life expectancy prediction is not a trivial problem. The data often contradicts common assumptions about what helps and hurts, possibly because of conflating variables (see Figure 3).</p>
+<p align="center">
+  <img class="figure" src="/img/le_alcohol.png" alt="Alcohol consumption alone is not sufficient to predict life expectancy" width="100%"/>
+  <br>
+  <em>Figure 3. Prediction of life expectancy is not trivial.</em>
+</p>
+<h2 id="4-learning-algorithms-and-in-depth-analysis" class="relative group">4. Learning Algorithms and In-depth Analysis <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#4-learning-algorithms-and-in-depth-analysis" aria-label="Anchor">#</a></span></h2><p>We split the dataset into training (80%) and testing (20%) sets, grouping by country.</p>
+<p>We trained models on the deviation from the worldwide mean in five years, a feature we engineered as described in Section 2.</p>
+<p>Using Bayesian optimization via Optuna, we optimized hyperparameters for Random Forest, Gradient Boosted, XGBoost, as well as Ridge regression models with cross-validation, again grouping data by country. As can be seen in our code, after hyperparameter tuning, the XGBoost regressor had the best average validation score during cross-validation. On the test set it had a coefficient of correlation of 0.30, indicating that while its performance was not stellar, it did learn something meaningful—after all, it was scored on data from countries it had never seen before.</p>
+<p align="center">
+  <img class="figure" src="/img/le_pred_Austria.jpg" alt="Predicting deviation of life expectancy from worldwide mean (Austria)" width="70%"/>
+  <img class="figure" src="/img/le_pred_Rwanda.jpg" alt="Predicting deviation of life expectancy from worldwide mean (Rwanda)" width="70%" style="margin: 1px;"/>
+  <br>
+  <em>Figure 4. The model is able to make some meaningful predictions (top), but sometimes fails (bottom). Since the model uses data from a given year to predict the life expectancy five years from then, the predicted line begins in 2005 and continues to 2020. The outputs of the model give the</em>chang<em> in life expectancy over 5 years, so adding those to the current life expectancy gives us the orange line as shown.</em>
+</p>
+<p>The five most important features for the best model were (in order) present life expectancy (naturally), HIV/AIDS cases, Polio vaccinations, ICOR, and Diphtheria vaccinations (see Appendix).</p>
+<p>However, changing the way we split the data for training and testing proves that our initial model is not generalizable. In our new testing set, we clustered the data into eight clusters by performing PCA on the normalized data, using k-means clustering to refine the groups, and merging clusters that were too small.</p>
+<p align="center">
+  <img class="figure" src="/img/le_clusters.png" alt="Country clusters" width="100%"/>
+  <br>
+  <em>Figure 5. The clusters visualized using the first two principal components. See Appendix B.</em>
+</p>
+<p>We used these clusters as folds in cross-validation, except for Cluster 4, which we randomly selected and set apart as a test set. This means that the models saw plenty of data, but had to use what they learned on countries that were substantially different than anything they had previously seen.</p>
+<p>As before, we trained various models on the rest of the data, tuning hyperparameters for various models with cross-validation to optimize performance. Using the best model (XGBoost), we obtained a coefficient of correlation of 0.15 on the test set. Compared to the previous coefficient of correlation of 0.30, this is drastically worse.</p>
+<p>It is possible to predict future life expectancy in a target country given data from countries similar to it. However, predicting life expectancy in a country that is different from the rest is much more difficult.</p>
+<h2 id="5-ethical-implications-and-conclusions" class="relative group">5. Ethical Implications and Conclusions <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#5-ethical-implications-and-conclusions" aria-label="Anchor">#</a></span></h2><p>Predicting life expectancy in the future has several important ethical implications. The potential for future humanitarian work and prevention of decreasing life expectancy is powerful. The model is quite harmless, but there are a few ways it could be used negatively.</p>
+<p>For instance, in war, if an enemy had enough data, they could identify key statistics to weaken the other country&rsquo;s health using methods like these. In addition, overreacting to the model could create a self-fulfilling prophecy.</p>
+<p>Predicting life expectancy in the future has several important ethical implications. The potential for future humanitarian work and prevention of decreasing life expectancy is powerful. The model is quite harmless, but there are a few ways it could be used negatively.</p>
+<p>For instance, in war, if an enemy had enough data, they could identify key statistics to weaken the other country&rsquo;s health using methods like these. In addition, overreacting to the model could create a self-fulfilling prophecy.</p>
+<h2 id="appendix" class="relative group">Appendix <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#appendix" aria-label="Anchor">#</a></span></h2><h3 id="a-features-of-dataset" class="relative group">A. Features of Dataset <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#a-features-of-dataset" aria-label="Anchor">#</a></span></h3><p><strong>(in no particular order)</strong></p>
+<ol>
+<li>Status (Developed/Developing)</li>
+<li>Life Expectancy (age)</li>
+<li>Adult Mortality (Probability of dying between 15-60 years of age per 1000)</li>
+<li>Infant deaths (number per 1000)</li>
+<li>Alcohol (consumed per capita in liters)</li>
+<li>Percentage expenditure (Expenditure on health percentage of GDP)</li>
+<li>Hepatitis B (Percentage immunizations)</li>
+<li>Measles (number of cases per 1000)</li>
+<li>BMI (average of population)</li>
+<li>Under 5 deaths (number per 1000)</li>
+<li>Polio (Percentage immunizations)</li>
+<li>Total expenditure (percentage expenditure on health of total government expenditure)</li>
+<li>Diphtheria (Percentage immunizations)</li>
+<li>HIV/AIDS (Deaths per 1000 live births)</li>
+<li>GDP (per capita in USD), Population (of country)</li>
+<li>Thinness 1-19 years (prevalence of thinness)</li>
+<li>Thinness 5-9 years (prevalence of thinness)</li>
+<li>Income Composition of Resources (ICOR) (Human Development Index in terms of ICOR)</li>
+<li>Schooling (number of years of schooling)</li>
+</ol>
+<h3 id="b-countries-in-clusters" class="relative group">B. Countries in Clusters <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#b-countries-in-clusters" aria-label="Anchor">#</a></span></h3><p><strong>Cluster 1</strong>:<br>
+Afghanistan, Angola, Central African Republic, Chad, China, Congo, Democratic Republic of the Congo, Equatorial Guinea, Ethiopia, Gabon, Guinea, Haiti, India, Lao People&rsquo;s Democratic Republic, Liberia, Niger, Nigeria, Somalia, Uganda</p>
+<p><strong>Cluster 2</strong>:<br>
+Albania, Antigua and Barbuda, Armenia, Bahrain, Belize, Brunei Darussalam, Cabo Verde, Colombia, Cuba, Egypt, El Salvador, Fiji, Grenada, Guatemala, Guyana, Honduras, Iran (Islamic Republic of), Israel, Jamaica, Jordan, Kuwait, Kyrgyzstan, Libya, Malaysia, Maldives, Mauritius, Mexico, Mongolia, Morocco, Nicaragua, Oman, Panama, Paraguay, Peru, Qatar, Saint Vincent and the Grenadines, Sao Tome and Principe, Saudi Arabia, Seychelles, Singapore, Sri Lanka, Tajikistan, Thailand, The former Yugoslav republic of Macedonia, Tunisia, Turkmenistan, United Arab Emirates, Uzbekistan, Viet Nam</p>
+<p><strong>Cluster 3</strong>:<br>
+Algeria, Azerbaijan, Bolivia (Plurinational State of), Bosnia and Herzegovina, Costa Rica, Dominican Republic, Ecuador, Georgia, Iraq, Kiribati, Lebanon, Micronesia (Federated States of), Montenegro, Philippines, Samoa, Solomon Islands, Suriname, Syrian Arab Republic, Tonga, Trinidad and Tobago, Turkey, Ukraine, Vanuatu, Venezuela (Bolivarian Republic of)</p>
+<p><strong>Cluster 4</strong>:<br>
+Argentina, Bahamas, Barbados, Belarus, Brazil, Bulgaria, Chile, Croatia, Cyprus, Czechia, Estonia, Finland, Greece, Hungary, Italy, Kazakhstan, Latvia, Lithuania, Malta, Poland, Portugal, Republic of Moldova, Romania, Russian Federation, Saint Lucia, Serbia, Slovakia, Slovenia, Spain, United Kingdom of Great Britain and Northern Ireland, United States of America, Uruguay</p>
+<p><strong>Cluster 5</strong>:<br>
+Australia, Austria, Belgium, Canada, Denmark, France, Germany, Iceland, Ireland, Japan, Luxembourg, Netherlands, New Zealand, Norway, Sweden, Switzerland</p>
+<p><strong>Cluster 6</strong>:<br>
+Bangladesh, Benin, Bhutan, Botswana, Burkina Faso, Burundi, Cambodia, Cameroon, Comoros, Côte d&rsquo;Ivoire, Djibouti, Eritrea, Gambia, Ghana, Guinea-Bissau, Indonesia, Kenya, Lesotho, Madagascar, Malawi, Mali, Mauritania, Mozambique, Myanmar, Namibia, Nepal, Pakistan, Papua New Guinea, Rwanda, Senegal, Sierra Leone, South Africa, Swaziland, Timor-Leste, Togo, United Republic of Tanzania, Yemen, Zambia, Zimbabwe</p>
+<style>
+    .figure {
+        margin-bottom: 0; 
+        border-radius: 8px;
+    }
+</style>
       </div>
     </section>
     <footer class="max-w-prose pt-8 print:hidden">
