@@ -1,21 +1,21 @@
 +++
-date = '2024-12-12T16:13:00-07:00'
+date = '2024-12-17T20:34:00-07:00'
 showDate = true
-draft = true
+draft = false
 title = 'Predicting future life expectancy in countries using present data'
 +++
 
-*This project is a [paper](/other/Life_Expectancy_Paper.pdf) with associated [code](/other/Life_Expectancy_Paper_code.pdf).*
+*This project is a [paper](/projects/acme-volume-3-project/#predicting-future-life-expectancy-with-present-data) with associated [code](/other/Life_Expectancy_Paper_code.pdf).*
 
 ***
 
-As a student in BYU's [Applied and Computational Mathematics Emphasis (ACME)](http://acme.byu.edu), this semester I took a class in modeling with data and uncertainty. In it my peers and I learned (among many other things) about the theoretical underpinnings of various classification and regression techniques. To enhance our practical understanding of machine learning, we were assigned an open-ended group project&mdash;given a list of a dozen or so datasets from [Kaggle](http://www.kaggle.com), we were pick a dataset, ask some interesting question about the data, and attempt to answer it with the techniques we'd learned this semester. Then we were to summarize our findings in a five-page paper.
+As a student in BYU's [Applied and Computational Mathematics Emphasis (ACME)](http://acme.byu.edu), this semester I took a class in modeling with data and uncertainty. In it my peers and I learned (among many other things) about the theoretical underpinnings of various classification and regression techniques. To enhance our practical understanding of machine learning, we were assigned an open-ended group project&mdash;given a list of a dozen or so datasets from [Kaggle](http://www.kaggle.com/datasets), we were pick a dataset, ask some interesting question about the data, and attempt to answer it with the techniques we'd learned this semester. Then we were to summarize our findings in a five-page paper.
 
-I wrote the paper ([paper](/other/Life_Expectancy_Paper.pdf), [associated code](/other/Life_Expectancy_Paper_code.pdf)) with my classmate Rebecca Gee. She focused primarily on data preparation and understanding what the features in the dataset actually meant (what the heck is "Income Composition of Resources"? She figured it out), and I focused on the feature engineering and machine learning methods.
+I wrote the paper with my classmate Rebecca Gee. She focused primarily on data preparation and understanding what the features in the dataset actually meant (what in the world is "Income Composition of Resources"? She figured it out), and I focused on the feature engineering and machine learning methods.
 
-I usually manage my code with Git and GitHub, but this time I opted for a Jupyter notebook in Google Colab to avoid training the models on my system.
+I usually manage my code with Git and GitHub, but this time I opted for a Jupyter notebook in Google Colab to avoid training the models on my system. [View the code here](/other/Life_Expectancy_Paper_code.pdf). It proved challenging to export the large notebook to other formats (.pdf, .html). Troubleshooting would've been easier had I coded in a more robust way, by saving trained models and such. The time I spent wrestling with the notebook export reminded me to be more careful next time, in spite of any looming deadlines.
 
-The original paper is a pdf document, but for a better reading experience, I'll copy as best I can here.
+The [original paper](/other/Life_Expectancy_Paper.pdf) is a .pdf document, but for a better reading experience, I'll copy it as best I can below.
 
 ***
 
@@ -40,7 +40,7 @@ The [Life Expectancy Dataset](https://www.kaggle.com/datasets/kumarajarshi/life-
 | *Alcohol*               | Alcohol consumed per capita (liters)                 |
 | *Percentage expenditure*| Government expenditure on health (% of GDP)          |
 | *Polio*                 | Percent population vaccinated against polio          |
-| 15 other features. See Appendix.                                               |
+| 15 other features. See [Appendix A](/projects/acme-volume-3-project/#a-features-of-dataset).                                               |
 
 This data captures a variety of different ideas useful in predicting life expectancy, for instance, immunizations, BMI and adult mortality seem to be good indicators of life expectancy. Other datasets with less information or less countries would be less suited to this model.
 
@@ -54,7 +54,7 @@ There were four countries (North and South Korea, Sudan, and South Sudan) that l
 
 We also noticed that there were problems with the ``GDP" data column. Much of it was missing or inaccurate. For this reason, we chose to take the GDP from [another dataset](https://www.kaggle.com/ds/3065197), which we verified had accurate and complete numbers by comparing a random subset of the numbers to those found by the [World Bank](https://databank.worldbank.org/indicator/NY.GDP.PCAP.CD/1ff4a498/Popular-Indicators).
 
-We imputed the rest of the missing data using an [imputer built with the k-Nearest Neighbors algorithm](https://scikit-learn.org/stable/modules/generated/sklearn.impute.KNNImputer.html).
+We imputed the rest of the missing data using an imputer built with the k-Nearest Neighbors algorithm ([KNNImputer from scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.impute.KNNImputer.html)).
 
 We hope that given statistics for a year of data, we can predict life expectancy five years later. Now, to do this, we will not simply train a model to predict life expectancy, since it is increasing worldwide.
 
@@ -93,7 +93,7 @@ Life expectancy prediction is not a trivial problem. The data often contradicts 
 
 We split the dataset into training (80%) and testing (20%) sets, grouping by country.
 
-We trained models on the deviation from the worldwide mean in five years, a feature we engineered as described in Section 2.
+We trained models on the deviation from the worldwide mean in five years, a feature we engineered as described in [Section 2](/projects/acme-volume-3-project/#2-data-cleaning--feature-engineering).
 
 Using Bayesian optimization via Optuna, we optimized hyperparameters for Random Forest, Gradient Boosted, XGBoost, as well as Ridge regression models with cross-validation, again grouping data by country. As can be seen in our code, after hyperparameter tuning, the XGBoost regressor had the best average validation score during cross-validation. On the test set it had a coefficient of correlation of 0.30, indicating that while its performance was not stellar, it did learn something meaningful&mdash;after all, it was scored on data from countries it had never seen before. 
 
@@ -101,17 +101,17 @@ Using Bayesian optimization via Optuna, we optimized hyperparameters for Random 
   <img class="figure" src="/img/le_pred_Austria.jpg" alt="Predicting deviation of life expectancy from worldwide mean (Austria)" width="70%"/>
   <img class="figure" src="/img/le_pred_Rwanda.jpg" alt="Predicting deviation of life expectancy from worldwide mean (Rwanda)" width="70%" style="margin: 1px;"/>
   <br>
-  <em>Figure 4. The model is able to make some meaningful predictions (top), but sometimes fails (bottom). Since the model uses data from a given year to predict the life expectancy five years from then, the predicted line begins in 2005 and continues to 2020. The outputs of the model give the</em>chang<em> in life expectancy over 5 years, so adding those to the current life expectancy gives us the orange line as shown.</em>
+  <em>Figure 4. The model is able to make some meaningful predictions (top), but sometimes fails (bottom). Since the model uses data from a given year to predict the life expectancy five years from then, the predicted line begins in 2005 and continues to 2020. The outputs of the model give the </em>change<em> in life expectancy over 5 years, so adding those to the current life expectancy gives us the orange line as shown.</em>
 </p>
 
-The five most important features for the best model were (in order) present life expectancy (naturally), HIV/AIDS cases, Polio vaccinations, ICOR, and Diphtheria vaccinations (see Appendix).
+The five most important features for the best model were (in order) present life expectancy (naturally), HIV/AIDS cases, Polio vaccinations, ICOR, and Diphtheria vaccinations (see [Appendix A](/projects/acme-volume-3-project/#a-features-of-dataset)).
 
 However, changing the way we split the data for training and testing proves that our initial model is not generalizable. In our new testing set, we clustered the data into eight clusters by performing PCA on the normalized data, using k-means clustering to refine the groups, and merging clusters that were too small. 
 
 <p align="center">
   <img class="figure" src="/img/le_clusters.png" alt="Country clusters" width="100%"/>
   <br>
-  <em>Figure 5. The clusters visualized using the first two principal components. See Appendix B.</em>
+  <em>Figure 5. The clusters visualized using the first two principal components. See <a href="/projects/acme-volume-3-project/#b-countries-in-clusters">Appendix B</a>.</em>
 </p>
 
 We used these clusters as folds in cross-validation, except for Cluster 4, which we randomly selected and set apart as a test set. This means that the models saw plenty of data, but had to use what they learned on countries that were substantially different than anything they had previously seen.
@@ -126,9 +126,14 @@ Predicting life expectancy in the future has several important ethical implicati
 
 For instance, in war, if an enemy had enough data, they could identify key statistics to weaken the other country's health using methods like these. In addition, overreacting to the model could create a self-fulfilling prophecy.
 
-Predicting life expectancy in the future has several important ethical implications. The potential for future humanitarian work and prevention of decreasing life expectancy is powerful. The model is quite harmless, but there are a few ways it could be used negatively.
+To ensure the model functions effectively, it requires data from a diverse
+range of countries. Organizations like the WHO must ensure this data is
+managed responsibly and securely.
 
-For instance, in war, if an enemy had enough data, they could identify key statistics to weaken the other country's health using methods like these. In addition, overreacting to the model could create a self-fulfilling prophecy.
+In conclusion, predicting life expectancy in the future is possible with
+sufficient data. In order to predict the life expectancy, a model with many
+different countries is needed, and the results can be relatively accurate on a
+short time period.
 
 ## Appendix
 

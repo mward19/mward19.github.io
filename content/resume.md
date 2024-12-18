@@ -38,7 +38,7 @@ April 2026*
         {{< language-box icon="/icons/c-plusplus.svg" label="C++">}}
         {{< language-box icon="/icons/database-svgrepo-com.svg" label="SQL">}}
         {{< language-box icon="/icons/java.svg" label="Java">}}
-        {{< language-box icon="/icons/terminal5.png" label="Unix Shell">}}
+        {{< language-box icon="/icons/terminal6.png" label="Unix Shell">}}
     </div>
 </div>
 
