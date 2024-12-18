@@ -8,7 +8,7 @@ title = "Matthew Ward"
 
 [params]
   dateFormat = "2 January 2006"
-
+  Description = "About Matthew Ward"
   mainSections = ["projects", "posts"]
   # description = "My awesome website"
 

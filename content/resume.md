@@ -46,8 +46,8 @@ April 2026*
     <i style="font-size: 1.3em; margin-bottom: 1em;">Experience with</i>
     <div style="display: flex; flex-wrap: wrap; margin-bottom: 1em;">
         {{< language-box icon="/icons/blue-globe.svg" label="HTML/CSS" >}}
-        {{< language-box icon="/icons/vba.svg" label="VBA">}}
-        {{< language-box icon="/icons/systemverilog.svg" label="SystemVerilog">}}
+        {{< language-box icon="/icons/vba.svg" label="VBA" >}}
+        {{< language-box icon="/icons/systemverilog.svg" label="SystemVerilog" >}}
     </div>
 </div>
 
