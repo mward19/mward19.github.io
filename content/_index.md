@@ -6,4 +6,4 @@ title = 'Home'
 
 Applied Mathematics student at Brigham Young University
 
-
+*I'm looking for an internship in the summer of 2025! Contact me via email at* me@matthewward.info *or through the* [Contact](/contact) *page on this site.*
