@@ -4,6 +4,10 @@ draft = false
 title = 'Resume'
 +++
 
+*I'm looking for an internship in the summer of 2025! Contact me via email at* me@matthewward.info *or through the* [Contact](/contact) *page on this site.*
+
+<b>This resume page is interactive. Click on the {{< special-link "" >}}green links{{< /special-link >}} to see relevant examples of my work.</b>
+
 <hr>
 
 ## Education
@@ -44,7 +48,7 @@ April 2026*
 
 <div class="tech-box">
     <i style="font-size: 1.3em; margin-bottom: 1em;">Experience with</i>
-    <div style="display: flex; flex-wrap: wrap; margin-bottom: 1em;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 1em;">
         {{< language-box icon="/icons/blue-globe.svg" label="HTML/CSS" >}}
         {{< language-box icon="/icons/vba.svg" label="VBA" >}}
         {{< language-box icon="/icons/systemverilog.svg" label="SystemVerilog" >}}
