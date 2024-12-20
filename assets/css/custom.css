@@ -1,3 +1,7 @@
 .special-link {
+    color: rgb(0, 180, 20);
+}
+
+.dark .special-link {
     color: rgb(60, 220, 140);
 }
