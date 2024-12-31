@@ -5,3 +5,9 @@
 .dark .special-link {
     color: rgb(60, 220, 140);
 }
+
+.smaller-image {
+    width: 80%;
+    border-radius: 8px;
+    margin: auto;
+}

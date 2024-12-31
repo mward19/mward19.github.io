@@ -15,10 +15,9 @@ title = "Matthew Ward"
 [params.author]
   name = "Matthew Ward"
   image = "img/me-white-square.png"
-  # headline = "I'm only human"
-  # bio = "A little bit about you"
+  # headline = ""
+  bio = "A little bit about you"
   links = [
-  #   { email = "matthew.merrill.ward@gmail.com" },
   #   { link = "https://link-to-some-website.com/" },
   #   { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
   #   { apple = "https://www.apple.com" },
@@ -39,7 +38,7 @@ title = "Matthew Ward"
   #   { keybase = "https://keybase.io/username" },
   #   { kickstarter = "https://www.kickstarter.com/profile/username" },
   #   { lastfm = "https://lastfm.com/user/username" },
-    { linkedin = "https://linkedin.com/in/matthew-m-ward" }
+    { linkedin = "https://linkedin.com/in/matthew-m-ward" },
   #   { mastodon = "https://mastodon.instance/@username" },
   #   { medium = "https://medium.com/username" },
   #   { mendeley = "https://www.mendeley.com/" },
@@ -63,4 +62,5 @@ title = "Matthew Ward"
   #   { x-twitter = "https://twitter.com/username" },
   #   { youtube = "https://youtube.com/username" },
   #   { xing = "https://xing.com/profile/username" },
+  { email = "mailto:me@matthewward.info" }
   ]
