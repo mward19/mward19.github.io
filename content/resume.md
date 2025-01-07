@@ -16,7 +16,7 @@ title = 'Resume'
 *Brigham Young University* | *Provo, Utah\
 April 2026*
 - [Concentration: Data Science & Machine Learning](https://acme.byu.edu/data-science-and-machine-learning)
-- GPA: 3.98
+- GPA: 3.97
 - Academic Scholarship (3 years)
 
 <hr>

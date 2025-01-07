@@ -17,7 +17,11 @@ While looking for ways to work with and extract information from cryo-ET tomogra
 
 Here I apply Principal Component Pursuit to a video I shot in my lab. Using this method, I am able to extract the background and foreground of a video, using nothing more than linear algebra and a simple convex optimization problem.
 
-![pcp demo](/video/pcp_demo.gif)
+<video controls autoplay loop muted>
+    <source src="/video/pcp_demo.mp4" type="video/mp4">
+    <source src="/video/pcp_demo.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 
  - The top video is the original, which I shot of myself in my lab.
  - The middle video is the "background" (not moving) component of the video.

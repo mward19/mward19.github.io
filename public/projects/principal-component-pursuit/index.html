@@ -12,7 +12,7 @@
   class="scroll-smooth"
   data-default-appearance="dark"
   data-auto-appearance="true"
-><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+><head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FFFFFF" />
@@ -77,7 +77,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/projects/principal-component-pursuit/" />
+  <link rel="canonical" href="https://www.matthewward.info/projects/principal-component-pursuit/" />
   
   
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -92,7 +92,7 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/projects/principal-component-pursuit/">
+  <meta property="og:url" content="https://www.matthewward.info/projects/principal-component-pursuit/">
   <meta property="og:site_name" content="Matthew Ward">
   <meta property="og:title" content="Principal Component Pursuit">
   <meta property="og:description" content="About Matthew Ward">
@@ -118,7 +118,7 @@
     
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/projects\/principal-component-pursuit\/",
+    "url" : "https:\/\/www.matthewward.info\/projects\/principal-component-pursuit\/",
     "author" : {
       "@type": "Person",
       "name": "Matthew Ward"
@@ -132,7 +132,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "923"
+    "wordCount": "931"
   }
   </script>
     
@@ -143,13 +143,13 @@
    "itemListElement": [
      {
        "@type": "ListItem",
-       "item": "http://localhost:1313/",
+       "item": "https://www.matthewward.info/",
        "name": "Home",
        "position": 1
      },
      {
        "@type": "ListItem",
-       "item": "http://localhost:1313/projects/",
+       "item": "https://www.matthewward.info/projects/",
        "name": "Projects",
        "position": 2
      },
@@ -329,6 +329,11 @@
 
   
   
+  
+  
+  
+  
+
 
   
   
@@ -650,18 +655,11 @@
 <hr>
 <h2 id="brief-summary" class="relative group">Brief summary <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#brief-summary" aria-label="Anchor">#</a></span></h2><p>While looking for ways to work with and extract information from cryo-ET tomograms (noisy 3D images) in the summer of 2024, I read a <a href="https://book-wright-ma.github.io/" target="_blank" rel="noreferrer">book</a> about ways of making the most of messy data using linear algebra and optimization. In the process, I learned about Robust Principal Component Analysis (RPCA), which can be performed with Principal Component Pursuit (PCP).</p>
 <p>Here I apply Principal Component Pursuit to a video I shot in my lab. Using this method, I am able to extract the background and foreground of a video, using nothing more than linear algebra and a simple convex optimization problem.</p>
-<p>
-
-
-
-
-
-
-  
-  
-<figure><img src="/video/pcp_demo.gif" alt="pcp demo" class="mx-auto my-0 rounded-md" />
-</figure>
-</p>
+<video controls autoplay loop muted>
+    <source src="/video/pcp_demo.mp4" type="video/mp4">
+    <source src="/video/pcp_demo.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 <ul>
 <li>The top video is the original, which I shot of myself in my lab.</li>
 <li>The middle video is the &ldquo;background&rdquo; (not moving) component of the video.</li>
@@ -800,7 +798,7 @@ Principles, Computation, and Applications</a>.</p>
       
         <p class="text-sm text-neutral-500 dark:text-neutral-400">
             &copy;
-            2024
+            2025
             Matthew Ward
         </p>
       
