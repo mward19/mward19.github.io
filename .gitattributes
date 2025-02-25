@@ -1,3 +1,4 @@
 public/other/fun_tomos.html filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.gif filter=lfs diff=lfs merge=lfs -text
+static/other/viz_vox_demo.html filter=lfs diff=lfs merge=lfs -text
