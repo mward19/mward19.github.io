@@ -4,7 +4,7 @@ draft = false
 title = 'Resume'
 +++
 
-*I'm looking for an internship in the summer of 2025! Contact me via email at* me@matthewward.info *or through the* [Contact](/contact) *page on this site.*
+<!-- *I'm looking for an internship in the summer of 2025! Contact me via email at* me@matthewward.info *or through the* [Contact](/contact) *page on this site.* -->
 
 <b>This resume page is interactive. Click on the {{< special-link "" >}}green links{{< /special-link >}} to see relevant examples of my work.</b>
 
