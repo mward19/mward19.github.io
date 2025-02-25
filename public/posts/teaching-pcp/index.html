@@ -1,0 +1,1175 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Teaching Principal Component Pursuit in a computational physics class &middot; Matthew Ward</title>
+    <meta name="title" content="Teaching Principal Component Pursuit in a computational physics class &middot; Matthew Ward" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.5668e195f2157eb3c8820d8f00ec341af4805c0c323dd614a93d59910205129a.css"
+    integrity="sha256-VmjhlfIVfrPIgg2PAOw0GvSAXAwyPdYUqT1ZkQIFEpo="
+  />
+  
+  
+  
+  
+    
+    
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.d4b727caf411cb5c3b421d0d427ed1e3daeafe0d04840327efad4978430edb8c.js"
+      integrity="sha256-1LcnyvQRy1w7Qh0NQn7R49rq/g0EhAMn761JeEMO24w="
+      data-copy="Copy"
+      data-copied="Copied"
+    ></script>
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        
+      
+    "
+  />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/teaching-pcp/" />
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/posts/teaching-pcp/">
+  <meta property="og:site_name" content="Matthew Ward">
+  <meta property="og:title" content="Teaching Principal Component Pursuit in a computational physics class">
+  <meta property="og:description" content="About Matthew Ward">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-25T11:30:00-07:00">
+    <meta property="article:modified_time" content="2025-02-25T11:30:00-07:00">
+    <meta property="og:image" content="http://localhost:1313/posts/teaching-pcp/cover_orig.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/posts/teaching-pcp/cover_orig.png">
+  <meta name="twitter:title" content="Teaching Principal Component Pursuit in a computational physics class">
+  <meta name="twitter:description" content="About Matthew Ward">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Teaching Principal Component Pursuit in a computational physics class",
+    "headline": "Teaching Principal Component Pursuit in a computational physics class",
+    
+    
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/posts\/teaching-pcp\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Matthew Ward"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-02-25T11:30:00-07:00",
+    "datePublished": "2025-02-25T11:30:00-07:00",
+    
+    "dateModified": "2025-02-25T11:30:00-07:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1581"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Home",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/posts/",
+       "name": "Posts",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Teaching Principal Component Pursuit in a Computational Physics Class",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  <meta name="author" content="Matthew Ward" />
+  
+    
+      <link href="https://github.com/mward19" rel="me" />
+    
+      <link href="https://linkedin.com/in/matthew-m-ward" rel="me" />
+    
+      <link href="mailto:me@matthewward.info" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/lib/katex/katex.min.68e17230ccd917b97b7a2def38a8108918599d8aa4f580bfb8cce5e13d23e4de43dcaba5f9000553cb2c10d0d1300aabfe5c433a3305ebd752609f0762a63e59.css"
+    integrity="sha512-aOFyMMzZF7l7ei3vOKgQiRhZnYqk9YC/uMzl4T0j5N5D3Kul&#43;QAFU8ssENDRMAqr/lxDOjMF69dSYJ8HYqY&#43;WQ=="
+  />
+  
+  
+  <script
+    defer
+    src="/lib/katex/katex.min.50f14e69d6a8da7128ae3b63974c544ed377c36d096b5e3750f114e84c89d668b9301d9b0ed3248969aa183aa2e3bc4d2c1e73d5dcb7d462890c45a18d424589.js"
+    integrity="sha512-UPFOadao2nEorjtjl0xUTtN3w20Ja143UPEU6EyJ1mi5MB2bDtMkiWmqGDqi47xNLB5z1dy31GKJDEWhjUJFiQ=="
+  ></script>
+  
+  
+  <script
+    defer
+    src="/lib/katex/auto-render.min.6095714e3aadb63b14ddc4af69346ab12974c1b460654345f8d1860a0b68fcc51b22f68b757433193090bb80afc8965b65cb607e5541d0f5f0f4b2e64d69b9ff.js"
+    integrity="sha512-YJVxTjqttjsU3cSvaTRqsSl0wbRgZUNF&#43;NGGCgto/MUbIvaLdXQzGTCQu4CvyJZbZctgflVB0PXw9LLmTWm5/w=="
+    onload="renderMathInElement(document.body);"
+  ></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="z-40 flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Matthew Ward</a
+  >
+
+    </div>
+    
+      
+      <label id="menu-button" for="menu-controller" class="block sm:hidden">
+        <input type="checkbox" id="menu-controller" class="hidden" />
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="invisible fixed inset-0 z-30 m-auto h-full w-full cursor-default overflow-auto bg-neutral-100/50 opacity-0 backdrop-blur-sm transition-opacity dark:bg-neutral-900/50"
+        >
+          <ul
+            class="mx-auto flex w-full max-w-7xl list-none flex-col overflow-visible px-6 py-6 text-end sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32"
+          >
+            <li class="mb-1">
+              <span class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400"
+                ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span></span
+              >
+            </li>
+            
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/about/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >About</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/projects/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >Projects</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/posts/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >Posts</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/resume/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >Resume</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/contact/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >Contact</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    
+                    
+                  
+                </li>
+              
+                
+                  
+              
+            
+          </ul>
+        </div>
+      </label>
+      
+      <ul class="hidden list-none flex-row text-end sm:flex">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/about/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >About</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/projects/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Projects</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/posts/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/resume/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Resume</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/contact/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Contact</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                
+                
+              
+            </li>
+          
+            
+              
+          
+
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Teaching Principal Component Pursuit in a computational physics class
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-02-25 11:30:00 -0700 MST">25 February 2025</time>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+        <div class="prose">
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mb-6 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/posts/teaching-pcp/cover_orig_hu9975059219566901803.webp 330w,/posts/teaching-pcp/cover_orig_hu5530362832735781759.webp 660w
+            
+              ,/posts/teaching-pcp/cover_orig_hu11045898860282042762.webp 1024w
+            
+            
+              ,/posts/teaching-pcp/cover_orig_hu12993812475790118124.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1920"
+        height="2360"
+        class="mb-6 rounded-md"
+        
+        
+        
+          src="/posts/teaching-pcp/cover_orig_hu12806691888410446561.png"
+          srcset="/posts/teaching-pcp/cover_orig_hu12370545570247363624.png 330w,/posts/teaching-pcp/cover_orig_hu12806691888410446561.png 660w
+          
+            ,/posts/teaching-pcp/cover_orig_hu13059193023237613912.png 1024w
+          
+          
+            ,/posts/teaching-pcp/cover_orig_hu15683785779946369408.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+          
+        </div>
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        
+
+<hr>
+<p>A few months back I dove into a book on making sense of complex data with simple models as a part of my research (<a href="https://book-wright-ma.github.io/" target="_blank" rel="noreferrer">High-Dimensional Data Analysis with Low-Dimensional Models, by Wright and Ma</a>). I learned about and implemented 
+      
+    <a href="/projects/principal-component-pursuit/">a fun demo of Principal Component Pursuit (PCP)</a>. My advisor loved it! We played with feeding the algorithm different kinds of simulated data, and wondered about how we might apply such an idea to better understand 3D tomograms.</p>
+<p>Recently my advisor was out of town. He&rsquo;s currently introducing a new class on scientific computing (Computational Physics, PHSCS 530) here at BYU. I was surprised when he asked me to fill in for him, teaching about my Principal Component Pursuit project!</p>
+<p>In preparation, I cleaned up <a href="https://github.com/mward19/pcp" target="_blank" rel="noreferrer">my code</a> a little, made a new demonstration, and prepared my lecture. It went really well, and taught me so much.</p>
+<p>Here I&rsquo;ve essentially written out what I taught the class, minus a few side tangents about machine learning and dimensionality reduction from questions that students asked.</p>
+<p>Read on to learn about it!</p>
+<hr>
+<h1 id="a-lesson-on-principal-component-pursuit" class="relative group">A lesson on Principal Component Pursuit <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#a-lesson-on-principal-component-pursuit" aria-label="Anchor">#</a></span></h1><p><a href="https://docs.google.com/presentation/d/1FSjhJYuzKLjxlEZJyOgvMNyyBlsdVEzCRpTZQ4oWrCo/edit?usp=sharing" target="_blank" rel="noreferrer">Presentation Slides (Google Slides)</a></p>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0001.jpg" alt="Slide 1" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0002.jpg" alt="Slide 2" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>A signal \(\bf{Y}\) can often be broken up into two parts—a part that stays mostly the same over time (\(\bf{L}\)), and part that is usually zero (\(\bf{S}\)).</p>
+<p>To formalize what this means, we say that \(\bf{L}\) should be <em>low rank</em>, and \(\bf{S}\) should be <em>sparse</em>.</p>
+<p>The plot in the slide provides some intuition for what a sparse signal is. You can see that \(\bf{S}\) is usually zero (it is sparse), and the original signal \(\bf{Y}\) is the sum of the two components \(\bf{L}\) and \(\bf{S}\).</p>
+<p>The plot can&rsquo;t depict a low-rank signal well since this signal \(\bf{Y}\) is only one-dimensional, but a low-rank signal in this context may be understood as a signal that stays mostly the same, most of the time. In a moment we will look at a higher dimensional signal and talk more about this.</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0003.jpg" alt="Slide 3" class="mx-auto my-0 rounded-md" />
+</figure>
+
+
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/walking%20decomposed.gif" alt="Walking across room signal decomposition" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>A video is a high dimensional signal! Just as the previous plot showed a signal decomposed into a low-rank and a sparse component, here is a short video of me in my lab decomposed in a similar way, to motivate what I&rsquo;m about to share with you.</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0004.jpg" alt="Slide 4" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>Here is a three-dimensional signal. Each column represents the signal at a point in time.</p>
+<p>The <em>rank</em> of a matrix is the number of linearly independent columns (or rows) in the matrix. Here \(\bf{Y}\) is <em>full-rank</em>, meaning that the rank is as high as possible for a matrix of this size (\(\text{rank}(\bold{Y}) = 3\)). (Given an \(m \times n\) matrix, the highest the rank can be is the smallest dimension, either the number of rows \(m\) or the number of columns \(n\).)</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0005.jpg" alt="Slide 5" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>Now we will decompose \(\bold{Y}\) into a low-rank and a sparse component such that \(\bold{Y} = \bold{L} + \bold{S}\). What do you think this will look like?</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0006.jpg" alt="Slide 6" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>Here is one good decomposition. The rank of \(\bold{L}\) is as low as possible—just 1! Meanwhile, \(\bold{S}\) is somewhat sparse, with only 5 nonzero elements. And, as desired, \(\bold{Y} = \bold{L} + \bold{S}\).</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0007.jpg" alt="Slide 7" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>How might we formalize and automate such a decomposition? We want the rank of \(\bold{L}\) and the number of non-zero elements of \(\bold{S}\) to both be low. So let&rsquo;s minimize that, with a parameter \(\lambda &gt; 0\) to control the relative importance of each.</p>
+<p>And to make sure it&rsquo;s a true decomposition of \(\bold{Y}\), we add the condition that \(\bold{Y} = \bold{L} + \bold{S}\).</p>
+<p>This problem perfectly describes our goal mathematically, but it is hard to program a routine that does this automatically. It isn&rsquo;t a convex problem, so we cannot expect it to have unique optimizers (in other words, we cannot expect there to be a unique \(\bold{L}\) and \(\bold{S}\) that minimize \(\text{rank}(\bold{L}) + \lambda \Vert \bold{S} \Vert_0\)). Solving this problem automatically would be very hard.</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0008.jpg" alt="Slide 8" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>So we set up a similar problem that <em>is</em> easy to solve. We want to make the problem <em>convex</em>, a mathematical condition that implies that any local minimum of the problem is also a global minimum—generally, this means that there is a unique optimizer for the problem, which will make it easy to solve.</p>
+<p>We replace \(\text{rank}(\bold{L})\) with the <em>nuclear norm</em> of \(\bold{L}\), denoted \(\Vert \bold{L} \Vert_*\). This represents the sum of the <em>singular values</em> of \(\bold{L}\), which are closely tied to its eigenvalues. In particular, if \(\bold{L}\) has a low rank, then most of \(\bold{L}\)&rsquo;s singular values are zero. (Specifically, \(\text{rank}(\bold{L}) = \Vert \boldsymbol{\sigma}(\bold{L}) \Vert_0\) where \(\boldsymbol{\sigma}(\bold{L})\) yields the singular values of \(\bold{L}\)). This norm is convex.</p>
+<p>We replace \(\Vert \bold{S} \Vert_0\) with the largest column sum (taking the absolute value of each element) of \(\bold{S}\), denoted \(\Vert \bold{S} \Vert_1\). If most of the elements of \(\bold{S}\) are 0, then we may safely assume that the largest column sum of \(\bold{S}\) will be small, barring the possibility that the non-zero elements of \(\bold{S}\) are huge in magnitude. This norm is also convex.</p>
+<p>The new problem we have constructed is convex, and thus, any \(\bold{L}\) and \(\bold{S}\) that minimize the problem locally also minimize it globally! This makes our search much easier. We call this new problem <em>Principal Component Pursuit</em>.</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0009.jpg" alt="Slide 9" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>Wright and Ma provided pseudocode in their book for ADMM (Alternating Direction Method of Multipliers), an algorithm for solving convex optimization problems that happens to work well for this problem. I implemented it in Julia.</p>
+<p>(I could have used a standard Julia library like <a href="https://jump.dev/Convex.jl/" target="_blank" rel="noreferrer">Convex.jl</a>, which would probably be more robust, but decided to implement the pseudocode to practice.)</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0010.jpg" alt="Slide 10" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>Now let&rsquo;s talk about how a video fits into this whole framework, like the earlier video of me walking in my lab.</p>
+<p>A video is a signal. For simplicity&rsquo;s sake, I&rsquo;m working with my videos in grayscale, but these methods should also apply (with some modifications) in color. Here I have an example &ldquo;video&rdquo; with three frames, each of which is just 4 by 6 pixels.</p>
+<p>Each frame is a &ldquo;block&rdquo; of pixel intensity values. We can &ldquo;flatten&rdquo; each frame into a vector of values.</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0011.jpg" alt="Slide 11" class="mx-auto my-0 rounded-md" />
+</figure>
+
+Applying this &ldquo;flattening&rdquo; to each frame of the video, we can convert the video (which is a 4×6×3 array) into a 24×3 matrix, where each column represents the signal at a point in time (a frame).</p>
+<p>Now we&rsquo;re ready to throw the video into the optimization problem previously described! I&rsquo;ll set \(\lambda = 1/\sqrt{\max(m, n)}\), where \(\bold{Y}\) is \(m \times n\), a rule-of-thumb suggestion by Wright and Ma in their book.</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0012.jpg" alt="Slide 12" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/walking%20decomposed.gif" alt="Walking across room signal decomposition" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>Here&rsquo;s the video I showed earlier again. Each frame has 111,000 pixels, and there are 195 frames in the video, so \(\bold{Y}\) is a 111,000×195 matrix. You can see that the rank of the original signal (the original grayscale video) is maximal, at 195.</p>
+<p>After Principal Component Pursuit, the low-rank component has a rank of just 4. You can see that it only has a few unique frames—one where I&rsquo;m standing with my hand seemingly chopped off (it was moving, so the algorithm added it to the sparse component), another where I&rsquo;m not there at all, and another where I&rsquo;m <em>just</em> visible by the fume hood.</p>
+<p>The sparse component shows what was missing in the low-rank component, particularly, any part of the video that was moving. Only 2.2% of the pixels in the video are non-zero.</p>
+<p>It looks like the new problem we constructed,</p>
+<p>$$
+\begin{aligned}
+\text{minimize}\quad&amp;\Vert\bf{L}\Vert_* + \lambda \Vert\bf{S}\Vert_1 \\
+\text{subject to}\quad&amp;\bf{Y} = \bf{L} + \bf{S},
+\end{aligned}
+$$</p>
+<p>is a good replacement for the original problem</p>
+<p>$$
+\begin{aligned}
+\text{minimize}\quad&amp;\text{rank}(\bf{L}) + \lambda \Vert\bf{S}\Vert_0 \\
+\text{subject to}\quad&amp;\bf{Y} = \bf{L} + \bf{S}!
+\end{aligned}
+$$</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0013.jpg" alt="Slide 13" class="mx-auto my-0 rounded-md" />
+</figure>
+
+
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/fridge%20decomposed.gif" alt="Taking drink out of fridge signal decomposition" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>Here&rsquo;s another demo.</p>
+<p>The original video had 723 frames, and as before, 111,000 pixels per frame. Thus \(\bold{Y}\) is a 111,000×723 matrix, with yet again full rank (723).</p>
+<p>The low rank component isn&rsquo;t as low rank as before, at 44. Perhaps a different choice of \(\lambda\) would help here. Notice the digits displayed on the watch. It seems like 9 is Principal Component Pursuit&rsquo;s favorite number!</p>
+<p>About 12.8% of the pixels in the sparse component are non-zero.</p>
+<p>Maybe this video is a little harder to decompose than the other one!</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0014.jpg" alt="Slide 14" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ax09-fxxhPM?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+
+<p>One simple application of this technique is to detect and quantify motion in a video. In this demo, I&rsquo;ve counted the number of non-zero elements in each frame of the sparse component of the video and plotted it over time to measure motion.</p>
+<p>(Here&rsquo;s some bonus content—the same motion demo on the original video of me walking across the lab!)
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/KY6dH0fadyA?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+</p>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0015.jpg" alt="Slide 15" class="mx-auto my-0 rounded-md" />
+</figure>
+</p>
+<p>There are a number of issues with this approach.</p>
+<ul>
+<li>
+<p>It doesn&rsquo;t take advantage of spatial and temporal relationships in video.</p>
+<ul>
+<li>We converted the video to a matrix \(\bold{Y}\), where each column is a frame of the video, and each row is a single pixel&rsquo;s intensity over time. Since all we&rsquo;re concerning ourselves with is the rank and sparsity of the components of \(\bold{Y}\), we could mix all the rows (frames) around and it wouldn&rsquo;t make a difference (although it certainly should, especially in the context of the motion demo I did)! Likewise mixing the columns (pixels) around. No change.</li>
+</ul>
+</li>
+<li>
+<p>It scales quite poorly with the length of the video.</p>
+<ul>
+<li>The walking-across-the-lab video took about 20 seconds on my ThinkPad to process, while the fridge video took a couple of minutes, even though the fridge video is only 3 or 4 times longer.</li>
+</ul>
+</li>
+<li>
+<p>Setting \(\lambda\) is difficult. A better choice of \(\lambda\) might&rsquo;ve helped in the fridge video demo.</p>
+</li>
+</ul>
+<hr>
+<p>
+
+
+
+
+
+
+  
+  
+<figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0016.jpg" alt="Slide 16" class="mx-auto my-0 rounded-md" />
+</figure>
+
+<em>References</em></p>
+<ul>
+<li><a href="http://book-wright-ma.github.io" target="_blank" rel="noreferrer">Wright and Ma&rsquo;s book</a></li>
+<li><a href="https://matthewward.info/projects/principal-component-pursuit" target="_blank" rel="noreferrer">The original demo and description I made</a></li>
+<li><a href="https://github.com/mward19/pcp" target="_blank" rel="noreferrer">The project&rsquo;s GitHub</a></li>
+</ul>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/posts/my-weird-workflow/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >A cheaper alternative to tablets, and the mouse to rule them all</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-11-25 19:14:00 -0700 MST">25 November 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2025
+            Matthew Ward
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Switch to dark appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Switch to light appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

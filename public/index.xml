@@ -2,66 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Matthew Ward</title>
-    <link>https://www.matthewward.info/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content in Home on Matthew Ward</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Dec 2024 20:34:00 -0700</lastBuildDate>
-    <atom:link href="https://www.matthewward.info/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Feb 2025 11:30:00 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Teaching Principal Component Pursuit in a computational physics class</title>
+      <link>http://localhost:1313/posts/teaching-pcp/</link>
+      <pubDate>Tue, 25 Feb 2025 11:30:00 -0700</pubDate>
+      <guid>http://localhost:1313/posts/teaching-pcp/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Predicting future life expectancy in countries using present data</title>
-      <link>https://www.matthewward.info/projects/acme-volume-3-project/</link>
+      <link>http://localhost:1313/projects/acme-volume-3-project/</link>
       <pubDate>Tue, 17 Dec 2024 20:34:00 -0700</pubDate>
-      <guid>https://www.matthewward.info/projects/acme-volume-3-project/</guid>
+      <guid>http://localhost:1313/projects/acme-volume-3-project/</guid>
       <description></description>
     </item>
     <item>
       <title>A cheaper alternative to tablets, and the mouse to rule them all</title>
-      <link>https://www.matthewward.info/posts/my-weird-workflow/</link>
+      <link>http://localhost:1313/posts/my-weird-workflow/</link>
       <pubDate>Mon, 25 Nov 2024 19:14:00 -0700</pubDate>
-      <guid>https://www.matthewward.info/posts/my-weird-workflow/</guid>
+      <guid>http://localhost:1313/posts/my-weird-workflow/</guid>
       <description></description>
     </item>
     <item>
       <title>tomogram-datasets</title>
-      <link>https://www.matthewward.info/projects/tomogram-datasets/</link>
+      <link>http://localhost:1313/projects/tomogram-datasets/</link>
       <pubDate>Wed, 13 Nov 2024 14:00:00 -0700</pubDate>
-      <guid>https://www.matthewward.info/projects/tomogram-datasets/</guid>
+      <guid>http://localhost:1313/projects/tomogram-datasets/</guid>
       <description></description>
     </item>
     <item>
       <title>Principal Component Pursuit</title>
-      <link>https://www.matthewward.info/projects/principal-component-pursuit/</link>
+      <link>http://localhost:1313/projects/principal-component-pursuit/</link>
       <pubDate>Wed, 13 Nov 2024 13:00:00 -0700</pubDate>
-      <guid>https://www.matthewward.info/projects/principal-component-pursuit/</guid>
+      <guid>http://localhost:1313/projects/principal-component-pursuit/</guid>
       <description></description>
     </item>
     <item>
       <title>visualize-voxels</title>
-      <link>https://www.matthewward.info/projects/visualize-voxels/</link>
+      <link>http://localhost:1313/projects/visualize-voxels/</link>
       <pubDate>Wed, 13 Nov 2024 12:00:00 -0700</pubDate>
-      <guid>https://www.matthewward.info/projects/visualize-voxels/</guid>
+      <guid>http://localhost:1313/projects/visualize-voxels/</guid>
       <description></description>
     </item>
     <item>
       <title>About me</title>
-      <link>https://www.matthewward.info/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.matthewward.info/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description></description>
     </item>
     <item>
       <title>Contact</title>
-      <link>https://www.matthewward.info/contact/</link>
+      <link>http://localhost:1313/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.matthewward.info/contact/</guid>
+      <guid>http://localhost:1313/contact/</guid>
       <description></description>
     </item>
     <item>
       <title>Resume</title>
-      <link>https://www.matthewward.info/resume/</link>
+      <link>http://localhost:1313/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.matthewward.info/resume/</guid>
+      <guid>http://localhost:1313/resume/</guid>
       <description></description>
     </item>
   </channel>

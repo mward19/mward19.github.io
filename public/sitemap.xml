@@ -4,63 +4,70 @@
   
     
       <url>
-            <loc>https://www.matthewward.info/projects/acme-volume-3-project/</loc>
+            <loc>http://localhost:1313/posts/</loc>
+            <lastmod>2025-02-25T11:30:00-07:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/posts/teaching-pcp/</loc>
+            <lastmod>2025-02-25T11:30:00-07:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/projects/acme-volume-3-project/</loc>
             <lastmod>2024-12-17T20:34:00-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>https://www.matthewward.info/projects/</loc>
+            <loc>http://localhost:1313/projects/</loc>
             <lastmod>2024-12-17T20:34:00-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>https://www.matthewward.info/posts/my-weird-workflow/</loc>
+            <loc>http://localhost:1313/posts/my-weird-workflow/</loc>
             <lastmod>2024-11-25T19:14:00-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>https://www.matthewward.info/posts/</loc>
-            <lastmod>2024-11-25T19:14:00-07:00</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://www.matthewward.info/projects/tomogram-datasets/</loc>
+            <loc>http://localhost:1313/projects/tomogram-datasets/</loc>
             <lastmod>2024-11-13T14:00:00-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>https://www.matthewward.info/projects/principal-component-pursuit/</loc>
+            <loc>http://localhost:1313/projects/principal-component-pursuit/</loc>
             <lastmod>2024-11-13T13:00:00-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>https://www.matthewward.info/</loc>
+            <loc>http://localhost:1313/</loc>
             <lastmod>2024-11-13T12:37:56-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>https://www.matthewward.info/projects/visualize-voxels/</loc>
+            <loc>http://localhost:1313/projects/visualize-voxels/</loc>
             <lastmod>2024-11-13T12:00:00-07:00</lastmod>
           </url>
     
   
     
       <url>
-            <loc>https://www.matthewward.info/about/</loc>
+            <loc>http://localhost:1313/about/</loc>
           </url>
     
   
@@ -68,13 +75,13 @@
   
     
       <url>
-            <loc>https://www.matthewward.info/contact/</loc>
+            <loc>http://localhost:1313/contact/</loc>
           </url>
     
   
     
       <url>
-            <loc>https://www.matthewward.info/resume/</loc>
+            <loc>http://localhost:1313/resume/</loc>
           </url>
     
   
