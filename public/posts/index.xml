@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Matthew Ward</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://www.matthewward.info/posts/</link>
     <description>Recent content in Posts on Matthew Ward</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 25 Feb 2025 11:30:00 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.matthewward.info/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Teaching Principal Component Pursuit in a computational physics class</title>
-      <link>http://localhost:1313/posts/teaching-pcp/</link>
+      <link>https://www.matthewward.info/posts/teaching-pcp/</link>
       <pubDate>Tue, 25 Feb 2025 11:30:00 -0700</pubDate>
-      <guid>http://localhost:1313/posts/teaching-pcp/</guid>
+      <guid>https://www.matthewward.info/posts/teaching-pcp/</guid>
       <description></description>
     </item>
     <item>
       <title>A cheaper alternative to tablets, and the mouse to rule them all</title>
-      <link>http://localhost:1313/posts/my-weird-workflow/</link>
+      <link>https://www.matthewward.info/posts/my-weird-workflow/</link>
       <pubDate>Mon, 25 Nov 2024 19:14:00 -0700</pubDate>
-      <guid>http://localhost:1313/posts/my-weird-workflow/</guid>
+      <guid>https://www.matthewward.info/posts/my-weird-workflow/</guid>
       <description></description>
     </item>
   </channel>
