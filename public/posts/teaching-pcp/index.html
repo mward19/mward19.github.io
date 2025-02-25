@@ -12,7 +12,7 @@
   class="scroll-smooth"
   data-default-appearance="dark"
   data-auto-appearance="true"
-><head>
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FFFFFF" />
@@ -77,7 +77,7 @@
   
   
   
-  <link rel="canonical" href="https://www.matthewward.info/posts/teaching-pcp/" />
+  <link rel="canonical" href="http://localhost:1313/posts/teaching-pcp/" />
   
   
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -92,7 +92,7 @@
   
   
   
-  <meta property="og:url" content="https://www.matthewward.info/posts/teaching-pcp/">
+  <meta property="og:url" content="http://localhost:1313/posts/teaching-pcp/">
   <meta property="og:site_name" content="Matthew Ward">
   <meta property="og:title" content="Teaching Principal Component Pursuit in a computational physics class">
   <meta property="og:description" content="About Matthew Ward">
@@ -101,11 +101,11 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-25T11:30:00-07:00">
     <meta property="article:modified_time" content="2025-02-25T11:30:00-07:00">
-    <meta property="og:image" content="https://www.matthewward.info/posts/teaching-pcp/cover_orig.png">
+    <meta property="og:image" content="http://localhost:1313/posts/teaching-pcp/cover_orig.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://www.matthewward.info/posts/teaching-pcp/cover_orig.png">
+  <meta name="twitter:image" content="http://localhost:1313/posts/teaching-pcp/cover_orig.png">
   <meta name="twitter:title" content="Teaching Principal Component Pursuit in a computational physics class">
   <meta name="twitter:description" content="About Matthew Ward">
 
@@ -120,7 +120,7 @@
     
     
     "inLanguage": "en",
-    "url" : "https:\/\/www.matthewward.info\/posts\/teaching-pcp\/",
+    "url" : "http:\/\/localhost:1313\/posts\/teaching-pcp\/",
     "author" : {
       "@type": "Person",
       "name": "Matthew Ward"
@@ -134,7 +134,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "1581"
+    "wordCount": "1605"
   }
   </script>
     
@@ -145,13 +145,13 @@
    "itemListElement": [
      {
        "@type": "ListItem",
-       "item": "https://www.matthewward.info/",
+       "item": "http://localhost:1313/",
        "name": "Home",
        "position": 1
      },
      {
        "@type": "ListItem",
-       "item": "https://www.matthewward.info/posts/",
+       "item": "http://localhost:1313/posts/",
        "name": "Posts",
        "position": 2
      },
@@ -331,11 +331,6 @@
 
   
   
-  
-  
-  
-  
-
 
   
   
@@ -765,19 +760,11 @@
   
 <figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0003.jpg" alt="Slide 3" class="mx-auto my-0 rounded-md" />
 </figure>
-
-
-
-
-
-
-
-
-  
-  
-<figure><img src="/other/pcp-presentation-slides/walking%20decomposed.gif" alt="Walking across room signal decomposition" class="mx-auto my-0 rounded-md" />
-</figure>
 </p>
+<video controls autoplay loop muted>
+    <source src="/other/pcp-presentation-slides/walking%20decomposed.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 <p>A video is a high dimensional signal! Just as the previous plot showed a signal decomposed into a low-rank and a sparse component, here is a short video of me in my lab decomposed in a similar way, to motivate what I&rsquo;m about to share with you.</p>
 <hr>
 <p>
@@ -914,18 +901,10 @@ Applying this &ldquo;flattening&rdquo; to each frame of the video, we can conver
 <figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0012.jpg" alt="Slide 12" class="mx-auto my-0 rounded-md" />
 </figure>
 </p>
-<p>
-
-
-
-
-
-
-  
-  
-<figure><img src="/other/pcp-presentation-slides/walking%20decomposed.gif" alt="Walking across room signal decomposition" class="mx-auto my-0 rounded-md" />
-</figure>
-</p>
+<video controls autoplay loop muted>
+    <source src="/other/pcp-presentation-slides/walking%20decomposed.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 <p>Here&rsquo;s the video I showed earlier again. Each frame has 111,000 pixels, and there are 195 frames in the video, so \(\bold{Y}\) is a 111,000×195 matrix. You can see that the rank of the original signal (the original grayscale video) is maximal, at 195.</p>
 <p>After Principal Component Pursuit, the low-rank component has a rank of just 4. You can see that it only has a few unique frames—one where I&rsquo;m standing with my hand seemingly chopped off (it was moving, so the algorithm added it to the sparse component), another where I&rsquo;m not there at all, and another where I&rsquo;m <em>just</em> visible by the fume hood.</p>
 <p>The sparse component shows what was missing in the low-rank component, particularly, any part of the video that was moving. Only 2.2% of the pixels in the video are non-zero.</p>
@@ -955,19 +934,11 @@ $$</p>
   
 <figure><img src="/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0013.jpg" alt="Slide 13" class="mx-auto my-0 rounded-md" />
 </figure>
-
-
-
-
-
-
-
-
-  
-  
-<figure><img src="/other/pcp-presentation-slides/fridge%20decomposed.gif" alt="Taking drink out of fridge signal decomposition" class="mx-auto my-0 rounded-md" />
-</figure>
 </p>
+<video controls autoplay loop muted>
+    <source src="/other/pcp-presentation-slides/fridge%20decomposed.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 <p>Here&rsquo;s another demo.</p>
 <p>The original video had 723 frames, and as before, 111,000 pixels per frame. Thus \(\bold{Y}\) is a 111,000×723 matrix, with yet again full rank (723).</p>
 <p>The low rank component isn&rsquo;t as low rank as before, at 44. Perhaps a different choice of \(\lambda\) would help here. Notice the digits displayed on the watch. It seems like 9 is Principal Component Pursuit&rsquo;s favorite number!</p>

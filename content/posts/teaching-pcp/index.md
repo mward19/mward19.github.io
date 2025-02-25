@@ -39,7 +39,11 @@ The plot can't depict a low-rank signal well since this signal \\(\bf{Y}\\) is o
 
 ***
 ![Slide 3](/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0003.jpg)
-![Walking across room signal decomposition](/other/pcp-presentation-slides/walking%20decomposed.gif)
+
+<video controls autoplay loop muted>
+    <source src="/other/pcp-presentation-slides/walking%20decomposed.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 
 A video is a high dimensional signal! Just as the previous plot showed a signal decomposed into a low-rank and a sparse component, here is a short video of me in my lab decomposed in a similar way, to motivate what I'm about to share with you.
 
@@ -105,7 +109,10 @@ Now we're ready to throw the video into the optimization problem previously desc
 ***
 ![Slide 12](/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0012.jpg)
 
-![Walking across room signal decomposition](/other/pcp-presentation-slides/walking%20decomposed.gif)
+<video controls autoplay loop muted>
+    <source src="/other/pcp-presentation-slides/walking%20decomposed.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
 
 Here's the video I showed earlier again. Each frame has 111,000 pixels, and there are 195 frames in the video, so \\(\bold{Y}\\) is a 111,000×195 matrix. You can see that the rank of the original signal (the original grayscale video) is maximal, at 195.
 
@@ -133,7 +140,13 @@ $$
 
 ***
 ![Slide 13](/other/pcp-presentation-slides/Principal%20Component%20Pursuit_page-0013.jpg)
-![Taking drink out of fridge signal decomposition](/other/pcp-presentation-slides/fridge%20decomposed.gif)
+
+<video controls autoplay loop muted>
+    <source src="/other/pcp-presentation-slides/fridge%20decomposed.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
+
+
 
 Here's another demo.
 
