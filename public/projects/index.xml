@@ -36,5 +36,12 @@
       <guid>http://localhost:1313/projects/visualize-voxels/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Projects to write about</title>
+      <link>http://localhost:1313/projects/todo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/todo/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
