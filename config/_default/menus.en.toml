@@ -16,13 +16,13 @@
   weight = 10
 
 [[main]]
-  name = "Projects"
-  pageRef = "projects"
+  name = "Posts"
+  pageRef = "posts"
   weight = 20
 
 [[main]]
-  name = "Posts"
-  pageRef = "posts"
+  name = "Projects"
+  pageRef = "projects"
   weight = 25
 
 [[main]]
