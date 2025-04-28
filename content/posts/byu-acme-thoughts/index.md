@@ -1,5 +1,5 @@
 +++
-date = '2025-04-23T20:15:03-06:00'
+date = '2025-04-28T11:30:00-06:00'
 draft = false
 showDate = true
 title = "Thoughts on BYU's ACME math program upon finishing core classes"
