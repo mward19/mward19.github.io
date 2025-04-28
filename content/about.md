@@ -4,7 +4,7 @@ draft = false
 title = 'About me'
 +++
 
-I'm Matthew Ward, a student in the <a href="https://acme.byu.edu/" target="_blank">Applied and Computational Mathematics Emphasis (ACME)</a> program at Brigham Young University. I am also a member of the [BYU Biophysics Group](https://byu-biophysics.github.io/) and soon to be a data engineer intern working on lidar technologies at [3DEO, Inc.](https://3deo.biz/).
+I'm Matthew Ward, a student in the <a href="https://acme.byu.edu/" target="_blank">Applied and Computational Mathematics Emphasis (ACME)</a> program at Brigham Young University. I am also a member of the [BYU Biophysics Group](https://byu-biophysics.github.io/) and soon to be a data engineer intern working on lidar technologies at [3DEO, Inc.](https://3deo.biz/)
 
 I focus on computer vision (especially for volumetric images these days), optimization, and the mathematics behind data science and machine learning.
 
