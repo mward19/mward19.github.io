@@ -132,7 +132,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "931"
+    "wordCount": "928"
   }
   </script>
     
@@ -671,30 +671,27 @@
 <p>In a video with a mostly static background and something moving in the foreground, the video matrix is <em>almost</em> low rank, since the frame vectors are mostly the same (since most of the pixels don&rsquo;t change). But it isn&rsquo;t, because of the movement in the foreground. Nevertheless, we can find a video matrix that is nearly equal to the original video matrix but is in fact low rank. In simpler terms, we can extract the background of the video.</p>
 <p>Let \(\bf{Y}\) be the original video matrix. We want a video matrix \(\bf{L}\) that is nearly equal to \(\bf{Y}\), differing only by a sparse (meaning most of the elements are 0) matrix \(\bf{L}\). In other words, we want to find \(\bf{L}\) and \(\bf{S}\) such that \(\bf{Y} = \bf{L} + \bf{S}\), while minimizing \(\text{rank}(\bf{L})\) and \(\Vert\bf{S}\Vert_0\) (where \(\Vert\cdot\Vert_0\) gives the number of non-zero elements of its input, which technically is not a proper mathematical norm).</p>
 <p>One could set this up as an optimization problem</p>
-<p>$$
+$$
 \begin{aligned}
-\text{minimize}\quad&amp;\text{rank}(\bf{L}) + \lambda \Vert\bf{S}\Vert_0 \\
-\text{subject to}\quad&amp;\bf{Y} = \bf{L} + \bf{S}
+    \text{minimize}\quad&\text{rank}(\bf{L}) + \lambda \Vert\bf{S}\Vert_0 \\\
+    \text{subject to}\quad&\bf{Y} = \bf{L} + \bf{S}
 \end{aligned}
-$$</p>
-<p>for some tuning parameter \(\lambda \in \mathbb{R}\), but the objective is not convex, making this very difficult to solve.</p>
+$$<p>for some tuning parameter \(\lambda \in \mathbb{R}\), but the objective is not convex, making this very difficult to solve.</p>
 <p>Rather, we set up the problem using convex surrogate norms:</p>
-<p>$$
+$$
 \begin{aligned}
-\text{minimize}\quad&amp;\Vert\bf{L}\Vert_* + \lambda \Vert\bf{S}\Vert_1 \\
-\text{subject to}\quad&amp;\bf{Y} = \bf{L} + \bf{S},
+    \text{minimize}\quad&\Vert\bf{L}\Vert_* + \lambda \Vert\bf{S}\Vert_1 \\\
+    \text{subject to}\quad&\bf{Y} = \bf{L} + \bf{S},
 \end{aligned}
-$$</p>
-<p>where \(\Vert \cdot \Vert_*\) is the <em>nuclear norm</em>, meaning, the sum of the singular values of the input matrix, and \(\Vert \cdot \Vert_1\) is the standard matrix 1-norm (the maximum column sum). (See &ldquo;Note: Why these norms?&rdquo; below.)</p>
+$$<p>where \(\Vert \cdot \Vert_*\) is the <em>nuclear norm</em>, meaning, the sum of the singular values of the input matrix, and \(\Vert \cdot \Vert_1\) is the standard matrix 1-norm (the maximum column sum). (See &ldquo;Note: Why these norms?&rdquo; below.)</p>
 <p>This new problem is convex! It is easy to solve with off-the-shelf convex optimizers. I have opted to implement the optimizer myself, but other libraries like CVXPY (in Python) or Convex.jl (for Julia) should work fine.</p>
 <p>By solving</p>
-<p>$$
+$$
 \begin{aligned}
-\text{minimize}\quad&amp;\Vert\bf{L}\Vert_* + \lambda \Vert\bf{S}\Vert_1 \\
-\text{subject to}\quad&amp;\bf{Y} = \bf{L} + \bf{S},
+    \text{minimize}\quad&\Vert\bf{L}\Vert_* + \lambda \Vert\bf{S}\Vert_1 \\\
+    \text{subject to}\quad&\bf{Y} = \bf{L} + \bf{S},
 \end{aligned}
-$$</p>
-<p>we find video matrices \(\bf{L}\) and \(\bf{S}\) that, for all intents and purposes, separate the original video matrix \(\bf{Y}\) into &ldquo;background&rdquo; and &ldquo;foreground&rdquo; components respectively. Problem solved!</p>
+$$<p>we find video matrices \(\bf{L}\) and \(\bf{S}\) that, for all intents and purposes, separate the original video matrix \(\bf{Y}\) into &ldquo;background&rdquo; and &ldquo;foreground&rdquo; components respectively. Problem solved!</p>
 <h4 id="note-why-these-norms" class="relative group">Note: Why these norms? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#note-why-these-norms" aria-label="Anchor">#</a></span></h4><p>First, we want to minimize the rank of \(\bf{L}\). When the rank of \(\bf{L}\) is minimized, we hope that most of its singular values are zero. Perhaps this will shed some intuition on why the nuclear norm makes sense here.</p>
 <p>Second, we want to minimize the number of nonzero elements of \(\bf{S}\) (what I called \(\Vert \cdot \Vert_0\) above). When the number of nonzero elements of \(\bf{S}\) is minimized, we would hope that the maximum column sum of \(\bf{S}\) is quite small. Hopefully this clarifies why the 1-norm is a reasonable choice.</p>
 <p>For more formal justification for these choices of norm, consult Wright and Ma&rsquo;s textbook <a href="https://book-wright-ma.github.io/" target="_blank" rel="noreferrer">High-Dimensional Data Analysis with Low-Dimensional Models:

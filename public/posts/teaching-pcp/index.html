@@ -134,7 +134,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "1605"
+    "wordCount": "1604"
   }
   </script>
     
@@ -909,20 +909,18 @@ Applying this &ldquo;flattening&rdquo; to each frame of the video, we can conver
 <p>After Principal Component Pursuit, the low-rank component has a rank of just 4. You can see that it only has a few unique frames—one where I&rsquo;m standing with my hand seemingly chopped off (it was moving, so the algorithm added it to the sparse component), another where I&rsquo;m not there at all, and another where I&rsquo;m <em>just</em> visible by the fume hood.</p>
 <p>The sparse component shows what was missing in the low-rank component, particularly, any part of the video that was moving. Only 2.2% of the pixels in the video are non-zero.</p>
 <p>It looks like the new problem we constructed,</p>
-<p>$$
+$$
 \begin{aligned}
-\text{minimize}\quad&amp;\Vert\bf{L}\Vert_* + \lambda \Vert\bf{S}\Vert_1 \\
-\text{subject to}\quad&amp;\bf{Y} = \bf{L} + \bf{S},
+    \text{minimize}\quad&\Vert\bf{L}\Vert_* + \lambda \Vert\bf{S}\Vert_1 \\\
+    \text{subject to}\quad&\bf{Y} = \bf{L} + \bf{S},
 \end{aligned}
-$$</p>
-<p>is a good replacement for the original problem</p>
-<p>$$
+$$<p>is a good replacement for the original problem</p>
+$$
 \begin{aligned}
-\text{minimize}\quad&amp;\text{rank}(\bf{L}) + \lambda \Vert\bf{S}\Vert_0 \\
-\text{subject to}\quad&amp;\bf{Y} = \bf{L} + \bf{S}!
+    \text{minimize}\quad&\text{rank}(\bf{L}) + \lambda \Vert\bf{S}\Vert_0 \\\
+    \text{subject to}\quad&\bf{Y} = \bf{L} + \bf{S}!
 \end{aligned}
-$$</p>
-<hr>
+$$<hr>
 <p>
 
 

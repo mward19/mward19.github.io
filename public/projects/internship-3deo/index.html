@@ -1,0 +1,2318 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Internship with 3DEO&mdash;Data Engineering for Geiger-mode Lidar &middot; Matthew Ward</title>
+    <meta name="title" content="Internship with 3DEO&mdash;Data Engineering for Geiger-mode Lidar &middot; Matthew Ward" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.5668e195f2157eb3c8820d8f00ec341af4805c0c323dd614a93d59910205129a.css"
+    integrity="sha256-VmjhlfIVfrPIgg2PAOw0GvSAXAwyPdYUqT1ZkQIFEpo="
+  />
+  
+  
+  
+  
+    
+    
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.d4b727caf411cb5c3b421d0d427ed1e3daeafe0d04840327efad4978430edb8c.js"
+      integrity="sha256-1LcnyvQRy1w7Qh0NQn7R49rq/g0EhAMn761JeEMO24w="
+      data-copy="Copy"
+      data-copied="Copied"
+    ></script>
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        
+      
+    "
+  />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/projects/internship-3deo/" />
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/projects/internship-3deo/">
+  <meta property="og:site_name" content="Matthew Ward">
+  <meta property="og:title" content="Internship with 3DEO&mdash;Data Engineering for Geiger-mode Lidar">
+  <meta property="og:description" content="About Matthew Ward">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-09-10T18:21:00-06:00">
+    <meta property="article:modified_time" content="2025-09-10T18:21:00-06:00">
+    <meta property="og:image" content="http://localhost:1313/projects/internship-3deo/cover.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/projects/internship-3deo/cover.png">
+  <meta name="twitter:title" content="Internship with 3DEO&mdash;Data Engineering for Geiger-mode Lidar">
+  <meta name="twitter:description" content="About Matthew Ward">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Projects",
+    "name": "Internship with 3DEO\u0026mdash;Data Engineering for Geiger-mode Lidar",
+    "headline": "Internship with 3DEO\u0026mdash;Data Engineering for Geiger-mode Lidar",
+    
+    
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/projects\/internship-3deo\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Matthew Ward"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-10T18:21:00-06:00",
+    "datePublished": "2025-09-10T18:21:00-06:00",
+    
+    "dateModified": "2025-09-10T18:21:00-06:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2225"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Home",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/projects/",
+       "name": "Projects",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Internship With 3 Deo\u0026mdash; Data Engineering for Geiger Mode Lidar",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  <meta name="author" content="Matthew Ward" />
+  
+    
+      <link href="https://github.com/mward19" rel="me" />
+    
+      <link href="https://linkedin.com/in/matthew-m-ward" rel="me" />
+    
+      <link href="mailto:me@matthewward.info" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/lib/katex/katex.min.68e17230ccd917b97b7a2def38a8108918599d8aa4f580bfb8cce5e13d23e4de43dcaba5f9000553cb2c10d0d1300aabfe5c433a3305ebd752609f0762a63e59.css"
+    integrity="sha512-aOFyMMzZF7l7ei3vOKgQiRhZnYqk9YC/uMzl4T0j5N5D3Kul&#43;QAFU8ssENDRMAqr/lxDOjMF69dSYJ8HYqY&#43;WQ=="
+  />
+  
+  
+  <script
+    defer
+    src="/lib/katex/katex.min.50f14e69d6a8da7128ae3b63974c544ed377c36d096b5e3750f114e84c89d668b9301d9b0ed3248969aa183aa2e3bc4d2c1e73d5dcb7d462890c45a18d424589.js"
+    integrity="sha512-UPFOadao2nEorjtjl0xUTtN3w20Ja143UPEU6EyJ1mi5MB2bDtMkiWmqGDqi47xNLB5z1dy31GKJDEWhjUJFiQ=="
+  ></script>
+  
+  
+  <script
+    defer
+    src="/lib/katex/auto-render.min.6095714e3aadb63b14ddc4af69346ab12974c1b460654345f8d1860a0b68fcc51b22f68b757433193090bb80afc8965b65cb607e5541d0f5f0f4b2e64d69b9ff.js"
+    integrity="sha512-YJVxTjqttjsU3cSvaTRqsSl0wbRgZUNF&#43;NGGCgto/MUbIvaLdXQzGTCQu4CvyJZbZctgflVB0PXw9LLmTWm5/w=="
+    onload="renderMathInElement(document.body);"
+  ></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="z-40 flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >Matthew Ward</a
+  >
+
+    </div>
+    
+      
+      <label id="menu-button" for="menu-controller" class="block sm:hidden">
+        <input type="checkbox" id="menu-controller" class="hidden" />
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+</span>
+        </div>
+        <div
+          id="menu-wrapper"
+          class="invisible fixed inset-0 z-30 m-auto h-full w-full cursor-default overflow-auto bg-neutral-100/50 opacity-0 backdrop-blur-sm transition-opacity dark:bg-neutral-900/50"
+        >
+          <ul
+            class="mx-auto flex w-full max-w-7xl list-none flex-col overflow-visible px-6 py-6 text-end sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32"
+          >
+            <li class="mb-1">
+              <span class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400"
+                ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+</span></span
+              >
+            </li>
+            
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/about/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >About</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/posts/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >Posts</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/projects/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >Projects</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/resume/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >Resume</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    <a
+                      href="/contact/"
+                      title=""
+                      onclick="close_menu()"
+                      
+                      ><span
+                          class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                          >Contact</span
+                        >
+                      </a
+                    >
+                  
+                </li>
+              
+                
+                <li class="group mb-1">
+                  
+                    
+                    
+                  
+                </li>
+              
+                
+                  
+              
+            
+          </ul>
+        </div>
+      </label>
+      
+      <ul class="hidden list-none flex-row text-end sm:flex">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/about/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >About</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/posts/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Posts</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/projects/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Projects</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/resume/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Resume</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                <a
+                  href="/contact/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Contact</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0">
+              
+                
+                
+              
+            </li>
+          
+            
+              
+          
+
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Internship with 3DEO&mdash;Data Engineering for Geiger-mode Lidar
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-09-10 18:21:00 -0600 MDT">10 September 2025</time>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+        <div class="prose">
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mb-6 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/cover_hu10625304670184075158.webp 330w,/projects/internship-3deo/cover_hu6084381399768558372.webp 660w
+            
+              ,/projects/internship-3deo/cover_hu17702574107636514506.webp 1024w
+            
+            
+              
+                ,/projects/internship-3deo/cover_hu16526305363219683136.webp 1303w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="1303"
+        height="977"
+        class="mb-6 rounded-md"
+        
+        
+        
+          src="/projects/internship-3deo/cover_hu9562647213437415064.png"
+          srcset="/projects/internship-3deo/cover_hu7823718126113142934.png 330w,/projects/internship-3deo/cover_hu9562647213437415064.png 660w
+          
+            ,/projects/internship-3deo/cover_hu16099690848365615843.png 1024w
+          
+          
+            ,/projects/internship-3deo/cover.png 1303w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+          
+        </div>
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        
+
+<p><em>See 
+      
+    <a href="/projects/internship-3deo/">overview article</a> and slides from my internship presentation on <a href="https://github.com/mward19/3deo-internship-presentation/tree/master" target="_blank" rel="noreferrer">GitHub</a>.</em></p>
+<hr>
+<p>This summer I had the opportunity to intern with <a href="https://3deolidar.com/" target="_blank" rel="noreferrer">3DEO</a>, a spin-out from MIT Lincoln Laboratory specializing in Geiger-mode lidar. Read more about 3DEO&rsquo;s awesome work in <a href="https://lidarmag.com/2024/12/30/next-generation-geiger-mode-lidar-systems/" target="_blank" rel="noreferrer">this LIDAR Magazine article</a>. Here I will focus primarily on my contributions and what I learned.</p>
+<hr>
+<p>Geiger-mode lidar sensors collect data at incomprehensibly fast rates. [compare to linear mode]. The size of the data 3DEO works with is astounding. When I worked with a 60 or 70 gigabyte dataset I helped create for <a href="https://www.kaggle.com/c/byu-locating-bacterial-flagellar-motors-2025" target="_blank" rel="noreferrer">BYU&rsquo;s &ldquo;Locating Bacterial Flagellar Motors 2025&rdquo; Kaggle competition</a>, I struggled to perform any kind of processing because of the I/O bottlenecks resulting from the size of the data, but at 3DEO I worked with <em>terabytes</em> of point cloud data. It is not unusual for a single data processing run to go through tens (if not hundreds) of billions of photon detections and pull them together into a single data product, plowing through days of CPU time to do so.</p>
+<p>3DEO&rsquo;s code is proprietary, of course, but at the end of my internship I had the chance to present to the company on a few things I had worked on. I&rsquo;ll draw from that <a href="https://github.com/mward19/3deo-internship-presentation/tree/master" target="_blank" rel="noreferrer">presentation</a> to discuss some of my projects at a high level.</p>
+<p>During my time at 3DEO, I used and learned more about</p>
+<ul>
+<li>Mathematics
+<ul>
+<li>Pose graph optimization</li>
+<li>Working with rotations (Euler angles, quaternions, rotation matrices, axis-angle representation)</li>
+<li>Rigid body transformations (transitioning between various reference frames, pose graph optimization, ways to represent and manipulate rotations, etc.)</li>
+<li>Gaussian Mixture Models</li>
+<li>Bayesian inference</li>
+</ul>
+</li>
+<li>Software development
+<ul>
+<li>Containers</li>
+<li>Collaborative Git workflow for large projects</li>
+<li>High-performance computing, Slurm</li>
+<li>SQL (MariaDB)</li>
+</ul>
+</li>
+<li>Typesetting
+<ul>
+<li>\(\LaTeX\)</li>
+<li><a href="https://github.com/typst/typst" target="_blank" rel="noreferrer">Typst</a> (I <em>love</em> Typst!)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="processing-performance-report" class="relative group">Processing Performance Report <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#processing-performance-report" aria-label="Anchor">#</a></span></h1><p>After processing a batch of data, it is not immediately obvious how well processing went. To find and diagnose problems, one might have to parse through a SQL database with thousands of Slurm jobs, download and view hundreds of large, unwieldy point clouds, parse program log files, locate and interpret plots output at various stages of processing, and more. It is also useful to know how long the various stages of processing took in order to know which need to be optimized. To more easily fetch that kind of diagnostic information, the company asked me to find a way to automatically generate human-readable processing performance reports.</p>
+<hr>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-07_hu1385407365192138390.webp 330w,/projects/internship-3deo/main-07_hu11063261890094230915.webp 660w
+            
+              ,/projects/internship-3deo/main-07_hu18335840334038690134.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-07_hu6146963130514933169.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-07_hu17001432863534924280.png"
+          srcset="/projects/internship-3deo/main-07_hu13553296873049823431.png 330w,/projects/internship-3deo/main-07_hu17001432863534924280.png 660w
+          
+            ,/projects/internship-3deo/main-07_hu6658486358455288792.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-07_hu916930433595844451.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>I chose to generate the report in a few stages. First, my program collects data from processing outputs and the SQL database of Slurm jobs. Then it compiles that information into a large JSON, which it uses to populate fields in a number of \(\LaTeX\) templates I wrote. Finally, it generates a PDF from the \(\LaTeX\).</p>
+<hr>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-08_hu11552798590646286609.webp 330w,/projects/internship-3deo/main-08_hu16269336721037916674.webp 660w
+            
+              ,/projects/internship-3deo/main-08_hu14207871547643130073.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-08_hu9071800828084766727.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-08_hu13720482860361363808.png"
+          srcset="/projects/internship-3deo/main-08_hu12553084502806052045.png 330w,/projects/internship-3deo/main-08_hu13720482860361363808.png 660w
+          
+            ,/projects/internship-3deo/main-08_hu5830214783131906802.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-08_hu3416121399613335143.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>3DEO&rsquo;s processing pipeline is designed to handle both small and large amounts of data. As such, the report must be very flexible. Some reports are just a few pages, while others are longer than many college textbooks.</p>
+<hr>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-10_hu15902271710352216789.webp 330w,/projects/internship-3deo/main-10_hu3743623291837918805.webp 660w
+            
+              ,/projects/internship-3deo/main-10_hu13316141358541869495.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-10_hu4307915629300396761.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-10_hu17103521777535015052.png"
+          srcset="/projects/internship-3deo/main-10_hu11817621723663481686.png 330w,/projects/internship-3deo/main-10_hu17103521777535015052.png 660w
+          
+            ,/projects/internship-3deo/main-10_hu5510897818895956269.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-10_hu8383987338546458980.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>The report begins with an overview of all processing performed in the run. It contains a number of useful visualizations focused on processing time, among other things.</p>
+<hr>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-12_hu10365862095091023984.webp 330w,/projects/internship-3deo/main-12_hu2910265578093102437.webp 660w
+            
+              ,/projects/internship-3deo/main-12_hu7311896726593869056.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-12_hu12753202215041132538.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-12_hu15506223857614585412.png"
+          srcset="/projects/internship-3deo/main-12_hu14878127210883032348.png 330w,/projects/internship-3deo/main-12_hu15506223857614585412.png 660w
+          
+            ,/projects/internship-3deo/main-12_hu2166447368916351.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-12_hu15744551831732642404.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>One such visualization is the Processing Timeline. It shows how long in real time (as opposed to CPU time) each stage of processing took.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-13_hu1529589069039555511.webp 330w,/projects/internship-3deo/main-13_hu5735994789708117750.webp 660w
+            
+              ,/projects/internship-3deo/main-13_hu5831313347421611508.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-13_hu8233249007226422273.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-13_hu7165659039907665882.png"
+          srcset="/projects/internship-3deo/main-13_hu1567893375305281833.png 330w,/projects/internship-3deo/main-13_hu7165659039907665882.png 660w
+          
+            ,/projects/internship-3deo/main-13_hu2994900489261864278.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-13_hu1293908746800794830.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>Each thread shows how long one Slurm job took.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-14_hu14810502806786543786.webp 330w,/projects/internship-3deo/main-14_hu9999679224645554944.webp 660w
+            
+              ,/projects/internship-3deo/main-14_hu3433479686469215430.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-14_hu6035877066725981653.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-14_hu1033524284110524359.png"
+          srcset="/projects/internship-3deo/main-14_hu2924210990541615343.png 330w,/projects/internship-3deo/main-14_hu1033524284110524359.png 660w
+          
+            ,/projects/internship-3deo/main-14_hu1018765569803536219.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-14_hu6871782014809800732.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>When processing many targets (tiles) at once, the vertical axis also gives an idea of which target the Slurm job corresponds to. This is primarily useful to display how <em>concurrent</em> the processing was at a given time.</p>
+<hr>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-15_hu3551822124301962193.webp 330w,/projects/internship-3deo/main-15_hu9871596584055733991.webp 660w
+            
+              ,/projects/internship-3deo/main-15_hu12082202868914142301.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-15_hu7798365352865817246.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-15_hu8780587559496842010.png"
+          srcset="/projects/internship-3deo/main-15_hu17231783243851782409.png 330w,/projects/internship-3deo/main-15_hu8780587559496842010.png 660w
+          
+            ,/projects/internship-3deo/main-15_hu17315193784298085821.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-15_hu1329866060396084108.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>The per-target (per-tile) sections of the report give lower-level information useful for evaluating how successful processing was for a given target. (3DEO&rsquo;s processing currently processes each target separately.)</p>
+<hr>
+<p>Writing the processing performance report program gave me a chance to dive into 3DEO&rsquo;s processing pipeline and understand the purpose of each step in it. For some of the statistics that the reports display, I had to modify the existing pipeline to report more information at the appropriate processing step (for example, report on data rejection as data is rejected throughout processing). I also learned more about the scripting and document typesetting side of \(\LaTeX,\) as opposed to just typesetting math.</p>
+<hr>
+<h1 id="pose-graph-optimization" class="relative group">Pose Graph Optimization <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#pose-graph-optimization" aria-label="Anchor">#</a></span></h1><p>All lidar sensors function by shooting light at a target and timing how long the light takes to reflect back. Geiger-mode lidar is special in that it detects <em>individual photons</em> returning to the sensor, making it especially good at seeing through partial cover, like forest canopies. When scanning from an airplane, most of the reflected photons still come from the leaves, but by scanning from multiple angles, you can gather enough data from the ground to clearly map the understory. Thus piecing together scans taken from different angles is a key step in processing Geiger-mode lidar data.</p>
+<hr>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/registrations_hu12597036446661979848.webp 330w,/projects/internship-3deo/registrations_hu5405304500709210056.webp 660w
+            
+              ,/projects/internship-3deo/registrations_hu13139438254399602669.webp 1024w
+            
+            
+              ,/projects/internship-3deo/registrations_hu13291032225884231409.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        alt="Ghosting"
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/registrations_hu9339416860090854067.png"
+          srcset="/projects/internship-3deo/registrations_hu2628773297815758428.png 330w,/projects/internship-3deo/registrations_hu9339416860090854067.png 660w
+          
+            ,/projects/internship-3deo/registrations_hu12843927421454349054.png 1024w
+          
+          
+            ,/projects/internship-3deo/registrations_hu17011422979336712145.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>Since the sensor is equipped with plenty of tools to track its position and orientation in the sky, it is possible to identify where the source of each reflected photon lies in 3D space, and thus place a point for each photon in a point cloud&hellip; but those sensor measurements can drift between scans. If you put the scans together naively, using just the sensor position and orientation to determine the location of the source of each reflected photon, the scans appear misaligned in a phenomenon called <em>ghosting</em>.</p>
+<hr>
+<p>Fortunately, we have more information to place the points besides sensor position and orientation measurements. We have <em>the points themselves</em>. Ghosting is easy for us to spot because we can see duplicate structures in the misaligned scans. Many algorithms exist to align a pair of scans based on this principle, like <a href="https://en.wikipedia.org/wiki/Iterative_closest_point" target="_blank" rel="noreferrer">Iterative Closest Point</a>. (At the moment, 3DEO primarily uses a novel algorithm better suited to the properties of its data, since other algorithms like ICP tend to be too slow and complex.) Again, these algorithms serve only to align a pair of scans. How can one extend them to align \(n &gt; 2\) scans?</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-19_hu11903351253382654003.webp 330w,/projects/internship-3deo/main-19_hu13084813764330256999.webp 660w
+            
+              ,/projects/internship-3deo/main-19_hu8904707842526919026.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-19_hu14358894344403561727.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        alt="Pose graph problem"
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-19_hu8005767890350776287.png"
+          srcset="/projects/internship-3deo/main-19_hu3083821950047178064.png 330w,/projects/internship-3deo/main-19_hu8005767890350776287.png 660w
+          
+            ,/projects/internship-3deo/main-19_hu18233774295570460109.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-19_hu8314437531205576181.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>We can set this problem up as a <em>pose graph</em>, a <a href="https://en.wikipedia.org/wiki/Graph_%28discrete_mathematics%29" target="_blank" rel="noreferrer">graph</a> where each node (\(X_1, &hellip;, X_n\)) represents the position of a scan relative to where it &ldquo;belongs&rdquo;, and each edge (\(\bar{D}_{ij}, \ i, j \in \{1, &hellip;, n\}\), transformation from scan \(j\) to scan \(i\)) represents a pairwise alignment (also called a pairwise <em>registration</em>) derived from an algorithm like ICP. Some number of \(\bar{D}_{ij}\) are known, and each \(X_i, \ i \in \{1, &hellip;, n\}\) is unknown. Now, one would hope that taking scan 3 and aligning with scan 1 would be equivalent to taking scan 3, aligning it with scan 2, and aligning that to scan 1, but in practice this is never the case since no pairwise registration algorithm is perfect. That is, we should expect that \(\bar{D}_{13} \neq \bar{D}_{12} \bar{D}_{23}.\)</p>
+<hr>
+<p>To determine the optimal pose of each scan (the value of each \(X_i\)), we can imagine that each pairwise registration is a spring in the pose graph. Since poses are multidimensional, the &ldquo;elasticity&rdquo; of each spring is a covariance matrix \(C_{ij}\), and the energy in each spring given a set of poses \(X_1, &hellip;, X_n\) is the squared Mahalanobis distance \((\bar{D}_{ij} - (X_i - X_j))^T C_{i j}^{-1} (\bar{D}_{ij} - (X_i - X_j))\). The optimal poses minimize the sum of the energy in the springs. That is, we seek</p>
+\[
+\underset{X_1, \ldots, X_n}{\argmin}
+\,
+\bigl(\bar{D}_{ij} - (X_i - X_j)\bigr)^{T}
+C_{ij}^{-1}
+\bigl(\bar{D}_{ij} - (X_i - X_j)\bigr)
+\]<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-21_hu2246771907119989750.webp 330w,/projects/internship-3deo/main-21_hu13716476525377006363.webp 660w
+            
+              ,/projects/internship-3deo/main-21_hu8470380283713179444.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-21_hu12869342866067997598.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        alt="Pose graph springs"
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-21_hu14377739731519974690.png"
+          srcset="/projects/internship-3deo/main-21_hu3346057845003800001.png 330w,/projects/internship-3deo/main-21_hu14377739731519974690.png 660w
+          
+            ,/projects/internship-3deo/main-21_hu13938897513146856905.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-21_hu7516207317859065355.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>Similar problems arise in robotics, like <a href="https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping" target="_blank" rel="noreferrer">Simultaneous Localization and Mapping</a> (SLAM).</p>
+<hr>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-22_hu13210059867086269825.webp 330w,/projects/internship-3deo/main-22_hu1304739205615458563.webp 660w
+            
+              ,/projects/internship-3deo/main-22_hu3105465679233041023.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-22_hu4839795980123884879.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        alt="Pose graph springs with description of covariance choices"
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-22_hu17327546747911306879.png"
+          srcset="/projects/internship-3deo/main-22_hu15027894066666538961.png 330w,/projects/internship-3deo/main-22_hu17327546747911306879.png 660w
+          
+            ,/projects/internship-3deo/main-22_hu7661710545166903451.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-22_hu5435525786326927223.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>The trickiest part of the problem is deciding the covariance of each pairwise registration (the elasticity of each spring). One might let the covariance for each pairwise registration be the same, making each edge have the same &ldquo;elasticity&rdquo; in the pose graph. Alternatively, one might use features on each pairwise registration to determine the covariance. For example, if scans \(i\) and \(j\) didn&rsquo;t overlap very much, we might expect the pairwise registration between them \(\bar{D}_{i j}\) to have more error (a higher covariance).</p>
+<hr>
+<p>I implemented a registration optimizer using the closed-form least squares pose graph solution described by Lu and Milios in <a href="https://robotics.caltech.edu/~jerma/research_papers/scan_matching_papers/milios_globally_consistent.pdf" target="_blank" rel="noreferrer">Globally Consistent Range Scan Alignment for Environment Mapping</a>.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-26_hu14772784655634687322.webp 330w,/projects/internship-3deo/main-26_hu3701272822683294803.webp 660w
+            
+              ,/projects/internship-3deo/main-26_hu11770146623621417451.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-26_hu13505625453724499145.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        alt="Lu-Milios optimizer"
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-26_hu14887821842875916770.png"
+          srcset="/projects/internship-3deo/main-26_hu3173752664530420558.png 330w,/projects/internship-3deo/main-26_hu14887821842875916770.png 660w
+          
+            ,/projects/internship-3deo/main-26_hu8710288765555812868.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-26_hu5644216522044314521.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>Because it gives a closed-form solution to the minimization problem described earlier, it is very fast. It can also handle non-constant pairwise covariances, which is important if you want to weight some pairwise registrations more than others.  (In my analysis, I fixed the covariances to encode an expected translational error of a meter and an expected rotational error in each axis of 2 mrad.)</p>
+<p>Now, our point cloud registrations were 6 dimensional, with both translation and rotation components. The space of rotations is not linear, so it is improper to perform linear least squares in it. However, our angles were very small (no more than a few milliradians), so it still worked quite well.</p>
+<hr>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-27_hu16073509264535561402.webp 330w,/projects/internship-3deo/main-27_hu17612833543546367329.webp 660w
+            
+              ,/projects/internship-3deo/main-27_hu1799088686373913310.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-27_hu16204232991084056941.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        alt="Lu-Milios 58 times faster"
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-27_hu13310078894087092822.png"
+          srcset="/projects/internship-3deo/main-27_hu17026797891570837094.png 330w,/projects/internship-3deo/main-27_hu13310078894087092822.png 660w
+          
+            ,/projects/internship-3deo/main-27_hu15285453365125528060.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-27_hu6376919397197336146.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>On a large dataset with over 200 scans, the Lu-Milios optimizer was 58 times faster than the old one (which was an iterative method, and not a closed-form solution to the pose graph problem).</p>
+<hr>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-28_hu14889681127514876094.webp 330w,/projects/internship-3deo/main-28_hu9720019329002193246.webp 660w
+            
+              ,/projects/internship-3deo/main-28_hu14207381888262507402.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-28_hu11009569534360529558.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        alt="Nearly equivalent registrations"
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-28_hu2282363722847810427.png"
+          srcset="/projects/internship-3deo/main-28_hu17409552407492472904.png 330w,/projects/internship-3deo/main-28_hu2282363722847810427.png 660w
+          
+            ,/projects/internship-3deo/main-28_hu7179371942810831678.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-28_hu14259930626167214290.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>The translations my new optimizer gave were about the same as those of the old optimizer, validating its correctness. (Northing, Easting, and Up correspond to translations in the &ldquo;x&rdquo;, &ldquo;y&rdquo;, and &ldquo;z&rdquo; axes. Rotational components are not shown.)</p>
+<hr>
+<p>The registrations from the new optimizer also looked similar visually.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-29_hu9158835865421075577.webp 330w,/projects/internship-3deo/main-29_hu418103345925798156.webp 660w
+            
+              ,/projects/internship-3deo/main-29_hu14414269038131125802.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-29_hu150423695997163282.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-29_hu12393031210970672144.png"
+          srcset="/projects/internship-3deo/main-29_hu1943422489973079903.png 330w,/projects/internship-3deo/main-29_hu12393031210970672144.png 660w
+          
+            ,/projects/internship-3deo/main-29_hu12703786906952296839.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-29_hu2279209172851024034.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+
+
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-30_hu2686749726110697285.webp 330w,/projects/internship-3deo/main-30_hu5699959469267316166.webp 660w
+            
+              ,/projects/internship-3deo/main-30_hu330830086206566708.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-30_hu16754254660241221365.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-30_hu2476066769694978400.png"
+          srcset="/projects/internship-3deo/main-30_hu3792754766195714616.png 330w,/projects/internship-3deo/main-30_hu2476066769694978400.png 660w
+          
+            ,/projects/internship-3deo/main-30_hu8024125941997459484.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-30_hu3319969340976652927.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-31_hu5965588854920125140.webp 330w,/projects/internship-3deo/main-31_hu9228306274354601451.webp 660w
+            
+              ,/projects/internship-3deo/main-31_hu11129485422678030007.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-31_hu10987871437075471953.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-31_hu17843281277726239771.png"
+          srcset="/projects/internship-3deo/main-31_hu2297894920070242857.png 330w,/projects/internship-3deo/main-31_hu17843281277726239771.png 660w
+          
+            ,/projects/internship-3deo/main-31_hu4431960451850503678.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-31_hu8114941530673893651.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+
+
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-32_hu16576748400822346494.webp 330w,/projects/internship-3deo/main-32_hu12111701513281339404.webp 660w
+            
+              ,/projects/internship-3deo/main-32_hu4924509671696262215.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-32_hu9170278133415929820.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-32_hu7882307747248823333.png"
+          srcset="/projects/internship-3deo/main-32_hu5180152783502031533.png 330w,/projects/internship-3deo/main-32_hu7882307747248823333.png 660w
+          
+            ,/projects/internship-3deo/main-32_hu10748189971165608829.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-32_hu12639148390474334614.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>In the above plot we see some ghosting. Because both registration optimizers exhibited the same ghosting, we can conclude that the issue lies with the pairwise registrations themselves (the scans are probably a little warped and need a non-rigid transformation to come into perfect alignment).</p>
+<hr>
+<p>The new optimizer was much faster while giving similar results to the old optimizer.</p>
+<hr>
+<h1 id="spot-illumination-modeling" class="relative group">Spot Illumination Modeling <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#spot-illumination-modeling" aria-label="Anchor">#</a></span></h1><p>I also worked on modeling the region of laser illumination throughout a scan in camera space. Much of the work in designing and building a 3DEO lidar sensor goes into controlling the mirrors and lenses that guide the sensor&rsquo;s laser to the target and back into the camera.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-37_hu13363488895719344050.webp 330w,/projects/internship-3deo/main-37_hu2286956960490706429.webp 660w
+            
+              ,/projects/internship-3deo/main-37_hu6271648991916033401.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-37_hu5081244951366601340.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-37_hu2043419090814015270.png"
+          srcset="/projects/internship-3deo/main-37_hu12894689869128804957.png 330w,/projects/internship-3deo/main-37_hu2043419090814015270.png 660w
+          
+            ,/projects/internship-3deo/main-37_hu15468250644194356765.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-37_hu9492842137333336188.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>The mirrors in the sensor oscillate very quickly to scan a target, so it is just about impossible to align them perfectly throughout a scan. Ideally, the region illuminated by the laser reflects right back into the middle of the camera&rsquo;s sensor array, as in the image above. In practice, the light reflected from the laser illumination spot occasionally veers away from the middle of the camera, leading to less efficient data collection.</p>
+<hr>
+<video controls autoplay loop muted>
+    <source src="/video/hitmap_moving_average_window_100_slow.mp4" type="video/mp4">
+    <!-- <source src="/video/hitmap_moving_average_window_100_slow.webm" type="video/webm"> -->
+    Your browser does not support the video tag.
+</video>
+The above video shows a laser illumination spot as detected by the camera throughout a particular scan. The video is slowed down substantially&mdash;the entire scan was collected in a second or two of real time.
+<p>Notice that there are a few dead pixels, and that the spot moves up and down in the camera frame.</p>
+<p>My project was to model this spot throughout a frame in order to potentially:</p>
+<ul>
+<li>Generate more accurate pointwise reflectivity (how reflective a spot on the ground is) estimates</li>
+<li>Validate or refine alignment of the mirrors and other lidar sensor devices in-flight</li>
+<li>Track defective pixels</li>
+</ul>
+<hr>
+<p>To simplify the problem, I chose to model the spot as a single 2-dimensional Gaussian. To me, the most obvious method was to take the sample mean and covariance of the pixel positions throughout the scan. That doesn&rsquo;t work very well though. To illustrate why, consider the following simulated data.</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-42_hu10551822483111493968.webp 330w,/projects/internship-3deo/main-42_hu10293345185881870197.webp 660w
+            
+              ,/projects/internship-3deo/main-42_hu8733079307773448147.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-42_hu9791330384017269318.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-42_hu14938262798418599525.png"
+          srcset="/projects/internship-3deo/main-42_hu15516573115468456685.png 330w,/projects/internship-3deo/main-42_hu14938262798418599525.png 660w
+          
+            ,/projects/internship-3deo/main-42_hu12386410224434505784.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-42_hu6302500413185128347.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>In the above plot, the dotted gray box represents the &ldquo;camera frame&rdquo; and each point represents a &ldquo;photon detection&rdquo;. The true distribution is represented in blue. The &ldquo;camera&rdquo; only detects the orange points, since the rest are out of its field of view. If we try to take the sample mean and covariance&hellip;</p>
+<p>
+
+
+
+
+
+<figure>
+    
+    
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="/projects/internship-3deo/main-43_hu11051568973028861753.webp 330w,/projects/internship-3deo/main-43_hu7179648964749563732.webp 660w
+            
+              ,/projects/internship-3deo/main-43_hu4938644993635702851.webp 1024w
+            
+            
+              ,/projects/internship-3deo/main-43_hu6840994321670549056.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="3508"
+        height="1974"
+        class="mx-auto my-0 rounded-md"
+        
+        loading="lazy" decoding="async"
+        
+          src="/projects/internship-3deo/main-43_hu2938891375549193637.png"
+          srcset="/projects/internship-3deo/main-43_hu1740717243298927923.png 330w,/projects/internship-3deo/main-43_hu2938891375549193637.png 660w
+          
+            ,/projects/internship-3deo/main-43_hu12449612259417284155.png 1024w
+          
+          
+            ,/projects/internship-3deo/main-43_hu16083815860751748169.png 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+</figure>
+</p>
+<p>we&rsquo;re way off, as shown in red. This is precisely the phenomenon I saw when I tried to take the sample mean and covariance of the real data—a shrunken covariance and a mean biased towards the center of the camera frame.</p>
+<hr>
+<p>I also tried fitting a truncated 2-dimensional Gaussian to the data with Bayesian inference (using PyMC). It was a lot of fun, but found that one of the tools I needed <a href="https://discourse.pymc.io/t/truncated-multivariate-normal-likelihood/17032" target="_blank" rel="noreferrer">wasn&rsquo;t yet implemented</a>.</p>
+<hr>
+<p>As I dug into this problem, I found that some Princeton astronomers had faced the same challenge while fitting Gaussian Mixture Models to images of galaxies. They made some extensions to Expectation Maximization (the standard algorithm for fitting GMMs) in order to handle incomplete data like mine (<a href="https://arxiv.org/abs/1611.05806" target="_blank" rel="noreferrer">paper</a>). I applied their code, <a href="https://github.com/pmelchior/pygmmis" target="_blank" rel="noreferrer">a Python library called pygmmis</a>, to my problem and it fit very nicely.</p>
+<video controls autoplay loop muted>
+    <source src="/video/spot_movement_window_100_gaussians_1_new_gmmis_1_in_1_slow.mp4" type="video/mp4">
+    <!-- <source src="/video/hitmap_moving_average_window_100_slow.webm" type="video/webm"> -->
+    Your browser does not support the video tag.
+</video>
+<p>It was too slow for our needs, though. For this problem it functions well as a ground truth. I worked on faster alternatives, like fitting the covariance less frequently and using the brightest region of the spot to find the mean. I also found that throwing out large proportions of the photon detections before fitting with pygmmis worked quite well, speeding up the process significantly without sacrificing much accuracy.</p>
+<p>Future steps include:</p>
+<ul>
+<li>Continuing investigation of faster ways of fitting the Gaussian model, using pygmmis or equivalent as ground truth</li>
+<li>Testing on more scans to evaluate robustness</li>
+<li>Implementing a simple pointwise reflectivity estimate by normalizing raw density by illumination intensity. (Something like \(\text{reflectivity} \propto \frac{\text{observed reflection intensity}}{\text{illumination intensity}} \) where \(\text{illumination intensity}\) is inferred from the spot illumination model, and \(\text{observed reflection intensity}\) comes from the density of the point cloud at a point)</li>
+</ul>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="/projects/acme-volume-3-project/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Predicting future life expectancy in countries using present data</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-12-17 20:34:00 -0700 MST">17 December 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="/projects/internship-3deo-copy/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Internship with 3DEO&mdash;Data Engineering for Geiger-mode Lidar</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-10 18:21:00 -0600 MDT">10 September 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2025
+            Matthew Ward
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Switch to dark appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Switch to light appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>
