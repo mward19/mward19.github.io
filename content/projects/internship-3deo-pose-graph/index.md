@@ -1,5 +1,5 @@
 +++
-date = '2025-09-10T18:21:03-06:00'
+date = '2025-09-10T18:21:01-06:00'
 draft = false
 showDate = true
 title = "Internship with 3DEO&mdash;Pose Graph Optimization"

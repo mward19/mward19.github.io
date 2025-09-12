@@ -99,8 +99,8 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:published_time" content="2025-09-10T18:21:01-06:00">
-    <meta property="article:modified_time" content="2025-09-10T18:21:01-06:00">
+    <meta property="article:published_time" content="2025-09-10T18:21:03-06:00">
+    <meta property="article:modified_time" content="2025-09-10T18:21:03-06:00">
     <meta property="og:image" content="http://localhost:1313/projects/internship-3deo-processing-report/cover.png">
 
   
@@ -126,15 +126,15 @@
       "name": "Matthew Ward"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-09-10T18:21:01-06:00",
-    "datePublished": "2025-09-10T18:21:01-06:00",
+    "dateCreated": "2025-09-10T18:21:03-06:00",
+    "datePublished": "2025-09-10T18:21:03-06:00",
     
-    "dateModified": "2025-09-10T18:21:01-06:00",
+    "dateModified": "2025-09-10T18:21:03-06:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "419"
+    "wordCount": "529"
   }
   </script>
     
@@ -628,7 +628,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-09-10 18:21:01 -0600 MDT">10 September 2025</time>
+      <time datetime="2025-09-10 18:21:03 -0600 MDT">10 September 2025</time>
     
 
     
@@ -714,8 +714,9 @@
 <p><em>See 
       
     <a href="/posts/internship-3deo/">overview article</a> and slides from my internship presentation on <a href="https://github.com/mward19/3deo-internship-presentation/tree/master" target="_blank" rel="noreferrer">GitHub</a>.</em></p>
+<p><em>Also see example processing reports (from the time of my internship presentation, current reports contain further improvements): <a href="/other/processing_report_mapping.pdf">Mapping Report</a>, <a href="/other/processing_report.pdf">Single Tile Report</a>.</em></p>
 <hr>
-<h1 id="processing-performance-report" class="relative group">Processing Performance Report <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#processing-performance-report" aria-label="Anchor">#</a></span></h1><p>After processing a batch of data, it is not immediately obvious how well processing went. To find and diagnose problems, one might have to parse through a SQL database with thousands of Slurm jobs, download and view hundreds of large, unwieldy point clouds, parse program log files, locate and interpret plots output at various stages of processing, and more. It is also useful to know how long the various stages of processing took in order to know which need to be optimized. To more easily fetch that kind of diagnostic information, the company asked me to find a way to automatically generate human-readable processing performance reports.</p>
+<h1 id="processing-performance-report" class="relative group">Processing Performance Report <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#processing-performance-report" aria-label="Anchor">#</a></span></h1><p>After processing a batch of 3DEO lidar data, it is not immediately obvious how well processing went. To find and diagnose problems, one might have to parse through a SQL database with thousands of Slurm jobs, download and view hundreds of large, unwieldy point clouds, parse program log files, locate and interpret plots output at various stages of processing, and more. It is also useful to know how long the various stages of processing took in order to know which stages need further optimization. To more easily fetch that kind of diagnostic information, 3DEO asked me to write a processing stage to automatically generate human-readable processing performance reports.</p>
 <hr>
 <p>
 
@@ -781,7 +782,7 @@
 
 </figure>
 </p>
-<p>I chose to generate the report in a few stages. First, my program collects data from processing outputs and the SQL database of Slurm jobs. Then it compiles that information into a large JSON, which it uses to populate fields in a number of \(\LaTeX\) templates I wrote. Finally, it generates a PDF from the \(\LaTeX\).</p>
+<p>I chose to generate the report in a few steps. First, my program collects data from processing outputs and the SQL database of Slurm jobs. Then it compiles that information into a large JSON, which it uses to populate fields in a number of \(\LaTeX\) templates I wrote. Finally, it generates a PDF from the \(\LaTeX\).</p>
 <hr>
 <p>
 
@@ -1109,7 +1110,7 @@
 
 </figure>
 </p>
-<p>When processing many targets (tiles) at once, the vertical axis also gives an idea of which target the Slurm job corresponds to. This is primarily useful to display how <em>concurrent</em> the processing was at a given time.</p>
+<p>When processing multiple targets (tiles) simultaneously, the vertical axis (within each processing module row) indicates which target each Slurm job corresponds to. This helps visualize how many jobs were running concurrently at any given time.</p>
 <hr>
 <p>
 
@@ -1124,6 +1125,20 @@
 </figure>
 </p>
 <p>The per-target (per-tile) sections of the report give lower-level information useful for evaluating how successful processing was for a given target. (3DEO&rsquo;s processing currently processes each target separately.)</p>
+<hr>
+<p>Here are a couple reports generated by the program as it was at the end of July:</p>
+<ul>
+<li><a href="/other/processing_report_mapping.pdf">Mapping Report</a></li>
+<li><a href="/other/processing_report.pdf">Single Tile Report</a></li>
+</ul>
+<p>Since generating these reports, as far as I can remember (I don&rsquo;t have the code anymore), additions and changes to the report include:</p>
+<ul>
+<li>Removal of unimplemented fields (like those in the per-tile registration section)</li>
+<li>Reports on processing errors, both in the overview and the per-tile sections</li>
+<li>Improved formatting of tile images</li>
+<li>Report on versions of each processing module</li>
+<li>Per-tile processing timeline plot in each per-tile section</li>
+</ul>
 <hr>
 <p>Writing the processing performance report program gave me a chance to dive into 3DEO&rsquo;s processing pipeline and understand the purpose of each step in it. For some of the statistics that the reports display, I had to modify the existing pipeline to report more information at the appropriate processing step (for example, report on data rejection as data is rejected throughout processing). I also learned more about the scripting and document typesetting side of \(\LaTeX,\) as opposed to just typesetting math.</p>
 
@@ -1144,29 +1159,12 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="group flex" href="/projects/acme-volume-3-project/">
+            <a class="group flex" href="/projects/internship-3deo-spot-modeling/">
               <span
                 class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
                 ><span class="ltr:inline rtl:hidden">&larr;</span
                 ><span class="ltr:hidden rtl:inline">&rarr;</span></span
               >
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Predicting future life expectancy in countries using present data</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2024-12-17 20:34:00 -0700 MST">17 December 2024</time>
-                  
-                </span>
-              </span>
-            </a>
-          
-        </span>
-        <span>
-          
-            <a class="group flex text-right" href="/projects/internship-3deo-spot-modeling/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
@@ -1178,12 +1176,10 @@
                   
                 </span>
               </span>
-              <span
-                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
-                ><span class="ltr:inline rtl:hidden">&rarr;</span
-                ><span class="ltr:hidden rtl:inline">&larr;</span></span
-              >
             </a>
+          
+        </span>
+        <span>
           
         </span>
       </div>
