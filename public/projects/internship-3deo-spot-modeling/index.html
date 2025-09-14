@@ -99,8 +99,8 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:published_time" content="2025-09-10T18:21:02-06:00">
-    <meta property="article:modified_time" content="2025-09-10T18:21:02-06:00">
+    <meta property="article:published_time" content="2025-09-13T23:31:02-06:00">
+    <meta property="article:modified_time" content="2025-09-13T23:31:02-06:00">
     <meta property="og:image" content="http://localhost:1313/projects/internship-3deo-spot-modeling/cover.png">
 
   
@@ -126,15 +126,15 @@
       "name": "Matthew Ward"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-09-10T18:21:02-06:00",
-    "datePublished": "2025-09-10T18:21:02-06:00",
+    "dateCreated": "2025-09-13T23:31:02-06:00",
+    "datePublished": "2025-09-13T23:31:02-06:00",
     
-    "dateModified": "2025-09-10T18:21:02-06:00",
+    "dateModified": "2025-09-13T23:31:02-06:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "636"
+    "wordCount": "754"
   }
   </script>
     
@@ -628,7 +628,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-09-10 18:21:02 -0600 MDT">10 September 2025</time>
+      <time datetime="2025-09-13 23:31:02 -0600 MDT">13 September 2025</time>
     
 
     
@@ -699,9 +699,9 @@
 
 <p><em>See 
       
-    <a href="/posts/internship-3deo/">overview article</a> and slides from my internship presentation on <a href="https://github.com/mward19/3deo-internship-presentation/tree/master" target="_blank" rel="noreferrer">GitHub</a>.</em></p>
+    <a href="/posts/internship-3deo/">3DEO internship overview</a> and slides from my internship presentation on <a href="https://github.com/mward19/3deo-internship-presentation/tree/master" target="_blank" rel="noreferrer">GitHub</a>.</em></p>
 <hr>
-<h1 id="illumination-spot-modeling" class="relative group">Illumination Spot Modeling <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#illumination-spot-modeling" aria-label="Anchor">#</a></span></h1><p>I also worked on modeling the region of laser illumination throughout a scan in camera space. Much of the work in designing and building a 3DEO lidar sensor goes into controlling the mirrors and lenses that guide the sensor&rsquo;s laser to the target and back into the camera.</p>
+<h1 id="illumination-spot-modeling" class="relative group">Illumination Spot Modeling <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#illumination-spot-modeling" aria-label="Anchor">#</a></span></h1><p>During my internship at 3DEO this summer, I spent some time modeling the region of laser illumination throughout a scan as observed in camera space. That is, as represented in the image below, I modeled the red spot on the ground (the laser illumination spot) relative to the blue region (the camera field of view).</p>
 <p>
 
 
@@ -766,23 +766,23 @@
 
 </figure>
 </p>
-<p>The mirrors in the sensor oscillate very quickly to scan a target, so it is just about impossible to align them perfectly throughout a scan. Ideally, the region illuminated by the laser reflects right back into the middle of the camera&rsquo;s sensor array, as in the image above. In practice, the light reflected from the laser illumination spot occasionally veers away from the middle of the camera, leading to less efficient data collection.</p>
+<p>Much of the work in designing and building a 3DEO lidar sensor goes into controlling the mirrors and lenses that guide the sensor&rsquo;s laser to the target and back into the camera. The mirrors in the sensor oscillate very quickly to scan a target, so it is just about impossible to align them perfectly throughout a scan. Ideally, the region illuminated by the laser reflects right back into the middle of the camera&rsquo;s sensor array, as in the image above. In practice, the light reflected from the laser illumination spot occasionally veers away from the middle of the camera, leading to less efficient data collection.</p>
 <hr>
 <video controls autoplay loop muted>
     <source src="/video/hitmap_moving_average_window_100_slow.mp4" type="video/mp4">
     <!-- <source src="/video/hitmap_moving_average_window_100_slow.webm" type="video/webm"> -->
     Your browser does not support the video tag.
 </video>
-The above video shows a laser illumination spot as detected by the camera throughout a particular scan. The video is slowed down substantially&mdash;the entire scan was collected in a second or two of real time.
+This video shows a laser illumination spot as detected by the camera throughout a particular scan. The video is slowed down substantially&mdash;the entire scan was collected in a second or two of real time.
 <p>Notice that there are a few dead pixels, and that the spot moves up and down in the camera frame.</p>
-<p>My project was to model this spot throughout a frame in order to potentially:</p>
+<p>My project was to model this spot throughout a scan in order to potentially:</p>
 <ul>
 <li>Generate more accurate pointwise reflectivity (how reflective a spot on the ground is) estimates</li>
 <li>Validate or refine alignment of the mirrors and other lidar sensor devices in-flight</li>
 <li>Track defective pixels</li>
 </ul>
 <hr>
-<p>To simplify the problem, I chose to model the spot as a single 2-dimensional Gaussian. To me, the most obvious method was to take the sample mean and covariance of the pixel positions throughout the scan. That doesn&rsquo;t work very well though. To illustrate why, consider the following simulated data.</p>
+<p>I chose to model the spot as a single 2-dimensional Gaussian with a mean and covariance that can change throughout the scan. To get a baseline I began by fitting my Gaussian by taking the sample mean and covariance of the pixel positions. That doesn&rsquo;t work very well though. To illustrate why, consider the following simulated data.</p>
 <p>
 
 
@@ -847,7 +847,7 @@ The above video shows a laser illumination spot as detected by the camera throug
 
 </figure>
 </p>
-<p>In the above plot, the dotted gray box represents the &ldquo;camera frame&rdquo; and each point represents a &ldquo;photon detection&rdquo;. The true distribution is represented in blue. The &ldquo;camera&rdquo; only detects the orange points, since the rest are out of its field of view. If we try to take the sample mean and covariance&hellip;</p>
+<p>In the above plot, the dotted gray box represents the simulated camera frame and each point represents a &ldquo;photon detection&rdquo;. The true distribution is represented in blue. The &ldquo;camera&rdquo; only detects the orange points, since the rest are out of its field of view. If we try to take the sample mean and covariance&hellip;</p>
 <p>
 
 
@@ -914,7 +914,7 @@ The above video shows a laser illumination spot as detected by the camera throug
 </p>
 <p>we&rsquo;re way off, as shown in red. This is precisely the phenomenon I saw when I tried to take the sample mean and covariance of the real data—a shrunken covariance and a mean biased towards the center of the camera frame.</p>
 <hr>
-<p>I also tried fitting a truncated 2-dimensional Gaussian to the data with Bayesian inference (using PyMC). It was a lot of fun, but found that one of the tools I needed <a href="https://discourse.pymc.io/t/truncated-multivariate-normal-likelihood/17032" target="_blank" rel="noreferrer">wasn&rsquo;t yet implemented</a>.</p>
+<p>Since that didn&rsquo;t work, I also tried fitting a truncated 2-dimensional Gaussian to the data with Bayesian inference (using PyMC). It was a lot of fun, but found that one of the tools I needed <a href="https://discourse.pymc.io/t/truncated-multivariate-normal-likelihood/17032" target="_blank" rel="noreferrer">wasn&rsquo;t yet implemented</a>.</p>
 <hr>
 <p>As I dug into this problem, I found that some Princeton astronomers had faced the same challenge while fitting Gaussian Mixture Models to images of galaxies. They made some extensions to Expectation Maximization (the standard algorithm for fitting GMMs) in order to handle incomplete data like mine (<a href="https://arxiv.org/abs/1611.05806" target="_blank" rel="noreferrer">paper</a>). I applied their code, <a href="https://github.com/pmelchior/pygmmis" target="_blank" rel="noreferrer">a Python library called pygmmis</a>, to my problem and it fit very nicely.</p>
 <video controls autoplay loop muted>
@@ -922,13 +922,15 @@ The above video shows a laser illumination spot as detected by the camera throug
     <!-- <source src="/video/hitmap_moving_average_window_100_slow.webm" type="video/webm"> -->
     Your browser does not support the video tag.
 </video>
-<p>It was too slow for our needs, though. For this problem it functions well as a ground truth. I worked on faster alternatives, like fitting the covariance less frequently and using the brightest region of the spot to find the mean. I also found that throwing out large proportions of the photon detections before fitting with pygmmis worked quite well, speeding up the process significantly without sacrificing much accuracy.</p>
-<p>Future steps include:</p>
+<p>Its runtime was too slow for real-time use, though. For this problem it functions well as a ground truth. I worked on faster alternatives, like fitting the covariance less frequently and using the brightest region of the spot to find the mean. I also found that throwing out large proportions of the photon detections before fitting with pygmmis worked quite well, speeding up the process significantly without sacrificing much accuracy.</p>
+<p>Next, I would:</p>
 <ul>
-<li>Continuing investigation of faster ways of fitting the Gaussian model, using pygmmis or equivalent as ground truth</li>
-<li>Testing on more scans to evaluate robustness</li>
-<li>Implementing a simple pointwise reflectivity estimate by normalizing raw density by illumination intensity. (Something like \(\text{reflectivity} \propto \frac{\text{observed reflection intensity}}{\text{illumination intensity}} \) where \(\text{illumination intensity}\) is inferred from the spot illumination model, and \(\text{observed reflection intensity}\) comes from the density of the point cloud at a point)</li>
+<li>Continue exploring faster ways of fitting the Gaussian model, using pygmmis or equivalent as ground truth</li>
+<li>Test on more scans to check robustness</li>
+<li>Prototype a simple pointwise reflectivity estimate. This might look something like $$\text{reflectivity estimate} \propto \frac{\text{observed reflection intensity}}{\text{illumination intensity}}$$ where \(\text{illumination intensity}\) is inferred from the spot illumination model, and \(\text{observed reflection intensity}\) comes from the local density of the point cloud.</li>
 </ul>
+<hr>
+<p>This project showed me how tricky it can be to model data that’s only partially observed. Simple approaches didn’t hold up well, but methods like pygmmis provided a useful reference point for what good fits look like. The main challenge now is finding faster approximations that are accurate enough to be practical. There’s still more to explore, but these first steps gave a clearer picture of the problem and some practical directions forward.</p>
 
       </div>
     </section>
@@ -960,7 +962,7 @@ The above video shows a laser illumination spot as detected by the camera throug
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-09-10 18:21:01 -0600 MDT">10 September 2025</time>
+                    <time datetime="2025-09-13 23:31:01 -0600 MDT">13 September 2025</time>
                   
                 </span>
               </span>
@@ -968,25 +970,6 @@ The above video shows a laser illumination spot as detected by the camera throug
           
         </span>
         <span>
-          
-            <a class="group flex text-right" href="/projects/internship-3deo-processing-report/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Internship with 3DEO&mdash;Processing Performance Report</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-09-10 18:21:03 -0600 MDT">10 September 2025</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
-                ><span class="ltr:inline rtl:hidden">&rarr;</span
-                ><span class="ltr:hidden rtl:inline">&larr;</span></span
-              >
-            </a>
           
         </span>
       </div>

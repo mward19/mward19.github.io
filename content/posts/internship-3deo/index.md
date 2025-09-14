@@ -1,5 +1,5 @@
 +++
-date = '2025-09-10T18:21:00-06:04'
+date = '2025-09-13T23:31:00-06:00'
 draft = false
 showDate = true
 title = "Internship with 3DEO&mdash;Data Engineering for Geiger-mode Lidar"

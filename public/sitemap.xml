@@ -4,15 +4,36 @@
   
     
       <url>
+            <loc>http://localhost:1313/projects/internship-3deo-spot-modeling/</loc>
+            <lastmod>2025-09-13T23:31:02-06:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/projects/</loc>
+            <lastmod>2025-09-13T23:31:02-06:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
+            <loc>http://localhost:1313/projects/internship-3deo-pose-graph/</loc>
+            <lastmod>2025-09-13T23:31:01-06:00</lastmod>
+          </url>
+    
+  
+    
+      <url>
             <loc>http://localhost:1313/posts/internship-3deo/</loc>
-            <lastmod>2025-09-10T18:21:00-06:04</lastmod>
+            <lastmod>2025-09-13T23:31:00-06:00</lastmod>
           </url>
     
   
     
       <url>
             <loc>http://localhost:1313/posts/</loc>
-            <lastmod>2025-09-10T18:21:00-06:04</lastmod>
+            <lastmod>2025-09-13T23:31:00-06:00</lastmod>
           </url>
     
   
@@ -20,27 +41,6 @@
       <url>
             <loc>http://localhost:1313/projects/internship-3deo-processing-report/</loc>
             <lastmod>2025-09-10T18:21:03-06:00</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>http://localhost:1313/projects/</loc>
-            <lastmod>2025-09-10T18:21:03-06:00</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>http://localhost:1313/projects/internship-3deo-spot-modeling/</loc>
-            <lastmod>2025-09-10T18:21:02-06:00</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>http://localhost:1313/projects/internship-3deo-pose-graph/</loc>
-            <lastmod>2025-09-10T18:21:01-06:00</lastmod>
           </url>
     
   
