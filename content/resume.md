@@ -75,8 +75,8 @@ April 2026*
 </style>
 
 - {{< special-link "https://github.com/mward19/qwixx/tree/master/src" >}}Object-oriented programming{{< /special-link >}}
-- Database management
-- High-performance computing
+- {{< special-link "/projects/internship-3deo-processing-report" >}}Database management{{< /special-link >}}
+- {{< special-link "/projects/internship-3deo-pose-graph" >}}High-performance computing{{< /special-link >}}
 - Git / GitHub
 - Excel
 
@@ -85,20 +85,28 @@ April 2026*
 - {{< special-link "/projects/tomogram-datasets" >}}Data analysis{{< /special-link >}}
 - Digital image processing
 - Computer vision
-- Machine learning
-- Deep learning
+- Lidar / Point Clouds
+- Machine learning, deep learning
 - {{< special-link "http://github.com/mward19/pcp" >}}Numerical and dynamic optimization{{< /special-link >}}
 
 ### Mathematics & Algorithms
-- Dynamic systems
-- {{< special-link "http://github.com/mward19/pcp" >}}Numerical linear algebra{{< /special-link >}}
 - Mathematical statistics
+- Dynamical systems
+- {{< special-link "http://github.com/mward19/pcp" >}}Numerical linear algebra{{< /special-link >}}
+- Bayesian modeling
+- Control theory, optimal control
 
-### Curriculum in 2025
-Bayesian modeling, hidden Markov models, state-space models, ARIMA models, optimal control, control theory
 <hr>
 
 ## Experience
+**Mathematical Programming Teaching Assistant**\
+*Brigham Young University* | *Provo, Utah*\
+*September 2025&ndash;Present*
+
+**Data Engineer Intern**\
+*3DEO* | *Orem, Utah*\
+*May 2025&ndash;August 2025*
+
 **Research Assistant**\
 *Brigham Young University* &mdash; *Biophysics Simulation Group* | *Provo, Utah*\
 *April 2024*&ndash;*Present*
