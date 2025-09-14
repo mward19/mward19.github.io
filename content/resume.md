@@ -17,9 +17,41 @@ title = 'Resume'
 April 2026*
 - [Concentration: Data Science & Machine Learning](https://acme.byu.edu/data-science-and-machine-learning)
 - GPA: 3.97
-- Academic Scholarship (3 years)
+- Academic Scholarship (4 years)
 
 <hr>
+
+## Experience
+**Mathematical Programming Teaching Assistant**\
+*Brigham Young University* | *Provo, Utah*\
+*September 2025&ndash;Present*
+
+**Data Engineer Intern**\
+*3DEO* | *Orem, Utah*\
+*May 2025&ndash;August 2025*
+
+**Research Assistant**\
+*Brigham Young University* &mdash; *Biophysics Simulation Group* | *Provo, Utah*\
+*April 2024*&ndash;*Present*
+
+- Collaborate with a multidisciplinary team of physicists, biochemists, mathematicians, and computer scientists to
+develop and evaluate particle picking, image segmentation, and template matching algorithms and pipelines in cryo-electron tomography
+- Analyze, visualize and present statistical findings related to a vast database of over 50 terabytes of three-dimensional
+images
+- Write and optimize Python and Julia code for advanced image processing and object recognition tasks using
+algorithms such as Canny edge detection, SLIC superpixels, U-Net, etc.
+- Leverage supercomputer resources to run image processing tasks, improving computational efficiency and enabling
+the analysis of high-resolution data
+- Maintain code integrity using Git and GitHub
+
+**Financial and Executive Secretary**\
+*The Church of Jesus Christ of Latter-day Saints* | *Cali, Valle del Cauca, Colombia*\
+*March 2022*&ndash;*February 2023*
+
+- Streamlined financial systems and managed travel plans for 150 full-time representatives
+- Designed and developed a VBA-based software tool to categorize 10,000 poorly formatted addresses into
+geographically organized lists which updated dynamically based on location and user input
+- Provided 24/7 logistical, technological, and financial support to the president of the organization
 
 ## Skills
 
@@ -97,39 +129,6 @@ April 2026*
 - Control theory, optimal control
 
 <hr>
-
-## Experience
-**Mathematical Programming Teaching Assistant**\
-*Brigham Young University* | *Provo, Utah*\
-*September 2025&ndash;Present*
-
-**Data Engineer Intern**\
-*3DEO* | *Orem, Utah*\
-*May 2025&ndash;August 2025*
-
-**Research Assistant**\
-*Brigham Young University* &mdash; *Biophysics Simulation Group* | *Provo, Utah*\
-*April 2024*&ndash;*Present*
-
-- Collaborate with a multidisciplinary team of physicists, biochemists, mathematicians, and computer scientists to
-develop and evaluate particle picking, image segmentation, and template matching algorithms and pipelines in cryo-
-electron tomography
-- Analyze, visualize and present statistical findings related to a vast database of over 50 terabytes of three-dimensional
-images
-- Write and optimize Python and Julia code for advanced image processing and object recognition tasks using
-algorithms such as Canny edge detection, SLIC superpixels, U-Net, etc.
-- Leverage supercomputer resources to run image processing tasks, improving computational efficiency and enabling
-the analysis of high-resolution data
-- Maintain code integrity using Git and GitHub
-
-**Financial and Executive Secretary**\
-*The Church of Jesus Christ of Latter-day Saints* | *Cali, Valle del Cauca, Colombia*\
-*March 2022*&ndash;*February 2023*
-
-- Streamlined financial systems and managed travel plans for 150 full-time representatives
-- Designed and developed a VBA-based software tool to categorize 10,000 poorly formatted addresses into
-geographically organized lists which updated dynamically based on location and user input
-- Provided 24/7 logistical, technological, and financial support to the president of the organization
 
 ## Projects
 See the [*Projects* page](/projects) on this site.
