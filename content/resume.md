@@ -32,7 +32,7 @@ April 2026*
 
 **Research Assistant**\
 *Brigham Young University* &mdash; *Biophysics Simulation Group* | *Provo, Utah*\
-*April 2024*&ndash;*Present*
+*April 2024*&ndash;*April 2025*
 
 - Collaborate with a multidisciplinary team of physicists, biochemists, mathematicians, and computer scientists to
 develop and evaluate particle picking, image segmentation, and template matching algorithms and pipelines in cryo-electron tomography
