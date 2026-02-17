@@ -25,7 +25,7 @@
     md-content,
     scope: (
       image: (source, alt: none, format: auto) => figure(image(
-        "../../" + source, // Modify paths for images
+        "../" + source, // Modify paths for images
         alt: alt,
         format: format,
       )),
