@@ -124,7 +124,8 @@ MATH NOTATION
 
 /* TODO: Remove hack for math zooming */
 figure[role="math"] {
-    zoom: 1.4;
+    font-size: 1.4em;
+    margin-block: 1em;
 }
 
 @media (prefers-color-scheme: dark) {
