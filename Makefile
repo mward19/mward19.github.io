@@ -5,7 +5,7 @@ VERSION := $(shell grep '^version = ' typst.toml | sed 's/version = "\(.*\)"/\1/
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 # Define phony (non-file) targets
-.PHONY: link link-macos link-linux link-windows sync-assets check build
+.PHONY: link link-macos link-linux link-windows sync-assets check build html
 
 # Create symlink to local package cache
 link:
@@ -50,6 +50,9 @@ clean:
 # Check package for common issues
 check:
 	typst-package-check check
+
+html: link
+	$(MAKE) -C template html
 
 # Build a zip archive for submission
 build: sync-assets clean
