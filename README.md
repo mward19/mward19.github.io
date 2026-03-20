@@ -1,1 +1,1 @@
-template/assets/README.md
+template/README.md

@@ -17,7 +17,7 @@
 // See the implementation below.
 
 #{
-  let md-content = read("../assets/README.md")
+  let md-content = read("../README.md")
   let md-content = md-content.trim(regex("\s*#.+?\n")) // Remove first-level heading
 
   // Render markdown content with custom image handling
