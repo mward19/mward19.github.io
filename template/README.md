@@ -22,11 +22,12 @@ Explore the `content/` folder for examples.
 
 ## Links
 
-- [Repository on GitHub](https://github.com/vsheg/tufted)
-- [Typst Universe](https://typst.app/universe/package/tufted)
+- [tufted.vsheg.com](https://tufted.vsheg.com) — live demo and docs of the latest stable version
+- [dev.tufted.vsheg.com](https://dev.tufted.vsheg.com) — current dev version
+- [Repository on GitHub](https://github.com/vsheg/tufted) — source code, issues, and contributions
+- [Typst Universe](https://typst.app/universe/package/tufted) — template page
 - [Tufte CSS](https://edwardtufte.github.io/tufte-css/) — used for styling, loaded automatically from a CDN
-- [tufted.vsheg.com](https://tufted.vsheg.com) — live demo and docs
 
 ## License
 
-The source code is available on [GitHub](https://github.com/vsheg/tufted) under the [MIT License](LICENSE). The template in the `template/` directory uses the more permissive [MIT-0](https://opensource.org/licenses/MIT-0) license.
+The source code is available on [GitHub](https://github.com/vsheg/tufted) under the [MIT License](https://github.com/vsheg/tufted/blob/main/LICENSE). The template in the `template/` directory uses the more permissive [MIT-0](https://opensource.org/licenses/MIT-0) license.
