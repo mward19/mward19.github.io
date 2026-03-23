@@ -9,7 +9,7 @@ A static website template built using Typst's experimental HTML export. Requires
 Initialize the template from the Typst package registry:
 
 ```shell
-typst init @preview/tufted:0.1.0
+typst init @preview/tufted:0.1.1
 ```
 
 To build the website, run:

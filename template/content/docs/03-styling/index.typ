@@ -35,7 +35,7 @@ a {
 To override the default stylesheets, you can provide your own list of stylesheets in `config.typ`. For example, to use only a custom stylesheet:
 
 ```typst
-#import "@preview/tufted:0.1.0"
+#import "@preview/tufted:0.1.1"
 
 #let template = tufted.tufted-web.with(
   css: ("/assets/style.css",),

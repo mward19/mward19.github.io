@@ -24,7 +24,7 @@ Currently, three functions are implemented:
 In `config.typ`, you define own template by customizing the `tufted-web` template from the package. Here you customaize the top navigation links and the website title:
 
 ```typst
-#import "@preview/tufted:0.1.0"
+#import "@preview/tufted:0.1.1"
 
 #let template = tufted.tufted-web.with(
   header-links: (

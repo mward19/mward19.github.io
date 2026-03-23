@@ -8,7 +8,7 @@
 To initialize a new project using the `tufted` template, run the following command in your terminal:
 
 ```sh
-typst init @preview/tufted:0.1.0 my-website
+typst init @preview/tufted:0.1.1 my-website
 cd my-website
 ```
 
