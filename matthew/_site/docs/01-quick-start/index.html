@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quick Start</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
+    <link rel="stylesheet" href="/assets/tufted.css">
+    <link rel="stylesheet" href="/assets/custom.css">
+  </head>
+  <body>
+    <header>
+      <nav><a href="/">Home</a><a href="/about/">About</a><a href="/posts/">Posts</a><a href="/projects/">Projects</a></nav>
+    </header>
+    <article>
+      <section>
+        <h2>Quick Start</h2>
+        <h3>Installation</h3>
+        <p>To initialize a new project using the <code>tufted</code> template, run the following command in your terminal:</p>
+        <pre><code data-lang="sh"><span style="color: #4b69c6">typst</span> init @preview/tufted:0.1.1 my-website<br><span style="color: #4b69c6">cd</span> my-website</code></pre>
+        <h3>Building</h3>
+        <p>The template includes a <code>Makefile</code> to automate the build process. To build the website, run:</p>
+        <pre><code data-lang="sh"><span style="color: #4b69c6">make</span> html</code></pre>
+        <p>This command compiles all <code>.typ</code> files in the <code>content/</code> directory into HTML files in the <code>_site/</code> directory.</p>
+      </section>
+    </article>
+  </body>
+</html>

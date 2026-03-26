@@ -3,9 +3,9 @@
 #let template = tufted.tufted-web.with(
   header-links: (
     "/": "Home",
-    "/docs/": "Docs",
-    "/blog/": "Blog",
-    "/cv/": "CV",
+    "/about/": "About",
+    "/posts/": "Posts",
+    "/projects/": "Projects"
   ),
-  title: "Tufted",
+  title: "Matthew Ward",
 )

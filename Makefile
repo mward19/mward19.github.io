@@ -40,11 +40,11 @@ sync-assets:
 	@mkdir -p assets
 	@for asset in $(ASSETS); do \
 		rm -f "assets/$$asset"; \
-		cp "template/assets/$$asset" "assets/$$asset"; \
+		cp "matthew/assets/$$asset" "assets/$$asset"; \
 	done
 
 clean:
-	rm -rf template/_site
+	rm -rf matthew/_site
 	find . -name ".DS_Store" -delete
 
 # Check package for common issues
@@ -52,8 +52,8 @@ check:
 	typst-package-check check
 
 html: link
-	$(MAKE) -C template html
+	$(MAKE) -C matthew html
 
 # Build a zip archive for submission
 build: sync-assets clean
-	zip -r tufted-${VERSION}.zip src/ template/ assets/ LICENSE README.md typst.toml
+	zip -r tufted-${VERSION}.zip src/ matthew/ assets/ LICENSE README.md typst.toml

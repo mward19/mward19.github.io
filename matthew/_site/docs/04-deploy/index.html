@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deployment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
+    <link rel="stylesheet" href="/assets/tufted.css">
+    <link rel="stylesheet" href="/assets/custom.css">
+  </head>
+  <body>
+    <header>
+      <nav><a href="/">Home</a><a href="/about/">About</a><a href="/posts/">Posts</a><a href="/projects/">Projects</a></nav>
+    </header>
+    <article>
+      <section>
+        <h2>Deployment</h2>
+        <p>You can easily deploy your website to GitHub Pages using GitHub Actions.</p>
+        <h3>GitHub Actions</h3>
+        <p>Create a file named <code>.github/workflows/deploy.yml</code> in your repository with the following content:</p>
+        <pre><code data-lang="yaml"><span style="color: #4b69c6">name</span>: <span style="color: #198810">Deploy</span><br><br><span style="color: #d73948">on</span>:<br>  <span style="color: #4b69c6">push</span>:<br>    <span style="color: #4b69c6">branches</span>: [ <span style="color: #198810">main</span> ]<br>  <span style="color: #4b69c6">workflow_dispatch</span>:<br><br><span style="color: #4b69c6">permissions</span>:<br>  <span style="color: #4b69c6">contents</span>: <span style="color: #198810">read</span><br>  <span style="color: #4b69c6">pages</span>: <span style="color: #198810">write</span><br>  <span style="color: #4b69c6">id-token</span>: <span style="color: #198810">write</span><br><br><span style="color: #4b69c6">jobs</span>:<br>  <span style="color: #74747c">#</span><span style="color: #74747c"> Build the site</span><br>  <span style="color: #4b69c6">build</span>:<br>    <span style="color: #4b69c6">runs-on</span>: <span style="color: #198810">ubuntu-latest</span><br>    <span style="color: #4b69c6">steps</span>:<br>      - <span style="color: #4b69c6">uses</span>: <span style="color: #198810">actions/checkout@v5</span><br>      - <span style="color: #4b69c6">uses</span>: <span style="color: #198810">typst-community/setup-typst@v4</span><br>      - <span style="color: #4b69c6">run</span>: <span style="color: #198810">make html</span><br>      - <span style="color: #4b69c6">uses</span>: <span style="color: #198810">actions/configure-pages@v4</span><br>      - <span style="color: #4b69c6">uses</span>: <span style="color: #198810">actions/upload-pages-artifact@v4</span><br>        <span style="color: #4b69c6">with</span>:<br>          <span style="color: #4b69c6">path</span>: <span style="color: #198810">_site</span><br><br>  <span style="color: #74747c">#</span><span style="color: #74747c"> Publish to GitHub Pages</span><br>  <span style="color: #4b69c6">deploy</span>:<br>    <span style="color: #4b69c6">runs-on</span>: <span style="color: #198810">ubuntu-latest</span><br>    <span style="color: #4b69c6">needs</span>: <span style="color: #198810">build</span><br>    <span style="color: #4b69c6">permissions</span>:<br>      <span style="color: #4b69c6">pages</span>: <span style="color: #198810">write</span><br>      <span style="color: #4b69c6">id-token</span>: <span style="color: #198810">write</span><br>    <span style="color: #4b69c6">environment</span>:<br>      <span style="color: #4b69c6">name</span>: <span style="color: #198810">github-pages</span><br>      <span style="color: #4b69c6">url</span>: <span style="color: #198810">${{ steps.deployment.outputs.page_url }}</span><br>    <span style="color: #4b69c6">steps</span>:<br>      - <span style="color: #4b69c6">uses</span>: <span style="color: #198810">actions/deploy-pages@v4</span><br>        <span style="color: #4b69c6">id</span>: <span style="color: #198810">deployment</span><br></code></pre>
+        <h3>Enable GitHub Pages</h3>
+        <ol>
+          <li value="1">Go to your repository on GitHub.</li>
+          <li value="2">Navigate to <em>Settings</em>, then <em>Pages</em>.</li>
+          <li value="3">Under <em>Build and deployment</em>, select <em>GitHub Actions</em> as the source.</li>
+        </ol>
+        <p>Now, every time you push to the <code>main</code> branch, your website will be automatically built and deployed.</p>
+      </section>
+    </article>
+  </body>
+</html>
