@@ -1,1 +1,10 @@
 /* Modify this file to add your own custom styles */
+.picture img {
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.picture img {
+    display: block; 
+    max-width: 100%; 
+}

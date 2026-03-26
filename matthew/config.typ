@@ -2,10 +2,10 @@
 
 #let template = tufted.tufted-web.with(
   header-links: (
-    "/": "Home",
-    "/about/": "About",
-    "/posts/": "Posts",
-    "/projects/": "Projects"
+    "/": [#sym.dot *Matthew Ward* #sym.dot],
+    "/about/": [About],
+    "/posts/": [Posts],
+    "/projects/": [Projects]
   ),
   title: "Matthew Ward",
 )
