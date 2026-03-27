@@ -19,5 +19,5 @@
   Learn more about me #link("about/")[here].]
 ]
 
-
+= Featured
 

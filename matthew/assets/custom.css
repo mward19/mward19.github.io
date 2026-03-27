@@ -1,4 +1,5 @@
-section > .centered
+section > .centered,
+section > .picture
 {
     width: 55%; /* Like section > p */
     margin: 0; /* No margin so that it doesn't float over to the right */
@@ -7,4 +8,20 @@ section > .centered
 
 .small-text {
   font-size: 12pt;
+}
+
+.picture > p {
+  margin-top: -100px;
+  color: #666;
+  font-size: 12pt;
+  margin-top: -0rem;
+  margin-bottom: 0rem;
+}
+
+/* Adds dark mode */
+@media (prefers-color-scheme: dark) {
+    .picture > p {
+        background-color: #151515;
+        color: #aaa;
+    }
 }

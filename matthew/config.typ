@@ -12,11 +12,14 @@
 
 #let centered(it) = html.div(it, class: "centered")
 
-#let picture(img, caption: none) = {
-  img
-  if caption != none {
-    caption
-  }
-}
+#let picture(img, caption: none) = html.div({
+    img
+    if caption != none {
+      // html.span(caption, class: "picture")
+      caption
+    }
+  },
+  class: "picture"
+)
 
 #let small(it) = html.span(it, class: "small-text")
