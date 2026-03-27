@@ -1,10 +1,10 @@
-/* Modify this file to add your own custom styles */
-.picture img {
-    margin-left: auto;
-    margin-right: auto; 
+section > .centered
+{
+    width: 55%; /* Like section > p */
+    margin: 0; /* No margin so that it doesn't float over to the right */
+    text-align: center;
 }
 
-.picture img {
-    display: block; 
-    max-width: 100%; 
+.small-text {
+  font-size: 12pt;
 }

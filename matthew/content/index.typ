@@ -1,19 +1,23 @@
-#import "../config.typ": template, tufted
+#import "../config.typ": template, tufted, picture, centered, small
 #import "@preview/cmarker:0.1.8"
 #show: template
 
-= Matthew Ward
+#centered[
+  #picture(
+    image("imgs/headshot.jpg", width: 40%),
+    caption: [
+      #link("https://github.com/mward19")[GitHub] 
+      #sym.dot 
+      #link("https://linkedin.com/in/matthew-m-ward")[LinkedIn] 
+      #sym.dot 
+      #link("me@matthewward.info")[Email] 
+    ]
+  )
 
-#html.figure(
-  image("imgs/headshot.jpg", height: 10pt),
-  class: "picture"
-)
-#html.div(
-  [Test text],
-  class: "testclass"
-)
+  Applied Mathematics student at Brigham Young University \
+  #small[Interested in computer vision, optimization, machine learning, etc.
+  Learn more about me #link("about/")[here].]
+]
 
-Applied Mathematics student at Brigham Young University
 
-Interested in computer vision, optimization, machine learning, etc.
-Learn more about me #link("about/")[here].
+

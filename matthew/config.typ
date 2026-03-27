@@ -9,3 +9,14 @@
   ),
   title: "Matthew Ward",
 )
+
+#let centered(it) = html.div(it, class: "centered")
+
+#let picture(img, caption: none) = {
+  img
+  if caption != none {
+    caption
+  }
+}
+
+#let small(it) = html.span(it, class: "small-text")
