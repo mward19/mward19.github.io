@@ -18,10 +18,66 @@ section > .picture
   margin-bottom: 0rem;
 }
 
-/* Adds dark mode */
+/* Adds dark mode for picture captions */
 @media (prefers-color-scheme: dark) {
     .picture > p {
         background-color: #151515;
+        color: #aaa;
+    }
+}
+
+
+.normal {
+  font-variant-numeric: lining-nums;
+}
+
+.introduction > p {
+    font-style: oblique;
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8em;
+    line-height: 1.5rem;
+    width: 55%;
+}
+
+/* For article links */
+.thumbnail table {
+  width: 100%;
+  table-layout: fixed; /* ensures widths are respected */
+  border-collapse: separate;
+  border-collapse: separate; /* needed for border-spacing to work */
+  border-spacing: 10px 5px; /* horizontal 10px, vertical 5px between cells */
+}
+.thumbnail table td:first-child img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.thumbnail table td:first-child {
+  width: 12%;
+  white-space: nowrap;
+}
+
+.thumbnail table td:nth-child(2) {
+  width: 85%; /* takes remaining space */
+  vertical-align: top;
+  /* font-size: 1.6em; */
+  overflow: hidden; /* optional: handle long content */
+  text-overflow: ellipsis; /* optional: show "..." for overflow */
+}
+
+.thumbnail table td .thumbnail-title {
+  font-size: 1.6em;
+}
+.thumbnail table td .thumbnail-subtitle {
+  font-size: 1.2em;
+}
+.thumbnail table td .thumbnail-date {
+  font-size: 1.2em;
+  color: #666;
+}
+@media (prefers-color-scheme: dark) {
+    .thumbnail table td .thumbnail-date {
         color: #aaa;
     }
 }

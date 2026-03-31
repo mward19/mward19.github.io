@@ -23,3 +23,17 @@
 )
 
 #let small(it) = html.span(it, class: "small-text")
+
+#let article(path, thumb, title, date, subtitle: none) = {
+  html.div(class: "thumbnail", link(path, table(
+    columns: 2, // Widths set in custom.css
+    thumb, 
+    [
+      #html.span(class: "thumbnail-title", title) \
+      #if subtitle != none [
+        #html.span(class: "thumbnail-subtitle", subtitle) \
+      ]
+      #html.span(class: "thumbnail-date", date)
+    ]
+  )))
+}

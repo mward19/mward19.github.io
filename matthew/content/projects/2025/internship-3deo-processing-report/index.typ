@@ -1,25 +1,29 @@
 #import "../../index.typ": template, tufted, picture
 #show: template.with(title: "3DEO Processing Performance Report")
 
-// *See [3DEO internship overview](/posts/internship-3deo) and slides from my internship presentation on [GitHub](https://github.com/mward19/3deo-internship-presentation/tree/master).*
-
-// *Also see example processing reports: [Mapping Report](/other/processing_report_mapping.pdf), [Single Tile Report](/other/processing_report.pdf). (These are from the time of my internship presentation. Current reports contain further improvements)*
+#picture(image("imgs/cover.png", width: 75%))
 
 
+#html.div(class: "introduction")[
+  See #link("/content/posts/internship-3deo")[3DEO internship overview] and slides from my internship presentation on #link("https://github.com/mward19/3deo-internship-presentation/tree/master")[GitHub].
+
+  Also see example processing reports: #link("/assets/2025/processing_report_mapping.pdf")[Mapping Report], #link("/assets/2025/processing_report.pdf")[Single Tile Report]. (These are from the time of my internship presentation. Current reports contain further improvements)
+]
 #html.hr()
 
+#set image(width: 100%)
 = Processing Performance Report
 Evaluating the success of a 3DEO lidar processing run is difficult. Diagnosing problems often requires digging through a SQL database with thousands of Slurm jobs, inspecting huge point clouds, parsing log files, and piecing together plots from different stages. It’s also important to know how long each stage took to identify bottlenecks. To streamline this process, 3DEO asked me to develop a tool that automatically generates human-readable processing performance reports.
 
 #html.hr()
 
-#picture(image("imgs/main-07.png", width: 100%))
+#picture(image("imgs/main-07.png"))
 
 I chose to generate the report in a few steps. First, my program collects data from processing outputs and the SQL database of Slurm jobs. Then it compiles that information into a large JSON, which it uses to populate fields in a number of \\(\LaTeX\\) templates I wrote. Finally, it generates a PDF from the \\(\LaTeX\\).
 
 #html.hr()
 
-#picture(image("imgs/main-08.png", width: 100%))
+#picture(image("imgs/main-08.png"))
 
 3DEO's processing pipeline is designed to handle both small and large amounts of data. As such, the report must be very flexible. Some reports are just a few pages, while others are longer than many college textbooks. 
 
@@ -38,27 +42,27 @@ Since generating these reports, based on my recollection (as I no longer have ac
 
 #html.hr()
 
-#picture(image("imgs/main-10.png", width: 100%))
+#picture(image("imgs/main-10.png"))
 
 The report begins with an overview of all processing performed in the run. It contains a number of useful visualizations focused on processing time, among other things.
 
 #html.hr()
 
-#picture(image("imgs/main-12.png", width: 100%))
+#picture(image("imgs/main-12.png"))
 
 One such visualization is the Processing Timeline. It shows how long in real time (as opposed to CPU time) each stage of processing took. 
 
-#picture(image("imgs/main-13.png", width: 100%))
+#picture(image("imgs/main-13.png"))
 
 Each thread shows how long one Slurm job took.
 
-#picture(image("imgs/main-14.png", width: 100%))
+#picture(image("imgs/main-14.png"))
 
 When processing multiple targets (tiles) simultaneously, the vertical axis (within each processing module row) indicates which target each Slurm job corresponds to. This helps visualize how many jobs were running concurrently at any given time.
 
 #html.hr()
 
-#picture(image("imgs/main-15.png", width: 100%))
+#picture(image("imgs/main-15.png"))
 
 The per-target (per-tile) sections of the report give detailed information for evaluating how successfully each target was processed. Since 3DEO currently processes targets individually, these sections help highlight issues or successes for specific tiles. One important subsection tracks data rejection, for which I modified the pipeline to record data rejections as they occurred during processing.
 
