@@ -1,4 +1,4 @@
-#import "../config.typ": template, tufted, picture, centered, small, article
+#import "../config.typ": template, tufted, picture, centered, small, article, article-heading, numberless-figures
 #import "@preview/cmarker:0.1.8"
 #show: template
 

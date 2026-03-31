@@ -1,3 +1,10 @@
+figure[role="math"] {
+    font-size: 1.4em;
+    margin-block: 1em;
+    width: 55%; /* Like section > p */
+    text-align: center;
+}
+
 section > .centered,
 section > .picture
 {
@@ -29,15 +36,6 @@ section > .picture
 
 .normal {
   font-variant-numeric: lining-nums;
-}
-
-.introduction > p {
-    font-style: oblique;
-    font-size: 1.2rem;
-    margin-top: 0.8rem;
-    margin-bottom: 0.8em;
-    line-height: 1.5rem;
-    width: 55%;
 }
 
 /* For article links */
@@ -80,4 +78,122 @@ section > .picture
     .thumbnail table td .thumbnail-date {
         color: #aaa;
     }
+}
+
+.article-heading {
+  width: 55%; /* Like section > p */
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.article-heading .article-title {
+  font-size: 2.0em;
+  font-weight: bold;
+}
+
+.article-heading .article-subtitle {
+  font-size: 1.4em;
+}
+
+.article-heading .article-date {
+  font-size: 1.2em;
+  color: #666;
+}
+@media (prefers-color-scheme: dark) {
+    .thumbnail table td .thumbnail-date {
+        color: #aaa;
+    }
+}
+
+.introduction {
+  width: 55%;
+}
+.introduction,
+.introduction > p {
+    font-style: oblique;
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8em;
+    line-height: 1.5rem;   
+}
+
+
+/* Small-screen adjustment */
+@media (max-width: 760px) {
+    figure[role="math"],
+    section > .introduction,
+    section > .centered,
+    section > .picture,
+    .article-heading {
+        width: 100%; 
+    }
+}
+
+/* Basic table formatting */
+section > table {
+  font-size: 1.2em;
+  border-collapse: collapse;
+}
+section > table thead th {
+  border-bottom: 3px solid #666; /* thick line under header */
+  text-align: left;
+  padding: 8px;
+}
+section > table tbody td {
+  border-bottom: 1px solid #666;
+  padding: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  section > table tbody td {
+    border-bottom: 1px solid #aaa;
+  }
+  section > table thead th {
+    border-bottom: 3px solid #aaa; /* thick line under header */
+  }
+}
+
+
+/* Redefine header sizes */
+h1 {
+    font-weight: 800;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: 3.6rem;
+    line-height: 1;
+}
+
+h2 {
+    font-style: italic;
+    font-weight: 800;
+    margin-top: 2.1rem;
+    margin-bottom: 1.4rem;
+    font-size: 2.8rem;
+    line-height: 1;
+}
+
+h3 {
+    font-style: italic;
+    font-weight: 800;
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+h4 {
+    font-style: italic;
+    font-weight: 800;
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+h5 {
+    font-style: italic;
+    font-weight: 800;
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    font-size: 1.4em;
+    line-height: 1;
 }
