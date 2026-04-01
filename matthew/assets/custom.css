@@ -251,16 +251,17 @@ nav a {
   align-items: center;
 }
 
-nav span {
-  height: 100%;
-  display: flex;
-  align-items: center;
+nav .nav-image {
+  height: 100%;           /* match nav height */
+  aspect-ratio: 1 / 1;    /* force square */
+  display: inline-block;
+  overflow: hidden;       /* crop excess if image is larger */
 }
 
-nav img {
+nav .nav-image img {
   height: 100%;
-  width: auto;
-  display: block;
+  width: 100%;            /* exactly same as container height */
+  object-fit: cover;      /* fill circle without stretching */
   border-radius: 50%;
-  margin-right: 
+  display: block;
 }

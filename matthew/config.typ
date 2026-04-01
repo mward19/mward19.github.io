@@ -2,7 +2,7 @@
 
 #let template = tufted.tufted-web.with(
   header-links: (
-    "/": [#box(image("content/imgs/headshot.jpg"))~~~*Matthew Ward*],
+    "/": [#html.div(image("content/imgs/headshot.jpg"), class: "nav-image")~~~*Matthew~Ward*],
     "/about/": [About],
     "/posts/": [Posts],
     "/projects/": [Projects]
