@@ -255,7 +255,7 @@ nav .nav-image {
   height: 100%;           /* match nav height */
   aspect-ratio: 1 / 1;    /* force square */
   max-height: 100%;
-  max-width: 100%;
+  max-width: 50px;
   display: inline-block;
   overflow: hidden;       /* crop excess if image is larger */
 }
