@@ -24,15 +24,15 @@ jobs:
       - run: go install github.com/tdewolff/minify/v2/cmd/minify@v2.24.7
       - run: |
           make html
-          minify --recursive --inplace template/_site/
+          minify --recursive --inplace matthew/_site/
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: template/_site
+          path: matthew/_site
       - uses: actions/upload-artifact@v4
         with:
           name: site
-          path: template/_site
+          path: matthew/_site
 
   deploy-github-pages:
     if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
