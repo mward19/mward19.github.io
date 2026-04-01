@@ -1,5 +1,5 @@
 #import "../index.typ": template, tufted, picture, article, article-heading, numberless-figures
-#show: template.with(title: "Posts—Matthew Ward")
+#show: template.with(title: "Posts")
 
 = Posts
 

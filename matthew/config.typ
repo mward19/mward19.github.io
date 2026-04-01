@@ -2,13 +2,16 @@
 
 #let template = tufted.tufted-web.with(
   header-links: (
-    "/": [#sym.dot *Matthew Ward* #sym.dot],
+    "/": [#box(image("content/imgs/headshot.jpg"))~~~*Matthew Ward*],
     "/about/": [About],
     "/posts/": [Posts],
     "/projects/": [Projects]
   ),
   title: "Matthew Ward"
 )
+// ------------------------------------------
+// Custom functions
+
 
 #let template-figures(content, supplement: true) = {
   // Redefine figure caption to use marginnote

@@ -5,7 +5,7 @@ TYP_FILES := $(shell find content -name '*.typ' -not -path '*/_*')
 HTML_FILES := $(patsubst content/%.typ,_site/%.html,$(TYP_FILES))
 
 # The main target 'html' depends on all generated HTML files and assets
-html: $(HTML_FILES) assets
+html: $(HTML_FILES) assets inject-favicon
 
 # Pattern rule to compile .typ files to .html files
 # $< is the first prerequisite (the .typ file)
@@ -18,6 +18,9 @@ _site/%.html: content/%.typ
 assets:
 	@mkdir -p _site/assets
 	@cp -r assets/* _site/assets/
+
+inject-favicon: _site/index.html
+	@./inject-favicon.sh _site/index.html
 
 # A clean rule to remove generated files
 clean:

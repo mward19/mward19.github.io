@@ -237,3 +237,30 @@ h6 {
     font-size: 1.3rem;
     line-height: 1;
 }
+
+/* Horizon align the nav bar and make sure images stay inside */
+nav {
+  height: 3em;
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+nav span {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+nav img {
+  height: 100%;
+  width: auto;
+  display: block;
+  border-radius: 50%;
+  margin-right: 
+}
