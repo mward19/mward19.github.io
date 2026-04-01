@@ -14,7 +14,7 @@
 
 #html.hr()
 
-As a student in BYU's #link("http://acme.byu.edu")[Applied and Computational Mathematics Emphasis (ACME)], this semester I took a class in modeling with data and uncertainty. In it my peers and I learned (among many other things) about the theoretical underpinnings of various classification and regression techniques. To enhance our practical understanding of machine learning, we were assigned an open-ended group project&mdash;given a list of a dozen or so datasets from #link("http://www.kaggle.com/datasets")[Kaggle], we were pick a dataset, ask some interesting question about the data, and attempt to answer it with the techniques we'd learned this semester. Then we were to summarize our findings in a five-page paper.
+As a student in BYU's #link("http://acme.byu.edu")[Applied and Computational Mathematics Emphasis (ACME)], this semester I took a class in modeling with data and uncertainty. In it my peers and I learned (among many other things) about the theoretical underpinnings of various classification and regression techniques. To enhance our practical understanding of machine learning, we were assigned an open-ended group project---given a list of a dozen or so datasets from #link("http://www.kaggle.com/datasets")[Kaggle], we were pick a dataset, ask some interesting question about the data, and attempt to answer it with the techniques we'd learned this semester. Then we were to summarize our findings in a five-page paper.
 
 I wrote the paper with my classmate Rebecca Gee. She focused primarily on data preparation and understanding what the features in the dataset actually meant (what in the world is "Income Composition of Resources"? She figured it out), and I focused on the feature engineering and machine learning methods.
 

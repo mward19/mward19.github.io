@@ -44,7 +44,7 @@ In the above plot, the dotted gray box represents the simulated camera frame and
 
 #picture(image("imgs/main-43.png"))
 
-we're way off, as shown in red. This is precisely the phenomenon I saw when I tried to take the sample mean and covariance of the real data&mdash;a shrunken covariance and a mean biased towards the center of the camera frame.
+we're way off, as shown in red. This is precisely the phenomenon I saw when I tried to take the sample mean and covariance of the real data---a shrunken covariance and a mean biased towards the center of the camera frame.
 
 #html.hr()
 
