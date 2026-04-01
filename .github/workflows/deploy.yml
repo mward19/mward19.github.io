@@ -45,7 +45,7 @@ jobs:
       name: release
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
         id: deployment
 
   # deploy-cloudflare-pages:
