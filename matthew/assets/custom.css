@@ -1,3 +1,33 @@
+/* Override Tufte's fonts */
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+body {
+    /* width: 87.5%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12.5%; */
+    /* font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; */
+    font-family: 'STIX Two Text', "Palatino Linotype", serif;
+    font-variant-numeric: oldstyle-nums;
+    /* background-color: #fffff8;
+    color: #111;
+    max-width: 1400px;
+    counter-reset: sidenote-counter; */
+}
+
+.numeral {
+    /* font-family: et-book-roman-old-style; */
+    font-family: 'STIX Two Text';
+}
+
+.sidenote-number:after,
+.sidenote:before {
+    /* font-family: et-book-roman-old-style; */
+    font-family: 'STIX Two Text';
+    /* position: relative; */
+    /* vertical-align: baseline; */
+}
+
 figure[role="math"] {
     font-size: 1.4em;
     margin-block: 1em;
@@ -100,7 +130,8 @@ section > .picture
   color: #666;
 }
 @media (prefers-color-scheme: dark) {
-    .thumbnail table td .thumbnail-date {
+    .thumbnail table td .thumbnail-date,
+    .article-heading .article-date {
         color: #aaa;
     }
 }
@@ -158,7 +189,7 @@ h1 {
     font-weight: 800;
     margin-top: 4rem;
     margin-bottom: 1.5rem;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
     line-height: 1;
 }
 
@@ -167,7 +198,7 @@ h2 {
     font-weight: 800;
     margin-top: 2.1rem;
     margin-bottom: 1.4rem;
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     line-height: 1;
 }
 
@@ -176,7 +207,7 @@ h3 {
     font-weight: 800;
     margin-top: 2rem;
     margin-bottom: 1.4rem;
-    font-size: 2.4rem;
+    font-size: 2.1rem;
     line-height: 1;
 }
 
@@ -185,7 +216,7 @@ h4 {
     font-weight: 800;
     margin-top: 2rem;
     margin-bottom: 1.4rem;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     line-height: 1;
 }
 
@@ -194,6 +225,15 @@ h5 {
     font-weight: 800;
     margin-top: 2rem;
     margin-bottom: 1.4rem;
-    font-size: 1.4em;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+h6 {
+    font-style: italic;
+    font-weight: 800;
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    font-size: 1.3rem;
     line-height: 1;
 }

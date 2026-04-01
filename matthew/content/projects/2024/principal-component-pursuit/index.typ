@@ -1,7 +1,7 @@
 #import "../../index.typ": template, tufted, picture, article-heading
-#show: template.with(title: "3DEO Pose Graph Optimization")
+#show: template.with(title: "Principal Component Pursuit")
 
-#article-heading[Internship with 3DEO---Pose Graph Optimization][September 13, 2026]
+#article-heading[Principal Component Pursuit][November 13, 2024]
 // #picture(image("imgs/thumb.png", width: 75%))
 
 #html.div(class: "introduction")[

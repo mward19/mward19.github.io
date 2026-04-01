@@ -1,8 +1,8 @@
 #import "../../index.typ": template, tufted, picture, article-heading, numberless-figures
-#show: template.with(title: "tomogram-datasets")
+#show: template.with(title: "visualize-voxels")
 #show: numberless-figures
 
-#article-heading[tomogram-datasets][September 13, 2026]
+#article-heading[visualize-voxels][September 13, 2026]
 
 #html.div(class: "introduction")[
   This project is hosted on #link("https://www.github.com/mward19/visualize_voxels")[GitHub].

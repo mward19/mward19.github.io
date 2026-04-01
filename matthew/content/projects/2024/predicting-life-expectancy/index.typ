@@ -1,7 +1,7 @@
 #import "../../index.typ": template, tufted, picture, article-heading
-#show: template.with(title: "3DEO Pose Graph Optimization")
+#show: template.with(title: "Predicting future life expectancy in countries using present data")
 
-#article-heading[Internship with 3DEO---Pose Graph Optimization][September 13, 2026]
+#article-heading[Predicting future life expectancy in countries using present data][17 December 2024]
 #picture(image("imgs/cover.png", width: 75%))
 
 #html.div(class: "introduction")[
@@ -66,7 +66,7 @@ We imputed the rest of the missing data using an imputer built with the k-Neares
 We hope that given statistics for a year of data, we can predict life expectancy five years later. Now, to do this, we will not simply train a model to predict life expectancy, since it is increasing worldwide.
 
 #figure(
-  image("imgs/le_worldwide_mean.jpg"), 
+  image("imgs/le_worldwide_mean.jpg", width: 60%), 
   alt: "Mean Life Expectancy worldwide", 
   caption: [Average life expectancy is increasing worldwide.]
 )
