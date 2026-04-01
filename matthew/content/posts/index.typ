@@ -1,16 +1,35 @@
-#import "../index.typ": template, tufted
-#show: template.with(title: "Posts")
+#import "../index.typ": template, tufted, picture, article, article-heading, numberless-figures
+#show: template.with(title: "Posts—Matthew Ward")
 
+= Posts
 
-I'm Matthew Ward, a student in the #link("https://acme.byu.edu/")[Applied and Computational Mathematics Emphasis (ACME)] program at Brigham Young University. I was previously a member of the #link("https://byu-biophysics.github.io/")[BYU Biophysics Group] and a data engineer intern working on Geiger-mode lidar at #link("https://3deolidar.com/")[3DEO, Inc.]
+== 2025
 
-I focus on computer vision (especially for 3-dimensional imaging these days), optimization, and the mathematics behind data science and machine learning.
+#article(
+  "2025/internship-3deo", 
+  image("2025/internship-3deo/imgs/thumb.png"), 
+  [Internship with 3DEO—Data Engineering for Geiger-mode Lidar], 
+  [September 13, 2025]
+)
 
-// #figure(image("imgs/python.webp"), caption: [My wife and I])
+#article(
+  "2025/byu-acme-thoughts", 
+  image("2025/byu-acme-thoughts/imgs/thumb.jpg"), 
+  [Thoughts on BYU's ACME math program upon finishing core classes], 
+  [April 28, 2025]
+)
 
-When I'm not studying, I like to sing my wife songs at the piano. She and I enjoy playing strings together and spending time in the beautiful outdoors here in Utah. 
+#article(
+  "2025/teaching-pcp", 
+  image("2025/teaching-pcp/imgs/thumb.png"), 
+  [Teaching Principal Component Pursuit in a computational physics class], 
+  [February 25, 2025]
+)
 
-#set list(spacing: 0.5in)
-- point 1 #lorem(50)
-- #lorem(60)
-- Last POINT #lorem(80)
+== 2024
+#article(
+  "2024/tablet-and-mouse", 
+  image("2024/tablet-and-mouse/imgs/thumb.jpg"), 
+  [A cheaper alternative to tablets, and the mouse to rule them all], 
+  [November 25, 2024]
+)

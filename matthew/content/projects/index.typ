@@ -1,7 +1,8 @@
 #import "../index.typ": template, tufted, picture, article, article-heading, numberless-figures
-#show: template.with(title: "Projects")
+#show: template.with(title: "Projects—Matthew Ward")
 
-= 2025
+= Projects
+== 2025
 #article(
   "2025/internship-3deo-processing-report",
   image("2025/internship-3deo-processing-report/imgs/thumb.png"),
@@ -23,7 +24,7 @@
   [September 13, 2025]
 )
 
-= 2024
+== 2024
 #article(
   "2024/predicting-life-expectancy",
   image("2024/predicting-life-expectancy/imgs/thumb.png"),
