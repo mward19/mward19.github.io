@@ -29,7 +29,7 @@ body {
 }
 
 figure[role="math"] {
-    font-size: 1.0em;
+    font-size: 1.4em;
     margin-block: 1em;
     width: 55%; /* Like section > p */
     text-align: center;
