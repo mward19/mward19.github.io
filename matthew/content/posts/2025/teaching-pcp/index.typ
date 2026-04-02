@@ -59,7 +59,7 @@ A video is a high dimensional signal! Just as the previous plot showed a signal 
 
 Here is a three-dimensional signal. Each column represents the signal at a point in time.
 
-The *rank* of a matrix is the number of linearly independent columns (or rows) in the matrix. Here $bm(Y)$ is *full-rank*, meaning that the rank is as high as possible for a matrix of this size ($"rank"(bm(Y)) = 3$). (Given an $m times$ matrix, the highest the rank can be is the smallest dimension, either the number of rows $m$ or the number of columns $n$.)
+The *rank* of a matrix is the number of linearly independent columns (or rows) in the matrix. Here $bm(Y)$ is *full-rank*, meaning that the rank is as high as possible for a matrix of this size ($"rank"(bm(Y)) = 3$). (Given an $m times n$ matrix, the highest the rank can be is the smallest dimension, either the number of rows $m$ or the number of columns $n$.)
 
 #html.hr()
 #picture(image("imgs/Principal Component Pursuit_page-0005.jpg", alt: "Slide 5"))
@@ -210,5 +210,5 @@ There are a number of issues with this approach.
 #picture(image("imgs/Principal Component Pursuit_page-0016.jpg", alt: "Slide 16"))
 *References*
 - #link("http://book-wright-ma.github.io")[Wright and Ma's book]
-- #link("https://matthewward.info/projects/principal-component-pursuit")[The original demo and description I made]
+- #link("https://matthewward.info/projects/2024/principal-component-pursuit")[The original demo and description I made]
 - #link("https://github.com/mward19/pcp")[The project's GitHub]

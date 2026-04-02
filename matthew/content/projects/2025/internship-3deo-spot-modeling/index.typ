@@ -5,7 +5,7 @@
 #picture(image("imgs/cover.png", width: 75%))
 
 #html.div(class: "introduction")[
-    See #link("/content/projects/posts/internship-3deo")[3DEO internship overview] and slides from my internship presentation on #link("https://github.com/mward19/3deo-internship-presentation/tree/master")[GitHub].
+    See #link("/posts/2025/internship-3deo")[3DEO internship overview] and slides from my internship presentation on #link("https://github.com/mward19/3deo-internship-presentation/tree/master")[GitHub].
 ]
 #html.hr()
 

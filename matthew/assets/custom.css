@@ -29,7 +29,7 @@ body {
 }
 
 figure[role="math"] {
-    font-size: 1.4em;
+    font-size: 1.0em;
     margin-block: 1em;
     width: 55%; /* Like section > p */
     text-align: center;
@@ -44,7 +44,9 @@ section > .picture
 }
 
 .small-text {
-  font-size: 12pt;
+    font-size: 0.8em;
+    line-height: 1.2em;      /* smaller number = tighter lines */
+    display: inline-block;    /* allows multiple lines inside span to respect line-height */
 }
 
 .picture > p {
@@ -71,27 +73,19 @@ section > .picture
 /* For article links */
 .thumbnail table {
   width: 100%;
-  table-layout: fixed; /* ensures widths are respected */
-  border-collapse: separate;
-  border-collapse: separate; /* needed for border-spacing to work */
-  border-spacing: 10px 5px; /* horizontal 10px, vertical 5px between cells */
+  table-layout: fixed;
+  border-spacing: 10px 5px;
 }
-.thumbnail table td:first-child img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+
 .thumbnail table td:first-child {
-  width: 12%;
+  width: 12em;
   white-space: nowrap;
+  vertical-align: top;
 }
 
 .thumbnail table td:nth-child(2) {
-  width: 85%; /* takes remaining space */
+  /* fills remaining space */
   vertical-align: top;
-  /* font-size: 1.6em; */
-  overflow: hidden; /* optional: handle long content */
-  text-overflow: ellipsis; /* optional: show "..." for overflow */
 }
 
 .thumbnail table td .thumbnail-title {
@@ -108,6 +102,16 @@ section > .picture
     .thumbnail table td .thumbnail-date {
         color: #aaa;
     }
+}
+/* Small-screen adjustment */
+@media (max-width: 760px) {
+  .thumbnail table td:first-child {
+    width: 6em;
+    white-space: nowrap;
+  }
+  .thumbnail table td .thumbnail-title {
+    font-size: 1.4em;
+  }
 }
 
 .article-heading {
@@ -126,6 +130,8 @@ section > .picture
 }
 
 .article-heading .article-date {
+  display: inline-block;
+  padding-top: 0.25em;
   font-size: 1.2em;
   color: #666;
 }
@@ -266,4 +272,16 @@ nav .nav-image img {
   object-fit: cover;      /* fill circle without stretching */
   border-radius: 50%;
   display: block;
+}
+
+/* Force paragraphs not to have extra spacing inside lists */
+li p,
+li div,
+li span {
+  margin: 0;
+  padding: 0;
+}
+/* Make lists less deep */
+ul, ol {
+  padding-left: 1.5em;
 }

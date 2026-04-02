@@ -5,7 +5,7 @@
 #picture(image("imgs/cover.png", width: 75%))
 
 #html.div(class: "introduction")[
-  See #link("/content/posts/2025/internship-3deo")[3DEO internship overview] and slides from my internship presentation on #link("https://github.com/mward19/3deo-internship-presentation/tree/master")[GitHub].
+  See #link("/posts/2025/internship-3deo")[3DEO internship overview] and slides from my internship presentation on #link("https://github.com/mward19/3deo-internship-presentation/tree/master")[GitHub].
 
   Also see example processing reports: #link("/assets/2025/processing_report_mapping.pdf")[Mapping Report], #link("/assets/2025/processing_report.pdf")[Single Tile Report]. (These are from the time of my internship presentation. Current reports contain further improvements)
 ]

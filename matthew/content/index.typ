@@ -14,9 +14,10 @@
     ]
   )
 
-  Applied Mathematics student at Brigham Young University \
-  #small[Interested in computer vision, optimization, machine learning, etc.
-  Learn more about me #link("about/")[here].]
+  Applied Mathematics student at Brigham Young University
+  #small[\ Interested in computer vision, optimization, machine learning, etc.
+  Learn more about me #link("about/")[here].\ ]
+  \
 ]
 
 #html.hr()

@@ -5,7 +5,7 @@
 #picture(image("imgs/cover.png", width: 75%))
 
 #html.div(class: "introduction")[
-  See #link("/content/posts/2025/internship-3deo")[3DEO internship overview], slides from my internship presentation on #link("https://github.com/mward19/3deo-internship-presentation/tree/master")[GitHub], and a relevant #link("https://robotics.caltech.edu/~jerma/research_papers/scan_matching_papers/milios_globally_consistent.pdf")[paper] by Lu and Milios.
+  See #link("/posts/2025/internship-3deo")[3DEO internship overview], slides from my internship presentation on #link("https://github.com/mward19/3deo-internship-presentation/tree/master")[GitHub], and a relevant #link("https://robotics.caltech.edu/~jerma/research_papers/scan_matching_papers/milios_globally_consistent.pdf")[paper] by Lu and Milios.
 ]
 
 #set math.equation(numbering: none)
