@@ -1,0 +1,19 @@
+#!/bin/bash
+# I would just use typst watch, but it doesn't work with the _assets dir yet.
+
+# Initial compile
+./build
+
+# Clean up background jobs on Ctrl+C
+trap 'kill $(jobs -p) 2>/dev/null; exit 0' INT
+
+# Watch for changes in background
+inotifywait -r -m -e modify,create,delete src/ |
+while read path action file; do
+    echo "Change detected: $file"
+    ./build
+    browser-sync reload
+done &
+
+# Start server with live reload
+cd _build && browser-sync start --server --files "**/*"
