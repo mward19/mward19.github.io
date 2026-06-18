@@ -202,6 +202,6 @@
   #large-img("imgs/Principal_Component_Pursuit_page-0016.jpg", alt: "Slide 16")
   *References*
   - #link("http://book-wright-ma.github.io")[Wright and Ma's book]
-  - #link("https://matthewward.info/projects/principal-component-pursuit")[The original demo and description I made]
+  - #link(<projects-2024-principal-component-pursuit>)[The original demo and description I made]
   - #link("https://github.com/mward19/pcp")[The project's GitHub]
 ] <posts-2025-teaching-pcp>
