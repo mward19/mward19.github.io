@@ -54,7 +54,7 @@
 }
 
 // Especially for complex formulas that MathML doesn't format well
-#let centered-frame(it) = html.div(class: "centered-frame", style: "display: flex; justify-content: center;", html.frame(it))
+#let centered-frame(it) = html.div(class: "centered-frame", html.frame(it))
 #let inline-frame(it) = box(html.frame(it))
 
 #let small-text(it) = html.span(class: "small-text", it)
