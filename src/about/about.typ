@@ -1,6 +1,6 @@
 #import "../shared.typ": *
 #site-page("about/index.html", tab-title: "About Me")[
-  = About Me <about-me>
+  = About Me
 
   I'm Matthew Ward, a student in the #link("https://acme.byu.edu/")[Applied and Computational Mathematics Emphasis (ACME)] program at Brigham Young University. I was previously a member of the #link("https://byu-biophysics.github.io/")[BYU Biophysics Group] and a data engineer intern working on Geiger-mode lidar at #link("https://3deolidar.com/")[3DEO, Inc.]
 
@@ -9,4 +9,4 @@
   #small-img("imgs/us.jpg", caption: [_My wife and I_])
 
   When I'm not studying, I like to sing my wife songs at the piano. She and I enjoy playing strings together and spending time in the beautiful outdoors here in Utah.
-]
+] <about-me>

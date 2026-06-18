@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("posts/2025/internship-3deo/index.html", tab-title: "Internship with 3DEO—Data Engineering for Geiger-mode Lidar")[
-  = Internship with 3DEO—Data Engineering for Geiger-mode Lidar
-  _September 13, 2025_
+  #article-title([Internship with 3DEO—Data Engineering for Geiger-mode Lidar], [September 13, 2025])
 
   #cover("imgs/cover.png")
 
@@ -38,4 +37,4 @@
   - In #link("/projects/2025/internship-3deo-pose-graph/")[Internship with 3DEO---Pose Graph Optimization], I discuss the problem of merging together inconsistent pairwise alignments between point clouds to infer final alignments for a set of $n$ misaligned point clouds.
   - In #link("/projects/2025/internship-3deo-spot-modeling/")[Internship with 3DEO---Illumination Spot Modeling], I highlight some challenges I faced while modeling the spot illuminated by a laser as detected by an airborne camera.
   - In #link("/projects/2025/internship-3deo-processing-report/")[Internship with 3DEO---Processing Performance Report], I give a brief overview of a program I wrote to automatically generate reports on the performance of 3DEO's extensive processing pipeline.
-]
+] <posts-2025-internship-3deo>

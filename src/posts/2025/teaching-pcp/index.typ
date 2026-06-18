@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("posts/2025/teaching-pcp/index.html", tab-title: "Teaching Principal Component Pursuit in a computational physics class")[
-  = Teaching Principal Component Pursuit in a computational physics class
-  _February 25, 2025_
+  #article-title([Teaching Principal Component Pursuit in a computational physics class], [February 25, 2025])
 
   #cover("imgs/cover_orig.png")
 
@@ -205,4 +204,4 @@
   - #link("http://book-wright-ma.github.io")[Wright and Ma's book]
   - #link("https://matthewward.info/projects/principal-component-pursuit")[The original demo and description I made]
   - #link("https://github.com/mward19/pcp")[The project's GitHub]
-]
+] <posts-2025-teaching-pcp>

@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("projects/2024/predicting-life-expectancy/index.html", tab-title: "Predicting future life expectancy in countries using present data")[
-  = Predicting future life expectancy in countries using present data
-  _December 17, 2024_
+  #article-title([Predicting future life expectancy in countries using present data], [December 17, 2024])
 
   #cover("imgs/cover.png", width: 75%)
 
@@ -185,4 +184,4 @@
 
   *Cluster 6*: \
   Bangladesh, Benin, Bhutan, Botswana, Burkina Faso, Burundi, Cambodia, Cameroon, Comoros, Côte d'Ivoire, Djibouti, Eritrea, Gambia, Ghana, Guinea-Bissau, Indonesia, Kenya, Lesotho, Madagascar, Malawi, Mali, Mauritania, Mozambique, Myanmar, Namibia, Nepal, Pakistan, Papua New Guinea, Rwanda, Senegal, Sierra Leone, South Africa, Swaziland, Timor-Leste, Togo, United Republic of Tanzania, Yemen, Zambia, Zimbabwe
-]
+] <projects-2024-predicting-life-expectancy>

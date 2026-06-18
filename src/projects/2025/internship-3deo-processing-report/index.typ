@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("projects/2025/internship-3deo-processing-report/index.html", tab-title: "3DEO Processing Performance Report")[
-  = Internship with 3DEO---Processing Performance Report
-  _September 13, 2025_
+  #article-title([Internship with 3DEO---Processing Performance Report], [September 13, 2025])
 
   #cover("imgs/cover.png", width: 75%)
 
@@ -68,4 +67,4 @@
   #html.hr()
 
   Developing the processing performance report program gave me a deeper understanding of lidar data processing and challenged me to present complex technical information clearly. The resulting reports make it easier to monitor processing performance, identify bottlenecks, and address issues quickly, providing great practical value to the team and giving me a meaningful opportunity to explore 3DEO's advanced data processing tools.
-]
+] <projects-2025-internship-3deo-processing-report>

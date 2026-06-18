@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("projects/2025/internship-3deo-pose-graph/index.html", tab-title: "3DEO Pose Graph Optimization")[
-  = Internship with 3DEO---Pose Graph Optimization
-  _September 13, 2025_
+  #article-title([Internship with 3DEO---Pose Graph Optimization], [September 13, 2025])
 
   #cover("imgs/cover.png", width: 75%)
 
@@ -86,4 +85,4 @@
 
   #html.hr()
   My new Lu–Milios optimizer gave more than a 50x speedup while producing registrations that looked just as good as the old method. That kind of efficiency is valuable when working with large lidar datasets. Hovever, a more intelligent choice of covariances will help make the method more robust to noise. The ghosting I observed seems to come from the limitations of the pairwise registrations themselves, not the optimizer, so future improvements will likely come from better or even non-rigid registration techniques. Still, moving to a closed-form pose graph solution was a step forward in making the process faster and more practical.
-]
+] <projects-2025-internship-3deo-pose-graph>

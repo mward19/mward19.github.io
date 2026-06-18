@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("projects/2024/tomogram-datasets/index.html", tab-title: "tomogram-datasets")[
-  = tomogram-datasets
-  _November 13, 2024_
+  #article-title([tomogram-datasets], [November 13, 2024])
 
   #cover("imgs/cover.png", width: 75%)
 
@@ -18,4 +17,4 @@
   The project was also an opportunity to practice robust coding practices (#link("https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/test/test_tomogram.py")[implementing unit tests], #link("https://byu-biophysics.github.io/tomogram-datasets/")[thorough documentation]), scripting (#link("https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/tomogram_datasets/supercomputer_utils.py")[file management on a supercomputer], #link("https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/tomogram_datasets/tomogram.py")[file loading]), as well as #link("https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/tomogram_datasets/subtomogram.py")[data processing].
 
   In addition, I learned a lot about Python libraries making this, like how to define the dependencies of my project so users could install it without having to think about that. I think my favorite part was learning to generate a #link("https://byu-biophysics.github.io/tomogram-datasets/")[documentation site] automatically from the code's docstrings using #link("https://www.mkdocs.org/")[MkDocs]. Seeing it update itself as I added features was fascinating.
-]
+] <projects-2024-tomogram-datasets>

@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("posts/2024/tablet-and-mouse/index.html", tab-title: "A cheaper alternative to tablets, and the mouse to rule them all")[
-  = A cheaper alternative to tablets, and the mouse to rule them all
-  _November 25, 2024_
+  #article-title([A cheaper alternative to tablets, and the mouse to rule them all], [November 25, 2024])
 
   #cover("imgs/cover.jpg")
 
@@ -11,7 +10,7 @@
 
   About two years ago, the solution came to me. I had the idea when I was a missionary in Cali, Colombia, walking down the street just a few months before it was time for me to go home. I was an office secretary and I had just used the mission credit card to pay at a notary, and signed for it using a screenless credit card signature pad attached to the card reader.
 
-  #large-img("imgs/credit-card-signature-reader.jpg", alt: "Signature pad")
+  #large-img("imgs/credit-card-signature-reader.jpg", alt: "Signature pad", width: 60%)
 
   I thought as I walked, "why don't they just take one of those and scale it up?" I was certain that such a product must exist.
 
@@ -33,7 +32,7 @@
 
   Conveniently, the tablet has little rubber feet that fit perfectly over my laptop keyboard and trackpad. I use a 15.6 inch Lenovo ThinkPad, and by complete coincidence, the Huion tablet is exactly the same size. It's perfect for when I'm taking notes in a lecture hall or the #link("http://acme.byu.edu")[ACME] study room is too full for me to be able to really spread out.
 
-  #large-img("imgs/tablet-on-keyboard.jpg", alt: "Tablet on keyboard")
+  #small-img("imgs/tablet-on-keyboard.jpg", alt: "Tablet on keyboard")
 
   When I *do* have room to spread out, I take advantage of the space.
 
@@ -45,11 +44,11 @@
 
   That's when I discovered #link("https://en.wikipedia.org/wiki/Trackball")[trackballs]. What a revelation! I picked up a #link("https://a.co/d/iSgOWqH")[Kensington Orbit] a year and a half ago (a couple months after getting the tablet, I think) and have never looked back. My wrist and hand have never hurt since.
 
-  #large-img("imgs/hand-on-trackball.jpg", alt: "My hand on the trackball")
+  #small-img("imgs/hand-on-trackball.jpg", alt: "My hand on the trackball")
 
   Because it's larger and wider than a normal mouse, it opens my hand up. That's the real key, I think. It also takes up a lot less space because it stays in place unlike a mouse, which is a huge plus when I'm in a crowded study room or computer lab. I love the tactile feel of moving the ball around and scrolling with the ring, it feels more natural to me. It took time to get used to it, but these days I bring the thing everywhere.
 
   #html.hr()
 
   This setup has been a game-changer for me as a student. It's affordable, reliable, and works well with my workflow. Sometimes the best solutions are the ones you figure out by thinking a little outside the box. If nothing else, it's been fun to experiment and find what works best for me.
-]
+] <posts-2024-tablet-and-mouse>

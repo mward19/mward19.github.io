@@ -4,21 +4,21 @@
 #let small-img(src, caption: none, alt: "", width: 100%) = {
   html.div(style: "max-width: 20rem; margin: 0 auto; text-align: center;", {
     html.img(src: src, alt: alt, style: "width: " + str(width / 1%) + "%;")
-    html.div(style: "width: 100%; text-align: center; color: #444;", caption)
+    html.div(class: "caption-text", style: "width: 100%; text-align: center;", caption)
   })
 }
 
 #let large-img(src, caption: none, alt: "", width: 100%) = {
   html.div(style: "max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;", {
     html.img(src: src, alt: alt, style: "width: " + str(width / 1%) + "%;")
-    html.div(style: "width: 100%; text-align: center; color: #444;", caption)
+    html.div(class: "caption-text", style: "width: 100%; text-align: center;", caption)
   })
 }
 
 #let cover(src, caption: none, alt: "", width: 100%) = {
   html.div(style: "max-width: 50rem; width: 80%; margin: 0 auto; text-align: center;", {
     html.img(src: src, alt: alt, style: "width: " + str(width / 1%) + "%;")
-    html.div(style: "width: 100%; text-align: center; color: #444;", caption)
+    html.div(class: "caption-text", style: "width: 100%; text-align: center;", caption)
   })
 }
 
@@ -26,17 +26,30 @@
 #let centered-frame(it) = html.div(class: "centered-frame", style: "display: flex; justify-content: center;", html.frame(it))
 #let inline-frame(it) = box(html.frame(it))
 
+#let small-text(it) = html.span(class: "small-text", it)
+
 #let article-link(path, thumbnail-path, title, date, subtitle: none) = html.div(class: "article-link",
   link(path, html.div(style: "display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;", {
     html.img(src: thumbnail-path, style: "width: 8rem; height: 6rem; object-fit: cover; flex-shrink: 0;")
     html.div({
-      html.div(style: "font-weight: bold;", title)
+      html.div(class: "article-link-title", title)
       if subtitle != none {
-        html.div(style: "color: #666;", subtitle)
+        html.div(class: "article-subtitle", subtitle)
       }
-      html.div(style: "color: #999; font-size: 0.85em;", date)
+      html.div(class: "article-date", style: "font-size: 0.85em;", date)
     })
   }))
+)
+
+#let article-title(title, date, subtitle: none) = html.div(
+  class: "article-title",
+  {
+    html.elem("h2", title)
+    if subtitle != none {
+      html.div(class: "article-subtitle", subtitle)
+    }
+    html.div(class: "article-date", date)
+  }
 )
 
 

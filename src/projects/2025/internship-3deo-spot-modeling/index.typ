@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("projects/2025/internship-3deo-spot-modeling/index.html", tab-title: "3DEO Illumination Spot Modeling")[
-  = Internship with 3DEO---Illumination Spot Modeling
-  _September 13, 2025_
+  #article-title([Internship with 3DEO---Illumination Spot Modeling], [September 13, 2025])
 
   #cover("imgs/cover.png", width: 75%)
 
@@ -71,4 +70,4 @@
   #html.hr()
 
   This project showed me how tricky it can be to model data that's only partially observed. Simple approaches didn't hold up well, but methods like pygmmis provided a useful reference point for what good fits look like. The main challenge now is finding faster approximations that are accurate enough to be practical. There's still more to explore, but these first steps gave a clearer picture of the problem and some practical directions forward.
-]
+] <projects-2025-internship-3deo-spot-modeling>

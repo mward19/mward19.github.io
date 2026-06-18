@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("projects/2024/principal-component-pursuit/index.html", tab-title: "Principal Component Pursuit")[
-  = Principal Component Pursuit
-  _November 13, 2024_
+  #article-title([Principal Component Pursuit], [November 13, 2024])
 
   This project is hosted on #link("https://www.github.com/mward19/pcp")[GitHub].
 
@@ -85,4 +84,4 @@
 
   For more formal justification for these choices of norm, consult Wright and Ma's textbook
   #link("https://book-wright-ma.github.io/")[High-Dimensional Data Analysis with Low-Dimensional Models: Principles, Computation, and Applications].
-]
+] <projects-2024-principal-component-pursuit>

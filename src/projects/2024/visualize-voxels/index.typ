@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("projects/2024/visualize-voxels/index.html", tab-title: "visualize-voxels")[
-  = visualize-voxels
-  _November 13, 2024_
+  #article-title([visualize-voxels], [November 13, 2024])
 
   This project is hosted on #link("https://www.github.com/mward19/visualize_voxels")[GitHub].
 
@@ -46,4 +45,4 @@
   ```
 
   Try playing with it #link("documents/viz_vox_demo.html")[here].
-]
+] <projects-2024-visualize-voxels>

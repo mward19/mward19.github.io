@@ -1,7 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("posts/2025/byu-acme-thoughts/index.html", tab-title: "Thoughts on BYU's ACME math program upon finishing core classes")[
-  = Thoughts on BYU's ACME math program upon finishing core classes
-  _April 28, 2025_
+  #article-title([Thoughts on BYU's ACME math program upon finishing core classes], [April 28, 2025])
 
   #cover("imgs/cover.jpg")
 
@@ -68,4 +67,4 @@
   #html.hr()
   == Conclusion
   The ACME program is a great idea executed well. I had no idea I was able to learn so much so quickly. The material in the core curriculum is foundational, and will remain relevant in most technological fields well past my lifetime. The faculty members involved are fully invested in the program, so ACME will keep improving just as it has throughout the twelve years of its existence. I'm glad I chose to be a part of it!
-]
+] <posts-2025-byu-acme-thoughts>
