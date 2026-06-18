@@ -124,6 +124,9 @@ span.small-text {
 
 div.centered-frame {
   margin: 0.5em 0;
+  display: block;
+  text-align: center;
+  overflow-x: auto;
 }
 
 div.article-link {
