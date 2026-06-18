@@ -177,15 +177,16 @@ footer a:hover {
 
 /* For narrower screens */
 @media (max-width: 1500px) {
-  body {
-    margin-left: 15vw;
-    margin-right: 25vw;
+  :root {
+    --margin-left: 15vw;
+    --margin-right: 25vw;
   }
 }
 
 /* For phone screens */
 @media (max-width: 1000px) {
-  body {
-    margin: 0 1.5rem;
+  :root {
+    --margin-left: 1.5rem;
+    --margin-right: 1.5rem;
   }
 }

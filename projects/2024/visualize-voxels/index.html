@@ -306,16 +306,17 @@ footer a:hover {
 
 /* For narrower screens */
 @media (max-width: 1500px) {
-  body {
-    margin-left: 15vw;
-    margin-right: 25vw;
+  :root {
+    --margin-left: 15vw;
+    --margin-right: 25vw;
   }
 }
 
 /* For phone screens */
 @media (max-width: 1000px) {
-  body {
-    margin: 0 1.5rem;
+  :root {
+    --margin-left: 1.5rem;
+    --margin-right: 1.5rem;
   }
 }</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../../../" data-href-stripped="true"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="../../../about/" data-href-stripped="true">About</a></li><li><a href="/posts/" data-href-stripped="true">Posts</a></li><li><a href="/projects/" data-href-stripped="true">Projects</a></li></ul></nav><main><div class="article-title"><h2>visualize-voxels</h2><div class="article-date">November 13, 2024</div></div><p>This project is hosted on <a href="https://www.github.com/mward19/visualize_voxels" data-href-stripped="true">GitHub</a>.</p><hr><div style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="video/helix_visualization.gif" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><figcaption>Figure 6: A helix plotted within a tomogram.</figcaption></figure></div><p>I spend a lot of time working with <a href="https://cryoetdataportal.czscience.com/browse-data/datasets" data-href-stripped="true">cryo-electron tomograms</a>. They’re huge, noisy, three-dimensional images that can take up gigabytes of storage apiece.</p><p>Naturally, visualizing these images is a pain—most of the options are desktop applications like <a href="https://bio3d.colorado.edu/imod/" data-href-stripped="true">IMOD</a>. <a href="https://napari.org/stable/#" data-href-stripped="true">napari</a> is marvelous, but heavier than I usually need. All the time I found myself in a Jupyter notebook working doing data analysis on tomograms and I just wanted a quick snapshot of what the volume looks like, perhaps with a couple keypoints marked. And I wanted it to be dead-simple, so that with a single function call and a few seconds I could see what sort of image I was working with. So I wrote <em>visualize_voxels</em>.</p><p>It was my first time writing a Python library. Really, calling it a library is a stretch, because it only delivers to the user one function (visualize). But because I work in many environments (on my laptop, in online Jupyter notebooks, through SSH on BYU’s supercomputer), I wanted it to be easily installable via pip.</p><p>The result was exactly what I needed. Given a NumPy array of scalars <code>arr</code>, simply calling <code>visualize(arr)</code> produces a visualization like the one displayed below in seconds—quick, simple, effective. Then I started adding other useful features, like the ability to mark points in the volume, and change the size, speed, and resolution of the visualization, among other little things. I made it work seamlessly in both .py scripts as well as notebooks.</p><div style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="video/weird_tomo_3.gif" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div></figure></div><p>This code (which leverages <code>tomogram_datasets</code> as well) visualizes the tomogram with the third-largest number of flagellar motors in our supercomputer:</p><pre><code data-lang="python"><span style="color: #d73948">from</span> tomogram_datasets <span style="color: #d73948">import</span> all_fm_tomograms
 <span style="color: #d73948">import</span> numpy <span style="color: #d73948">as</span> np
