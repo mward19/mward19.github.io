@@ -1,6 +1,37 @@
 #let site-icon = html.img(alt: "Headshot of Matthew Ward", style: "height: 2.5rem; width: 2.5rem;", src: "/_assets/headshot.jpg")
 
 // Utility functions
+
+// Wraps content so that any "index.html"-suffixed href (as resolved by
+// Typst's bundle export for cross-document links) is rewritten into a
+// clean, directory-style URL, preserving any #fragment.
+// E.g. "posts/foo/index.html#bar" -> "posts/foo/#bar".
+#let strip-dot-html(body) = {
+  show html.elem.where(tag: "a"): it => {
+    let attrs = it.attrs
+    if "data-href-stripped" in attrs {
+      it
+    } else {
+      let parts = attrs.href.split("#")
+      let path = parts.at(0)
+      let fragment = if parts.len() > 1 { "#" + parts.slice(1).join("#") } else { "" }
+      let new-path = if path == "index.html" {
+        "/"
+      } else if path.ends-with("/index.html") {
+        path.slice(0, path.len() - "index.html".len())
+      } else {
+        path
+      }
+      html.elem(
+        "a",
+        attrs: (..attrs, href: new-path + fragment, data-href-stripped: "true"),
+        it.body,
+      )
+    }
+  }
+  body
+}
+
 #let small-img(src, caption: none, alt: "", width: 100%) = {
   html.div(style: "max-width: 20rem; margin: 0 auto; text-align: center;", {
     html.img(src: src, alt: alt, style: "width: " + str(width / 1%) + "%;")
@@ -94,11 +125,11 @@
 #let site-page(html-path, body, tab-title: none) = document(
   html-path,
   title: tab-title,
-  {
+  strip-dot-html({
     header
     html.main(template(body))
     footer
-  }
+  })
 )
 
 
