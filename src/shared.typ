@@ -72,7 +72,8 @@
   ]
 ]
 #let header = {
-  // Import css into header so it's attached in every site page
+  // Import css into header so it's attached in every site page.
+  html.style(read(path("styles/fonts.css")))
   html.style(read(path("styles/styles.css")))
   html.link(rel: "icon", type: "image/x-icon", href: "/_assets/favicon/favicon.ico")
   html.link(rel: "icon", type: "image/png", sizes: ((16, 16),), href: "/_assets/favicon/favicon-16x16.png")

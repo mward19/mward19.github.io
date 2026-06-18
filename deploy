@@ -1,0 +1,36 @@
+#!/bin/bash
+# Builds the site, then commits and pushes _build's contents to the
+# "compiled" branch via a git worktree, leaving the current branch untouched.
+set -e
+
+./build
+
+BRANCH=compiled-site
+WORKTREE_DIR=.git/compiled-worktree
+
+git worktree prune
+if [ -d "$WORKTREE_DIR" ]; then
+  git worktree remove --force "$WORKTREE_DIR" 2>/dev/null || rm -rf "$WORKTREE_DIR"
+fi
+git fetch origin "$BRANCH" 2>/dev/null || true
+trap 'git worktree remove --force "$WORKTREE_DIR" 2>/dev/null' EXIT
+
+if git rev-parse --verify "refs/remotes/origin/$BRANCH" > /dev/null 2>&1; then
+  # Base the worktree on the remote tip, not any stale local ref, so the
+  # local branch can't drift out of sync with what's actually deployed.
+  git worktree add --detach "$WORKTREE_DIR" "origin/$BRANCH"
+  (cd "$WORKTREE_DIR" && git checkout -B "$BRANCH")
+else
+  git worktree add --detach "$WORKTREE_DIR" HEAD
+  (cd "$WORKTREE_DIR" && git checkout --orphan "$BRANCH" && git rm -rf --quiet .)
+fi
+
+find "$WORKTREE_DIR" -mindepth 1 -maxdepth 1 -not -name '.git' -exec rm -rf {} +
+cp -r _build/* "$WORKTREE_DIR"/
+touch "$WORKTREE_DIR"/.nojekyll
+
+cd "$WORKTREE_DIR"
+git add -A
+git commit -m "Deploy $(date -u +%Y-%m-%dT%H:%M:%SZ)" --allow-empty
+git push --force-with-lease origin "$BRANCH"
+cd - > /dev/null
