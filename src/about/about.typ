@@ -6,7 +6,7 @@
 
   I focus on computer vision (especially for 3-dimensional imaging these days), optimization, and the mathematics behind data science and machine learning.
 
-  #small-figure("imgs/us.jpg", caption: [_My wife and I_])
+  #small-img("imgs/us.jpg", caption: [_My wife and I_])
 
   When I'm not studying, I like to sing my wife songs at the piano. She and I enjoy playing strings together and spending time in the beautiful outdoors here in Utah.
 ]

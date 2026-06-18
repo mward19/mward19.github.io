@@ -1,0 +1,56 @@
+/* Get Libertinus fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+.libertinus-serif-regular {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libertinus-serif-semibold {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.libertinus-serif-bold {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libertinus-serif-regular-italic {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.libertinus-serif-semibold-italic {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.libertinus-serif-bold-italic {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.libertinus-sans-regular {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libertinus-sans-bold {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libertinus-sans-regular-italic {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
