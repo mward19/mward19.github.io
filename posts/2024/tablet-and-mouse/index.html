@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>A cheaper alternative to tablets, and the mouse to rule them all</title><style>/* Alignment */
+mtable.right-align mtd,
+mtable mtd.right-align,
+mtable.left-align mtd.right-align,
+mtable.aligned mtd:nth-child(odd) {
+  justify-items: end;
+  text-align: right;
+}
+mtable.cases mtd,
+mtable.left-align mtd,
+mtable mtd.left-align,
+mtable.aligned mtd:nth-child(even),
+math:is(:not([display])) > mtable.multiline-equation mtd {
+  justify-items: start;
+  text-align: left;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.left-flush {
+  padding-left: 0;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.right-flush {
+  padding-right: 0;
+}
+
+/* Tables */
+mtable {
+  math-style: inherit;
+}
+mtd {
+  math-depth: auto-add;
+  math-style: compact;
+  math-shift: compact;
+}
+
+/* Equations */
+mtable.multiline-equation mtd {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+  padding: 0;
+}
+math > mtable.multiline-equation mtr:not(:last-child) mtd {
+  padding-bottom: 0.5em;
+}
+
+/* Fractions */
+mfrac {
+  padding-inline: 0;
+  margin-inline: 0.1em;
+}
+
+/* Accents */
+mover[accent="true" i] > :first-child {
+  font-feature-settings: "dtls";
+}
+mover.dotted[accent="true" i] > :first-child {
+  font-feature-settings: "dtls" 0;
+}
+
+/* Other rules for scriptlevel, displaystyle and math-shift */
+munder > :nth-child(2),
+munderover > :nth-child(2) {
+  math-shift: compact
+}
+munder[accentunder="true" i] > :not(:first-child),
+mover[accent="true" i] > :not(:first-child) {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+}</style></head><body><style>@import url("fonts.css");
+
+/* Define primary site colors */
+:root {
+  --primary: #0db629;
+  --primary-black: color-mix(in srgb, var(--primary) 25%, black);
+  --primary-dark: color-mix(in srgb, var(--primary) 50%, black);
+  --primary-light: color-mix(in srgb, var(--primary) 30%, white);
+  --secondary: #88a;
+  --secondary-dark: color-mix(in srgb, var(--secondary) 80%, black);
+  --secondary-light: color-mix(in srgb, var(--secondary) 80%, white);
+  --background: #FEFDFA;
+  --text: #111827;
+  --text-medium: color-mix(in srgb, var(--text) 80%, white);
+  --text-light: color-mix(in srgb, var(--text) 50%, white);
+}
+
+:root {
+  --margin-right: 38vw;
+  --margin-left: 22vw;
+}
+
+html {
+  /* scroll-padding-top: 5rem; */
+  background-color: var(--background);
+}
+
+body {
+  margin: 0 var(--margin-right) 0 var(--margin-left);
+  width: auto;
+  font-family: 'Libertinus Serif';
+  font-size: 1.2rem;
+  background-color: var(--background);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body b,
+body strong {
+  font-weight: 600; /* A little lighter than the default bold (700) */
+}
+
+body a {
+  color: var(--primary-black);
+  text-decoration: underline;
+}
+body a:hover {
+  color: var(--primary);
+}
+
+
+nav.top-nav-bar {
+  position: sticky;
+  top: 0;
+  background: var(--primary-light);
+  margin: 0 calc(-1 * var(--margin-right)) 0 calc(-1 * var(--margin-left));
+  padding: 5px var(--margin-right) 5px var(--margin-left);
+  font-family: 'Libertinus Serif';
+}
+
+nav.top-nav-bar ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav.top-nav-bar a,
+nav.top-nav-bar a:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+nav.top-nav-bar a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+nav.top-nav-bar * {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1em;
+  margin: 0;
+}
+/* 
+main {
+  padding-top: 0.5rem;
+} */
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1em;
+  font-family: 'Libertinus Sans';
+}
+p, li {
+  line-height: 1.4;
+}
+li {
+  margin-bottom: 0.5em;
+}
+p {
+  margin-bottom: 0.9em;
+}
+li p {
+  margin: 0;
+}
+pre, code {
+  font-size: 1rem;
+}
+
+figcaption,
+.caption-text {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+}
+
+span.small-text {
+  font-size: 1.1rem;
+}
+
+div.centered-frame {
+  margin: 0.5em 0;
+}
+
+div.article-link {
+  font-family: 'Libertinus Serif';
+}
+.article-link-title {
+  font-weight: 600;
+}
+
+div.article-link a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+div.article-link a:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.article-subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.article-date {
+  color: var(--text-light);
+}
+
+.article-title .article-date {
+  font-style: italic;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 6rem 0 1rem 0;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  /* border-top: 1px solid #F00; */
+}
+footer a {
+  color: var(--text-light);
+  text-decoration: underline;
+}
+footer a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* For narrower screens */
+@media (max-width: 1500px) {
+  body {
+    margin-left: 15vw;
+    margin-right: 25vw;
+  }
+}
+
+/* For phone screens */
+@media (max-width: 1000px) {
+  body {
+    margin: 0 1.5rem;
+  }
+}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../../../index.html"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="../../../about/index.html">About</a></li><li><a href="/posts/">Posts</a></li><li><a href="/projects/">Projects</a></li></ul></nav><main><div class="article-title"><h2>A cheaper alternative to tablets, and the mouse to rule them all</h2><div class="article-date">November 25, 2024</div></div><div style="max-width: 50rem; width: 80%; margin: 0 auto; text-align: center;"><img src="imgs/cover.jpg" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>As a student in applied mathematics, I spend much of my time writing code, taking lecture notes, and working out proofs, all at breakneck speed. Many of my peers use LaTeX to take notes and do homework. While I appreciate LaTeX and often use it for formal write-ups, I don’t love not being able to quickly draw diagrams, change colors, make up new notation on the fly, etc. Handwriting is infinitely flexible, and in my experience, much quicker when I’m trying to pump out my homework and move on.</p><p>A notebook isn’t enough. I want my notes to be stored in the cloud. I want them to be organized and easily accessible. I want them to be stored in .pdf format so they’re future-proof. And I don’t want to buy a tablet. Why? Well, good tablets are expensive, I like my laptop, I don’t want to bring two devices to school, and I like being able to seamlessly copy snippets of code I’m writing and textbooks I’m referencing into my notes, among other things.</p><p>About two years ago, the solution came to me. I had the idea when I was a missionary in Cali, Colombia, walking down the street just a few months before it was time for me to go home. I was an office secretary and I had just used the mission credit card to pay at a notary, and signed for it using a screenless credit card signature pad attached to the card reader.</p><div style="max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;"><img src="imgs/credit-card-signature-reader.jpg" alt="Signature pad" style="width: 60%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>I thought as I walked, “why don’t they just take one of those and scale it up?” I was certain that such a product must exist.</p><p>Sure enough, it does—but it isn’t generally marketed to people like me. Many companies, the foremost of which is Wacom, manufacture screenless tablets with pressure-sensitive pens to do digital art and animation. The level of quality varies greatly. The fanciest one I’ve used has a screen and sells for $3,500 USD (The <a href="https://byu-biophysics.github.io">research group I currently work with</a> has one to annotate tomograms—it’s a <a href="https://estore.wacom.com/en-us/wacom-cintiq-pro-27-interactive-pen-display-dth271k0a.html?gad_source=1&amp;gclid=Cj0KCQiAuou6BhDhARIsAIfgrn6gjtBHetsI9vgGRZwLkM_uAQNxvpDwkdp8m6ouU-_O5ZNGaVsaIgsaAmoOEALw_wcB">Wacom Cintiq Pro 27</a>).</p><p>I don’t have that kind of cash. So I saved a few hundred bucks and got one of these on Amazon for $50.</p><div style="max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;"><img src="imgs/huion-tablet-crop.jpg" alt="Huion tablet" style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>There’s really nothing special about this specific model (<a href="https://a.co/d/ecDRCWh">Huion H610PRO v2</a>). It’s just a generic off-brand screenless Wacom tablet that connects to your computer through a USB cable. People usually use these to do digital art and animation. I have found that they work astoundingly well for notetaking as well. Neither the pen nor the tablet use batteries, so when I’m on the go, all I have to charge is my laptop.</p><p>I’ve been using my tablet for a year and a half now, and it’s still working like new. I only had to replace the pen nib once because I was fiddling with it and lost it on the floor. Whoops!</p><p>The trickiest part about all this is how to set it up. Naturally with unstandardized hardware like a screenless tablet there are lots of driver issues and subtleties to keep in mind. In addition, I use Linux (Debian 12 with GNOME and KDE), so things are often a little less intuitive (but more fun). Huion (the manufacturer) makes a good driver, and I also like using <a href="https://opentabletdriver.net/">OpenTabletDriver</a>, an open-source alternative. Things get a little dicey with a multi-monitor setup but I think I’ve got it figured out now.</p><p>I take notes in <a href="https://xournalpp.github.io/">Xournal++</a>. I love it. It’s everything I needed in notetaking software and more. My tablet has eight buttons on the left, which I’ve mapped to the following in Xournal++: undo, delete, pencil, zoom in, zoom out, new page, the lasso selection tool, and the hand tool. I also have an on-screen icon in my GNOME panel to take screenshots (<a href="https://extensions.gnome.org/extension/1112/screenshot-tool/">Screenshot Tool</a>), which is especially useful when I want to paste snippets from textbooks (all of which I access digitally) into my homework. As a result, my workflow is very fast!</p><p>I deliberately chose to map the buttons to shortcuts for which I wouldn’t want to move my pen. For example, if I’m writing a word and I mess up, I can undo my mistake without having to change my pen position, so I can rewrite it immediately. I can select and move a group of objects with the lasso without having to move away. I have come to realize that it is much faster than a traditional tablet because of these shortcut keys. Maybe an iPad would be better with some kind of shortcut keypad… <a href="https://a.co/d/9EC01zY">looks like that exists too</a>.</p><p>Conveniently, the tablet has little rubber feet that fit perfectly over my laptop keyboard and trackpad. I use a 15.6 inch Lenovo ThinkPad, and by complete coincidence, the Huion tablet is exactly the same size. It’s perfect for when I’m taking notes in a lecture hall or the <a href="http://acme.byu.edu">ACME</a> study room is too full for me to be able to really spread out.</p><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="imgs/tablet-on-keyboard.jpg" alt="Tablet on keyboard" style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>When I <strong>do</strong> have room to spread out, I take advantage of the space.</p><div style="max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;"><img src="imgs/devices-full-setup.jpg" alt="Full setup" style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><hr><p>People ask me about my tablet all the time—but usually it’s after they’ve noticed my mouse. Like most people, I used to use a normal one. I’m relatively tall, so I have big hands. Something about gripping a tiny plastic mouse, scrunching up my hand, and moving it around for hours like that made my hand and wrist start to hurt. It would be a real bummer to get carpal tunnel syndrome, so I took action before it was too late and started looking into alternatives to the usual mouse.</p><p>That’s when I discovered <a href="https://en.wikipedia.org/wiki/Trackball">trackballs</a>. What a revelation! I picked up a <a href="https://a.co/d/iSgOWqH">Kensington Orbit</a> a year and a half ago (a couple months after getting the tablet, I think) and have never looked back. My wrist and hand have never hurt since.</p><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="imgs/hand-on-trackball.jpg" alt="My hand on the trackball" style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>Because it’s larger and wider than a normal mouse, it opens my hand up. That’s the real key, I think. It also takes up a lot less space because it stays in place unlike a mouse, which is a huge plus when I’m in a crowded study room or computer lab. I love the tactile feel of moving the ball around and scrolling with the ring, it feels more natural to me. It took time to get used to it, but these days I bring the thing everywhere.</p><hr><p>This setup has been a game-changer for me as a student. It’s affordable, reliable, and works well with my workflow. Sometimes the best solutions are the ones you figure out by thinking a little outside the box. If nothing else, it’s been fun to experiment and find what works best for me.</p></main><footer>© 2026 Matthew Ward — <a href="https://typst.app/home/">Typst 0.15</a></footer></body></html>

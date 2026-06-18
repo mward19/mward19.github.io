@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>3DEO Illumination Spot Modeling</title><style>/* Alignment */
+mtable.right-align mtd,
+mtable mtd.right-align,
+mtable.left-align mtd.right-align,
+mtable.aligned mtd:nth-child(odd) {
+  justify-items: end;
+  text-align: right;
+}
+mtable.cases mtd,
+mtable.left-align mtd,
+mtable mtd.left-align,
+mtable.aligned mtd:nth-child(even),
+math:is(:not([display])) > mtable.multiline-equation mtd {
+  justify-items: start;
+  text-align: left;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.left-flush {
+  padding-left: 0;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.right-flush {
+  padding-right: 0;
+}
+
+/* Tables */
+mtable {
+  math-style: inherit;
+}
+mtd {
+  math-depth: auto-add;
+  math-style: compact;
+  math-shift: compact;
+}
+
+/* Equations */
+mtable.multiline-equation mtd {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+  padding: 0;
+}
+math > mtable.multiline-equation mtr:not(:last-child) mtd {
+  padding-bottom: 0.5em;
+}
+
+/* Fractions */
+mfrac {
+  padding-inline: 0;
+  margin-inline: 0.1em;
+}
+
+/* Accents */
+mover[accent="true" i] > :first-child {
+  font-feature-settings: "dtls";
+}
+mover.dotted[accent="true" i] > :first-child {
+  font-feature-settings: "dtls" 0;
+}
+
+/* Other rules for scriptlevel, displaystyle and math-shift */
+munder > :nth-child(2),
+munderover > :nth-child(2) {
+  math-shift: compact
+}
+munder[accentunder="true" i] > :not(:first-child),
+mover[accent="true" i] > :not(:first-child) {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+}</style></head><body><style>@import url("fonts.css");
+
+/* Define primary site colors */
+:root {
+  --primary: #0db629;
+  --primary-black: color-mix(in srgb, var(--primary) 25%, black);
+  --primary-dark: color-mix(in srgb, var(--primary) 50%, black);
+  --primary-light: color-mix(in srgb, var(--primary) 30%, white);
+  --secondary: #88a;
+  --secondary-dark: color-mix(in srgb, var(--secondary) 80%, black);
+  --secondary-light: color-mix(in srgb, var(--secondary) 80%, white);
+  --background: #FEFDFA;
+  --text: #111827;
+  --text-medium: color-mix(in srgb, var(--text) 80%, white);
+  --text-light: color-mix(in srgb, var(--text) 50%, white);
+}
+
+:root {
+  --margin-right: 38vw;
+  --margin-left: 22vw;
+}
+
+html {
+  /* scroll-padding-top: 5rem; */
+  background-color: var(--background);
+}
+
+body {
+  margin: 0 var(--margin-right) 0 var(--margin-left);
+  width: auto;
+  font-family: 'Libertinus Serif';
+  font-size: 1.2rem;
+  background-color: var(--background);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body b,
+body strong {
+  font-weight: 600; /* A little lighter than the default bold (700) */
+}
+
+body a {
+  color: var(--primary-black);
+  text-decoration: underline;
+}
+body a:hover {
+  color: var(--primary);
+}
+
+
+nav.top-nav-bar {
+  position: sticky;
+  top: 0;
+  background: var(--primary-light);
+  margin: 0 calc(-1 * var(--margin-right)) 0 calc(-1 * var(--margin-left));
+  padding: 5px var(--margin-right) 5px var(--margin-left);
+  font-family: 'Libertinus Serif';
+}
+
+nav.top-nav-bar ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav.top-nav-bar a,
+nav.top-nav-bar a:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+nav.top-nav-bar a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+nav.top-nav-bar * {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1em;
+  margin: 0;
+}
+/* 
+main {
+  padding-top: 0.5rem;
+} */
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1em;
+  font-family: 'Libertinus Sans';
+}
+p, li {
+  line-height: 1.4;
+}
+li {
+  margin-bottom: 0.5em;
+}
+p {
+  margin-bottom: 0.9em;
+}
+li p {
+  margin: 0;
+}
+pre, code {
+  font-size: 1rem;
+}
+
+figcaption,
+.caption-text {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+}
+
+span.small-text {
+  font-size: 1.1rem;
+}
+
+div.centered-frame {
+  margin: 0.5em 0;
+}
+
+div.article-link {
+  font-family: 'Libertinus Serif';
+}
+.article-link-title {
+  font-weight: 600;
+}
+
+div.article-link a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+div.article-link a:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.article-subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.article-date {
+  color: var(--text-light);
+}
+
+.article-title .article-date {
+  font-style: italic;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 6rem 0 1rem 0;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  /* border-top: 1px solid #F00; */
+}
+footer a {
+  color: var(--text-light);
+  text-decoration: underline;
+}
+footer a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* For narrower screens */
+@media (max-width: 1500px) {
+  body {
+    margin-left: 15vw;
+    margin-right: 25vw;
+  }
+}
+
+/* For phone screens */
+@media (max-width: 1000px) {
+  body {
+    margin: 0 1.5rem;
+  }
+}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../../../index.html"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="../../../about/index.html">About</a></li><li><a href="/posts/">Posts</a></li><li><a href="/projects/">Projects</a></li></ul></nav><main><div class="article-title"><h2>Internship with 3DEO—Illumination Spot Modeling</h2><div class="article-date">September 13, 2025</div></div><div style="max-width: 50rem; width: 80%; margin: 0 auto; text-align: center;"><img src="imgs/cover.png" alt style="width: 75%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>See <a href="/posts/2025/internship-3deo/">3DEO internship overview</a> and slides from my internship presentation on <a href="https://github.com/mward19/3deo-internship-presentation/tree/master">GitHub</a>.</p><hr><h2>Illumination Spot Modeling</h2><p>During my internship at 3DEO this summer, I spent some time modeling the region of laser illumination throughout a scan as observed in camera space. That is, as represented in the image below, I modeled the red spot on the ground (the laser illumination spot) relative to the blue region (the camera field of view).</p><div style="max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;"><img src="imgs/main-37.png" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>Much of the work in designing and building a 3DEO lidar sensor goes into controlling the mirrors and lenses that guide the sensor’s laser to the target and back into the camera. The mirrors in the sensor oscillate very quickly to scan a target, so it is just about impossible to align them perfectly throughout a scan. Ideally, the region illuminated by the laser reflects right back into the middle of the camera’s sensor array, as in the image above. In practice, the light reflected from the laser illumination spot occasionally veers away from the middle of the camera, leading to less efficient data collection.</p><hr><p><video controls style="width: 90%" src="video/hitmap_moving_average_window_100_slow.mp4">Your browser does not support the video tag.</video></p><p>This video shows a laser illumination spot as detected by the camera throughout a particular scan. The video is slowed down substantially—the entire scan was collected in a second or two of real time.</p><p>Notice that there are a few dead pixels, and that the spot moves up and down in the camera frame.</p><p>My project was to model this spot throughout a scan in order to potentially:</p><ul><li>Generate more accurate pointwise reflectivity (how reflective a spot on the ground is) estimates</li><li>Validate or refine alignment of the mirrors and other lidar sensor devices in-flight</li><li>Track defective pixels</li></ul><hr><p>I chose to model the spot as a single 2-dimensional Gaussian with a mean and covariance that can change throughout the scan. To get a baseline I began by fitting my Gaussian by taking the sample mean and covariance of the pixel positions. That doesn’t work very well though. To illustrate why, consider the following simulated data.</p><div style="max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;"><img src="imgs/main-42.png" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>In the above plot, the dotted gray box represents the simulated camera frame and each point represents a “photon detection”. The true distribution is represented in blue. The “camera” only detects the orange points, since the rest are out of its field of view. If we try to take the sample mean and covariance…</p><div style="max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;"><img src="imgs/main-43.png" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>we’re way off, as shown in red. This is precisely the phenomenon I saw when I tried to take the sample mean and covariance of the real data—a shrunken covariance and a mean biased towards the center of the camera frame.</p><hr><p>Since that didn’t work, I also tried fitting a truncated 2-dimensional Gaussian to the data with Bayesian inference (using PyMC). It was a lot of fun, but found that one of the tools I needed <a href="https://discourse.pymc.io/t/truncated-multivariate-normal-likelihood/17032">wasn’t yet implemented</a>.</p><hr><p>As I dug into this problem, I found that some Princeton astronomers had faced the same challenge while fitting Gaussian Mixture Models to images of galaxies. They made some extensions to Expectation Maximization (the standard algorithm for fitting GMMs) in order to handle incomplete data like mine (<a href="https://arxiv.org/abs/1611.05806">paper</a>). I applied their code, <a href="https://github.com/pmelchior/pygmmis">a Python library called pygmmis</a>, to my problem and it fit very nicely.</p><p><video controls style="width: 90%" src="video/spot_movement_window_100_gaussians_1_new_gmmis_1_in_1_slow.mp4">Your browser does not support the video tag.</video></p><p>Its runtime was too slow for real-time use, though. For this problem it functions well as a ground truth. I worked on faster alternatives, like fitting the covariance less frequently and using the brightest region of the spot to find the mean. I also found that throwing out large proportions of the photon detections before fitting with pygmmis worked quite well, speeding up the process significantly without sacrificing much accuracy.</p><p>Next, I would:</p><ul><li>Continue exploring faster ways of fitting the Gaussian model, using pygmmis or equivalent as ground truth</li><li>Test on more scans to check robustness</li><li><p>Prototype a simple pointwise reflectivity estimate. This might look something like</p><math display="block"><mtext>reflectivity estimate</mtext><mo>∝</mo><mfrac><mtext>observed reflection intensity</mtext><mtext>illumination intensity</mtext></mfrac></math><p>where <math><mtext>illumination intensity</mtext></math> is inferred from the spot illumination model, and <math><mtext>observed reflection intensity</mtext></math> comes from the local density of the point cloud.</p></li></ul><hr><p>This project showed me how tricky it can be to model data that’s only partially observed. Simple approaches didn’t hold up well, but methods like pygmmis provided a useful reference point for what good fits look like. The main challenge now is finding faster approximations that are accurate enough to be practical. There’s still more to explore, but these first steps gave a clearer picture of the problem and some practical directions forward.</p></main><footer>© 2026 Matthew Ward — <a href="https://typst.app/home/">Typst 0.15</a></footer></body></html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>visualize-voxels</title><style>/* Alignment */
+mtable.right-align mtd,
+mtable mtd.right-align,
+mtable.left-align mtd.right-align,
+mtable.aligned mtd:nth-child(odd) {
+  justify-items: end;
+  text-align: right;
+}
+mtable.cases mtd,
+mtable.left-align mtd,
+mtable mtd.left-align,
+mtable.aligned mtd:nth-child(even),
+math:is(:not([display])) > mtable.multiline-equation mtd {
+  justify-items: start;
+  text-align: left;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.left-flush {
+  padding-left: 0;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.right-flush {
+  padding-right: 0;
+}
+
+/* Tables */
+mtable {
+  math-style: inherit;
+}
+mtd {
+  math-depth: auto-add;
+  math-style: compact;
+  math-shift: compact;
+}
+
+/* Equations */
+mtable.multiline-equation mtd {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+  padding: 0;
+}
+math > mtable.multiline-equation mtr:not(:last-child) mtd {
+  padding-bottom: 0.5em;
+}
+
+/* Fractions */
+mfrac {
+  padding-inline: 0;
+  margin-inline: 0.1em;
+}
+
+/* Accents */
+mover[accent="true" i] > :first-child {
+  font-feature-settings: "dtls";
+}
+mover.dotted[accent="true" i] > :first-child {
+  font-feature-settings: "dtls" 0;
+}
+
+/* Other rules for scriptlevel, displaystyle and math-shift */
+munder > :nth-child(2),
+munderover > :nth-child(2) {
+  math-shift: compact
+}
+munder[accentunder="true" i] > :not(:first-child),
+mover[accent="true" i] > :not(:first-child) {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+}</style></head><body><style>@import url("fonts.css");
+
+/* Define primary site colors */
+:root {
+  --primary: #0db629;
+  --primary-black: color-mix(in srgb, var(--primary) 25%, black);
+  --primary-dark: color-mix(in srgb, var(--primary) 50%, black);
+  --primary-light: color-mix(in srgb, var(--primary) 30%, white);
+  --secondary: #88a;
+  --secondary-dark: color-mix(in srgb, var(--secondary) 80%, black);
+  --secondary-light: color-mix(in srgb, var(--secondary) 80%, white);
+  --background: #FEFDFA;
+  --text: #111827;
+  --text-medium: color-mix(in srgb, var(--text) 80%, white);
+  --text-light: color-mix(in srgb, var(--text) 50%, white);
+}
+
+:root {
+  --margin-right: 38vw;
+  --margin-left: 22vw;
+}
+
+html {
+  /* scroll-padding-top: 5rem; */
+  background-color: var(--background);
+}
+
+body {
+  margin: 0 var(--margin-right) 0 var(--margin-left);
+  width: auto;
+  font-family: 'Libertinus Serif';
+  font-size: 1.2rem;
+  background-color: var(--background);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body b,
+body strong {
+  font-weight: 600; /* A little lighter than the default bold (700) */
+}
+
+body a {
+  color: var(--primary-black);
+  text-decoration: underline;
+}
+body a:hover {
+  color: var(--primary);
+}
+
+
+nav.top-nav-bar {
+  position: sticky;
+  top: 0;
+  background: var(--primary-light);
+  margin: 0 calc(-1 * var(--margin-right)) 0 calc(-1 * var(--margin-left));
+  padding: 5px var(--margin-right) 5px var(--margin-left);
+  font-family: 'Libertinus Serif';
+}
+
+nav.top-nav-bar ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav.top-nav-bar a,
+nav.top-nav-bar a:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+nav.top-nav-bar a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+nav.top-nav-bar * {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1em;
+  margin: 0;
+}
+/* 
+main {
+  padding-top: 0.5rem;
+} */
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1em;
+  font-family: 'Libertinus Sans';
+}
+p, li {
+  line-height: 1.4;
+}
+li {
+  margin-bottom: 0.5em;
+}
+p {
+  margin-bottom: 0.9em;
+}
+li p {
+  margin: 0;
+}
+pre, code {
+  font-size: 1rem;
+}
+
+figcaption,
+.caption-text {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+}
+
+span.small-text {
+  font-size: 1.1rem;
+}
+
+div.centered-frame {
+  margin: 0.5em 0;
+}
+
+div.article-link {
+  font-family: 'Libertinus Serif';
+}
+.article-link-title {
+  font-weight: 600;
+}
+
+div.article-link a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+div.article-link a:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.article-subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.article-date {
+  color: var(--text-light);
+}
+
+.article-title .article-date {
+  font-style: italic;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 6rem 0 1rem 0;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  /* border-top: 1px solid #F00; */
+}
+footer a {
+  color: var(--text-light);
+  text-decoration: underline;
+}
+footer a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* For narrower screens */
+@media (max-width: 1500px) {
+  body {
+    margin-left: 15vw;
+    margin-right: 25vw;
+  }
+}
+
+/* For phone screens */
+@media (max-width: 1000px) {
+  body {
+    margin: 0 1.5rem;
+  }
+}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../../../index.html"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="../../../about/index.html">About</a></li><li><a href="/posts/">Posts</a></li><li><a href="/projects/">Projects</a></li></ul></nav><main><div class="article-title"><h2>visualize-voxels</h2><div class="article-date">November 13, 2024</div></div><p>This project is hosted on <a href="https://www.github.com/mward19/visualize_voxels">GitHub</a>.</p><hr><div style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="video/helix_visualization.gif" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><figcaption>Figure 6: A helix plotted within a tomogram.</figcaption></figure></div><p>I spend a lot of time working with <a href="https://cryoetdataportal.czscience.com/browse-data/datasets">cryo-electron tomograms</a>. They’re huge, noisy, three-dimensional images that can take up gigabytes of storage apiece.</p><p>Naturally, visualizing these images is a pain—most of the options are desktop applications like <a href="https://bio3d.colorado.edu/imod/">IMOD</a>. <a href="https://napari.org/stable/#">napari</a> is marvelous, but heavier than I usually need. All the time I found myself in a Jupyter notebook working doing data analysis on tomograms and I just wanted a quick snapshot of what the volume looks like, perhaps with a couple keypoints marked. And I wanted it to be dead-simple, so that with a single function call and a few seconds I could see what sort of image I was working with. So I wrote <em>visualize_voxels</em>.</p><p>It was my first time writing a Python library. Really, calling it a library is a stretch, because it only delivers to the user one function (visualize). But because I work in many environments (on my laptop, in online Jupyter notebooks, through SSH on BYU’s supercomputer), I wanted it to be easily installable via pip.</p><p>The result was exactly what I needed. Given a NumPy array of scalars <code>arr</code>, simply calling <code>visualize(arr)</code> produces a visualization like the one displayed below in seconds—quick, simple, effective. Then I started adding other useful features, like the ability to mark points in the volume, and change the size, speed, and resolution of the visualization, among other little things. I made it work seamlessly in both .py scripts as well as notebooks.</p><div style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="video/weird_tomo_3.gif" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div></figure></div><p>This code (which leverages <code>tomogram_datasets</code> as well) visualizes the tomogram with the third-largest number of flagellar motors in our supercomputer:</p><pre><code data-lang="python"><span style="color: #d73948">from</span> tomogram_datasets <span style="color: #d73948">import</span> all_fm_tomograms
+<span style="color: #d73948">import</span> numpy <span style="color: #d73948">as</span> np
+<span style="color: #d73948">from</span> visualize_voxels <span style="color: #d73948">import</span> visualize <span style="color: #d73948">as</span> viz
+
+tomos <span style="color: #d73948">=</span> <span style="color: #4b69c6">all_fm_tomograms</span>()
+n_flagellar_motors <span style="color: #d73948">=</span> [<span style="color: #4b69c6">len</span>(tomo.<span style="color: #4b69c6">annotation_points</span>()) <span style="color: #d73948">for</span> tomo <span style="color: #d73948">in</span> tomos]
+super_tomo <span style="color: #d73948">=</span> tomos[np.<span style="color: #4b69c6">argsort</span>(n_flagellar_motors)[<span style="color: #d73948">-</span><span style="color: #b60157">3</span>]]
+
+<span style="color: #4b69c6">viz</span>(
+    super_tomo.<span style="color: #4b69c6">get_data</span>(),
+    marks<span style="color: #d73948">=</span>super_tomo.<span style="color: #4b69c6">annotation_points</span>(),
+    markalpha<span style="color: #d73948">=</span><span style="color: #b60157">0</span><span style="color: #b60157">.</span><span style="color: #b60157">5</span>,
+    axis<span style="color: #d73948">=</span><span style="color: #b60157">0</span>,
+    slices<span style="color: #d73948">=</span>np.<span style="color: #4b69c6">linspace</span>(<span style="color: #b60157">80</span>, <span style="color: #b60157">320</span>, <span style="color: #b60157">100</span>),
+    fps<span style="color: #d73948">=</span><span style="color: #b60157">16</span>
+)</code></pre><p>Try playing with it <a href="documents/viz_vox_demo.html">here</a>.</p></main><footer>© 2026 Matthew Ward — <a href="https://typst.app/home/">Typst 0.15</a></footer></body></html>
