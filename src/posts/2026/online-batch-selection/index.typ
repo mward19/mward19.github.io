@@ -65,7 +65,7 @@
   
   The study of the training and application of deep neural networks is called _deep learning_.
 
-  = Online Batch Selection
+  = Online batch selection
   To review, training a neural network involves repeatedly selecting a data point $bm(x)^((i))$ from a training dataset (the data points in FashionMNIST are images), calculating $-(partial ell(bm(x)^((i))\; bold(Theta)))/(partial bold(Theta))$, and shifting $bold(Theta)$ accordingly.
   
   In fact, for efficiency, we usually pick a few data points at once and calculate $-(partial ell(bm(x)\; bold(Theta)))/(partial bold(Theta))$ for them at the same time (GPUs make this quite easy). The set of data points we train on at each training step is called a *batch*---the batch size can vary from just a couple data points to hundreds at once. Each time we select a batch of data and shift $bold(Theta)$ based on the batch is called a *training step*.
