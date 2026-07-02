@@ -3,6 +3,13 @@
   = Posts
 
   #article-link(
+    <posts-2026-online-batch-selection>,
+    "", // "2025/internship-3deo/imgs/thumb.png",
+    [Online Batch Selection],
+    [---]
+  )
+
+  #article-link(
     <posts-2025-internship-3deo>,
     "2025/internship-3deo/imgs/thumb.png",
     [Internship with 3DEO—Data Engineering for Geiger-mode Lidar],

@@ -6,6 +6,7 @@
 
 // Posts
 #include "posts/index.typ"
+#include "posts/2026/online-batch-selection/index.typ"
 #include "posts/2025/internship-3deo/index.typ"
 #include "posts/2025/byu-acme-thoughts/index.typ"
 #include "posts/2025/teaching-pcp/index.typ"
@@ -20,6 +21,7 @@
 #include "projects/2024/tomogram-datasets/index.typ"
 #include "projects/2024/principal-component-pursuit/index.typ"
 #include "projects/2024/visualize-voxels/index.typ"
+
 
 #site-page("index.html", tab-title: "Matthew Ward")[
   #metadata(none)
@@ -40,7 +42,7 @@
 
     *Matthew M. Ward* \
     Applied Mathematics student at Brigham Young University \
-    #small-text[Interested in optimization, machine learning, computer vision, typesetting, etc. Learn more about me #link(<about-me>)[here].]
+    #small-text[_Interested in optimization, machine learning, computer vision, typesetting, etc. Learn more about me #link(<about-me>)[here]._]
   ]
 
   #html.hr()

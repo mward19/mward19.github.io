@@ -53,11 +53,15 @@
   })
 }
 
+#let centered(it) = html.div(style: "width: 100%; text-align: center;", it)
+
 // Especially for complex formulas that MathML doesn't format well
 #let centered-frame(it) = html.div(class: "centered-frame", html.frame(it))
 #let inline-frame(it) = box(html.frame(it))
 
 #let small-text(it) = html.span(class: "small-text", it)
+
+#let to-do(it) = html.span(style: "color: fuchsia;", it)
 
 #let article-link(path, thumbnail-path, title, date, subtitle: none) = html.div(class: "article-link",
   link(path, html.div(style: "display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;", {
@@ -75,7 +79,7 @@
 #let article-title(title, date, subtitle: none) = html.div(
   class: "article-title",
   {
-    html.elem("h2", title)
+    html.elem("h1", title)
     if subtitle != none {
       html.div(class: "article-subtitle", subtitle)
     }
@@ -131,6 +135,8 @@
     footer
   })
 )
+
+
 
 
 

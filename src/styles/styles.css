@@ -83,6 +83,10 @@ nav.top-nav-bar * {
   line-height: 1em;
   margin: 0;
 }
+
+nav.top-nav-bar li {
+  display: block;
+}
 /* 
 main {
   padding-top: 0.5rem;
@@ -93,7 +97,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 1em;
+  margin-bottom: 0.9em;
   font-family: 'Libertinus Sans';
 }
 p, li {
@@ -120,13 +124,18 @@ figcaption,
 
 span.small-text {
   font-size: 1.1rem;
+  line-height: 1.1;
+  display: inline-block;
 }
 
 div.centered-frame {
-  margin: 0.5em 0;
   display: block;
-  text-align: center;
   overflow-x: auto;
+  margin: 0.5em 0;
+}
+
+div.centered-frame > svg {
+  margin: 0 auto;
 }
 
 div.article-link {
