@@ -1,6 +1,6 @@
 #import "../../../shared.typ": *
 #site-page("posts/2026/online-batch-selection/index.html", tab-title: "Online Batch Selection")[
-  #article-title([Online Batch Selection (and Deep Learning) for Normal People], [July 1, 2026])
+  #article-title([Online Batch Selection (and Deep Learning) for the Uninitiated], [July 1, 2026])
 
   #let bm(it) = $bold(upright(it))$
   #set heading(numbering: "1.1.1.")
