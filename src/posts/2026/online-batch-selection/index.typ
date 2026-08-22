@@ -7,6 +7,9 @@
   #let bm(it) = $bold(upright(it))$
   #set heading(numbering: "1.1.1.")
 
+  #show math.equation.where(block: false): it => inline-frame(it)
+  #show math.equation.where(block: true): it => centered-frame(html.frame(it))
+
   #divider()
 
   I am about to start a two-year thesis-based Master's of Mathematics program with #link("https://sites.google.com/view/kevin-miller/home")[Dr. Kevin Miller], a professor of mathematics at Brigham Young University. I started researching with him this summer, focusing primarily on methods of online batch selection for deep learning.
