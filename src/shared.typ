@@ -34,14 +34,14 @@
 
 #let small-img(src, caption: none, alt: "", width: 100%) = {
   html.div(style: "max-width: 20rem; margin: 0 auto; text-align: center;", {
-    html.img(src: src, alt: alt, style: "width: " + str(width / 1%) + "%;")
+    html.img(src: src, alt: alt, style: "width: max(" + str(width / 1%) + "%, 10rem);")
     html.div(class: "caption-text", style: "width: 100%; text-align: center;", caption)
   })
 }
 
 #let large-img(src, caption: none, alt: "", width: 100%) = {
   html.div(style: "max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;", {
-    html.img(src: src, alt: alt, style: "width: " + str(width / 1%) + "%;")
+    html.img(src: src, alt: alt, style: "width: max(" + str(width / 1%) + "%, 10rem);")
     html.div(class: "caption-text", style: "width: 100%; text-align: center;", caption)
   })
 }
@@ -62,6 +62,11 @@
 #let small-text(it) = html.span(class: "small-text", it)
 
 #let to-do(it) = html.span(style: "color: fuchsia;", it)
+
+#let details-box(title, content, open: false) = html.details(class: "details-box", open: open, {
+  html.summary(title)
+  html.div(class: "details-box-content", content)
+})
 
 #let article-link(path, thumbnail-path, title, date, subtitle: none) = html.div(class: "article-link",
   link(path, html.div(style: "display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;", {

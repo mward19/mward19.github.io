@@ -8,12 +8,11 @@
 trap 'kill $(jobs -p) 2>/dev/null; exit 0' INT
 
 # Watch for changes in background
-inotifywait -r -m -e modify,create,delete src/ |
+inotifywait -r -m -e modify,create,delete --include '\.typ$' src/ |
 while read path action file; do
     echo "Change detected: $file"
     ./build
-    browser-sync reload
 done &
 
-# Start server with live reload
+# Start server; browser-sync reloads when ./build writes into _build
 cd _build && browser-sync start --server --files "**/*"

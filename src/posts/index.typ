@@ -4,9 +4,9 @@
 
   #article-link(
     <posts-2026-online-batch-selection>,
-    "", // "2025/internship-3deo/imgs/thumb.png",
-    [Online Batch Selection],
-    [---]
+    "2026/online-batch-selection/img/dataset-3-crop.png",
+    [Online Batch Selection (and Gradient Descent) for the Uninitiated], 
+    [August 22, 2026]
   )
 
   #article-link(

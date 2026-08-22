@@ -49,17 +49,17 @@
 
   == Featured Work
   #article-link(
+    <posts-2026-online-batch-selection>,
+    "posts/2026/online-batch-selection/img/dataset-3-crop.png",
+    [Online Batch Selection (and Gradient Descent) for the Uninitiated], 
+    [August 22, 2026]
+  )
+
+  #article-link(
     <projects-2025-internship-3deo-pose-graph>,
     "projects/2025/internship-3deo-pose-graph/imgs/thumb.png",
     [Internship with 3DEO---Pose Graph Optimization],
     [September 13, 2025]
-  )
-
-  #article-link(
-    <posts-2025-byu-acme-thoughts>,
-    "posts/2025/byu-acme-thoughts/imgs/thumb.jpg",
-    [Thoughts on BYU's ACME math program upon finishing core classes],
-    [April 28, 2025]
   )
 
   #article-link(
