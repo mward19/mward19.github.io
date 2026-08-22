@@ -135,7 +135,7 @@ mover[accent="true" i] > :not(:first-child) {
   --primary-light: color-mix(in srgb, var(--primary) 30%, white);
   --secondary: #88a;
   --secondary-dark: color-mix(in srgb, var(--secondary) 80%, black);
-  --secondary-light: color-mix(in srgb, var(--secondary) 80%, white);
+  --secondary-light: color-mix(in srgb, var(--secondary) 20%, white);
   --background: #FEFDFA;
   --text: #111827;
   --text-medium: color-mix(in srgb, var(--text) 80%, white);
@@ -143,18 +143,19 @@ mover[accent="true" i] > :not(:first-child) {
 }
 
 :root {
-  --margin-right: 38vw;
   --margin-left: 22vw;
+  --body-width: 40em;
+  --margin-right: calc(100vw - var(--margin-left) - var(--body-width))
 }
 
 html {
-  /* scroll-padding-top: 5rem; */
+  scroll-padding-top: 4rem;
   background-color: var(--background);
 }
 
 body {
   margin: 0 var(--margin-right) 0 var(--margin-left);
-  width: auto;
+  width: var(--body-width);
   font-family: 'Libertinus Serif';
   font-size: 1.2rem;
   background-color: var(--background);
@@ -212,6 +213,10 @@ nav.top-nav-bar * {
   line-height: 1em;
   margin: 0;
 }
+
+nav.top-nav-bar li {
+  display: block;
+}
 /* 
 main {
   padding-top: 0.5rem;
@@ -222,7 +227,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 1em;
+  margin-bottom: 0.9em;
   font-family: 'Libertinus Sans';
 }
 p, li {
@@ -249,13 +254,35 @@ figcaption,
 
 span.small-text {
   font-size: 1.1rem;
+  line-height: 1.1;
+  display: inline-block;
 }
 
 div.centered-frame {
-  margin: 0.5em 0;
   display: block;
-  text-align: center;
   overflow-x: auto;
+  margin: 0.5em 0;
+}
+
+div.centered-frame > svg {
+  margin: 0 auto;
+}
+
+details.details-box {
+  border: 1px solid var(--text);
+  background-color: var(--secondary-light);
+  border-radius: 0.5em;
+  padding: 0.5em 0.8em;
+  margin: 1em 0;
+}
+
+details.details-box summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+details.details-box[open] summary {
+  margin-bottom: 0.5em;
 }
 
 div.article-link {
@@ -307,21 +334,26 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* For narrower screens */
-@media (max-width: 1500px) {
+
+/* For narrower screens. Threshold is where the wide-screen 22vw margin-left
+   already equals the centered value, so the switch to centering is seamless. */
+@media (max-width: 84em) {
   :root {
-    --margin-left: 15vw;
-    --margin-right: 25vw;
+    --body-width: 40em;
+    --margin-left: calc((100vw - var(--body-width)) / 2);
+    --margin-right: var(--margin-left)
+    
   }
 }
 
 /* For phone screens */
-@media (max-width: 1000px) {
+@media (max-width: 50em) {
   :root {
-    --margin-left: 1.5rem;
-    --margin-right: 1.5rem;
+    --margin-left: 1.5em;
+    --margin-right: 1.5em;
+    --body-width: calc(100vw - var(--margin-left) - var(--margin-right))
   }
-}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../../../" data-href-stripped="true"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="../../../about/" data-href-stripped="true">About</a></li><li><a href="/posts/" data-href-stripped="true">Posts</a></li><li><a href="/projects/" data-href-stripped="true">Projects</a></li></ul></nav><main><div class="article-title"><h2>visualize-voxels</h2><div class="article-date">November 13, 2024</div></div><p>This project is hosted on <a href="https://www.github.com/mward19/visualize_voxels" data-href-stripped="true">GitHub</a>.</p><hr><div style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="video/helix_visualization.gif" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><figcaption>Figure 6: A helix plotted within a tomogram.</figcaption></figure></div><p>I spend a lot of time working with <a href="https://cryoetdataportal.czscience.com/browse-data/datasets" data-href-stripped="true">cryo-electron tomograms</a>. They’re huge, noisy, three-dimensional images that can take up gigabytes of storage apiece.</p><p>Naturally, visualizing these images is a pain—most of the options are desktop applications like <a href="https://bio3d.colorado.edu/imod/" data-href-stripped="true">IMOD</a>. <a href="https://napari.org/stable/#" data-href-stripped="true">napari</a> is marvelous, but heavier than I usually need. All the time I found myself in a Jupyter notebook working doing data analysis on tomograms and I just wanted a quick snapshot of what the volume looks like, perhaps with a couple keypoints marked. And I wanted it to be dead-simple, so that with a single function call and a few seconds I could see what sort of image I was working with. So I wrote <em>visualize_voxels</em>.</p><p>It was my first time writing a Python library. Really, calling it a library is a stretch, because it only delivers to the user one function (visualize). But because I work in many environments (on my laptop, in online Jupyter notebooks, through SSH on BYU’s supercomputer), I wanted it to be easily installable via pip.</p><p>The result was exactly what I needed. Given a NumPy array of scalars <code>arr</code>, simply calling <code>visualize(arr)</code> produces a visualization like the one displayed below in seconds—quick, simple, effective. Then I started adding other useful features, like the ability to mark points in the volume, and change the size, speed, and resolution of the visualization, among other little things. I made it work seamlessly in both .py scripts as well as notebooks.</p><div style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="video/weird_tomo_3.gif" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div></figure></div><p>This code (which leverages <code>tomogram_datasets</code> as well) visualizes the tomogram with the third-largest number of flagellar motors in our supercomputer:</p><pre><code data-lang="python"><span style="color: #d73948">from</span> tomogram_datasets <span style="color: #d73948">import</span> all_fm_tomograms
+}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../../../" data-href-stripped="true"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="../../../about/" data-href-stripped="true">About</a></li><li><a href="/posts/" data-href-stripped="true">Posts</a></li><li><a href="/projects/" data-href-stripped="true">Projects</a></li></ul></nav><main><div class="article-title"><h1>visualize-voxels</h1><div class="article-date">November 13, 2024</div></div><p>This project is hosted on <a href="https://www.github.com/mward19/visualize_voxels" data-href-stripped="true">GitHub</a>.</p><hr><div style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="video/helix_visualization.gif" alt style="width: max(100%, 10rem);"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><figcaption>Figure 11: A helix plotted within a tomogram.</figcaption></figure></div><p>I spend a lot of time working with <a href="https://cryoetdataportal.czscience.com/browse-data/datasets" data-href-stripped="true">cryo-electron tomograms</a>. They’re huge, noisy, three-dimensional images that can take up gigabytes of storage apiece.</p><p>Naturally, visualizing these images is a pain—most of the options are desktop applications like <a href="https://bio3d.colorado.edu/imod/" data-href-stripped="true">IMOD</a>. <a href="https://napari.org/stable/#" data-href-stripped="true">napari</a> is marvelous, but heavier than I usually need. All the time I found myself in a Jupyter notebook working doing data analysis on tomograms and I just wanted a quick snapshot of what the volume looks like, perhaps with a couple keypoints marked. And I wanted it to be dead-simple, so that with a single function call and a few seconds I could see what sort of image I was working with. So I wrote <em>visualize_voxels</em>.</p><p>It was my first time writing a Python library. Really, calling it a library is a stretch, because it only delivers to the user one function (visualize). But because I work in many environments (on my laptop, in online Jupyter notebooks, through SSH on BYU’s supercomputer), I wanted it to be easily installable via pip.</p><p>The result was exactly what I needed. Given a NumPy array of scalars <code>arr</code>, simply calling <code>visualize(arr)</code> produces a visualization like the one displayed below in seconds—quick, simple, effective. Then I started adding other useful features, like the ability to mark points in the volume, and change the size, speed, and resolution of the visualization, among other little things. I made it work seamlessly in both .py scripts as well as notebooks.</p><div style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="video/weird_tomo_3.gif" alt style="width: max(100%, 10rem);"><div class="caption-text" style="width: 100%; text-align: center;"></div></div></figure></div><p>This code (which leverages <code>tomogram_datasets</code> as well) visualizes the tomogram with the third-largest number of flagellar motors in our supercomputer:</p><pre><code data-lang="python"><span style="color: #d73948">from</span> tomogram_datasets <span style="color: #d73948">import</span> all_fm_tomograms
 <span style="color: #d73948">import</span> numpy <span style="color: #d73948">as</span> np
 <span style="color: #d73948">from</span> visualize_voxels <span style="color: #d73948">import</span> visualize <span style="color: #d73948">as</span> viz
 

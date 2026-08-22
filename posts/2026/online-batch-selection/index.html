@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Online Batch Selection</title><style>/* Alignment */
+mtable.right-align mtd,
+mtable mtd.right-align,
+mtable.left-align mtd.right-align,
+mtable.aligned mtd:nth-child(odd) {
+  justify-items: end;
+  text-align: right;
+}
+mtable.cases mtd,
+mtable.left-align mtd,
+mtable mtd.left-align,
+mtable.aligned mtd:nth-child(even),
+math:is(:not([display])) > mtable.multiline-equation mtd {
+  justify-items: start;
+  text-align: left;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.left-flush {
+  padding-left: 0;
+}
+mtable.cases mtd,
+mtable.aligned mtd,
+mtable mtd.flushed,
+mtable mtd.right-flush {
+  padding-right: 0;
+}
+
+/* Tables */
+mtable {
+  math-style: inherit;
+}
+mtd {
+  math-depth: auto-add;
+  math-style: compact;
+  math-shift: compact;
+}
+
+/* Equations */
+mtable.multiline-equation mtd {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+  padding: 0;
+}
+math > mtable.multiline-equation mtr:not(:last-child) mtd {
+  padding-bottom: 0.5em;
+}
+
+/* Fractions */
+mfrac {
+  padding-inline: 0;
+  margin-inline: 0.1em;
+}
+
+/* Accents */
+mover[accent="true" i] > :first-child {
+  font-feature-settings: "dtls";
+}
+mover.dotted[accent="true" i] > :first-child {
+  font-feature-settings: "dtls" 0;
+}
+
+/* Other rules for scriptlevel, displaystyle and math-shift */
+munder > :nth-child(2),
+munderover > :nth-child(2) {
+  math-shift: compact
+}
+munder[accentunder="true" i] > :not(:first-child),
+mover[accent="true" i] > :not(:first-child) {
+  math-depth: inherit;
+  math-style: inherit;
+  math-shift: inherit;
+}</style></head><body><style>/* Get Libertinus fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+.libertinus-serif-regular {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libertinus-serif-semibold {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.libertinus-serif-bold {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libertinus-serif-regular-italic {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.libertinus-serif-semibold-italic {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.libertinus-serif-bold-italic {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.libertinus-sans-regular {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libertinus-sans-bold {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libertinus-sans-regular-italic {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}</style><style>/* Define primary site colors */
+:root {
+  --primary: #0db629;
+  --primary-black: color-mix(in srgb, var(--primary) 25%, black);
+  --primary-dark: color-mix(in srgb, var(--primary) 50%, black);
+  --primary-light: color-mix(in srgb, var(--primary) 30%, white);
+  --secondary: #88a;
+  --secondary-dark: color-mix(in srgb, var(--secondary) 80%, black);
+  --secondary-light: color-mix(in srgb, var(--secondary) 20%, white);
+  --background: #FEFDFA;
+  --text: #111827;
+  --text-medium: color-mix(in srgb, var(--text) 80%, white);
+  --text-light: color-mix(in srgb, var(--text) 50%, white);
+}
+
+:root {
+  --margin-left: 22vw;
+  --body-width: 40em;
+  --margin-right: calc(100vw - var(--margin-left) - var(--body-width))
+}
+
+html {
+  scroll-padding-top: 4rem;
+  background-color: var(--background);
+}
+
+body {
+  margin: 0 var(--margin-right) 0 var(--margin-left);
+  width: var(--body-width);
+  font-family: 'Libertinus Serif';
+  font-size: 1.2rem;
+  background-color: var(--background);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body b,
+body strong {
+  font-weight: 600; /* A little lighter than the default bold (700) */
+}
+
+body a {
+  color: var(--primary-black);
+  text-decoration: underline;
+}
+body a:hover {
+  color: var(--primary);
+}
+
+
+nav.top-nav-bar {
+  position: sticky;
+  top: 0;
+  background: var(--primary-light);
+  margin: 0 calc(-1 * var(--margin-right)) 0 calc(-1 * var(--margin-left));
+  padding: 5px var(--margin-right) 5px var(--margin-left);
+  font-family: 'Libertinus Serif';
+}
+
+nav.top-nav-bar ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav.top-nav-bar a,
+nav.top-nav-bar a:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+nav.top-nav-bar a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+nav.top-nav-bar * {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1em;
+  margin: 0;
+}
+
+nav.top-nav-bar li {
+  display: block;
+}
+/* 
+main {
+  padding-top: 0.5rem;
+} */
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.9em;
+  font-family: 'Libertinus Sans';
+}
+p, li {
+  line-height: 1.4;
+}
+li {
+  margin-bottom: 0.5em;
+}
+p {
+  margin-bottom: 0.9em;
+}
+li p {
+  margin: 0;
+}
+pre, code {
+  font-size: 1rem;
+}
+
+figcaption,
+.caption-text {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+}
+
+span.small-text {
+  font-size: 1.1rem;
+  line-height: 1.1;
+  display: inline-block;
+}
+
+div.centered-frame {
+  display: block;
+  overflow-x: auto;
+  margin: 0.5em 0;
+}
+
+div.centered-frame > svg {
+  margin: 0 auto;
+}
+
+details.details-box {
+  border: 1px solid var(--text);
+  background-color: var(--secondary-light);
+  border-radius: 0.5em;
+  padding: 0.5em 0.8em;
+  margin: 1em 0;
+}
+
+details.details-box summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+details.details-box[open] summary {
+  margin-bottom: 0.5em;
+}
+
+div.article-link {
+  font-family: 'Libertinus Serif';
+}
+.article-link-title {
+  font-weight: 600;
+}
+
+div.article-link a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+div.article-link a:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.article-subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.article-date {
+  color: var(--text-light);
+}
+
+.article-title .article-date {
+  font-style: italic;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 6rem 0 1rem 0;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  /* border-top: 1px solid #F00; */
+}
+footer a {
+  color: var(--text-light);
+  text-decoration: underline;
+}
+footer a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+
+/* For narrower screens. Threshold is where the wide-screen 22vw margin-left
+   already equals the centered value, so the switch to centering is seamless. */
+@media (max-width: 84em) {
+  :root {
+    --body-width: 40em;
+    --margin-left: calc((100vw - var(--body-width)) / 2);
+    --margin-right: var(--margin-left)
+    
+  }
+}
+
+/* For phone screens */
+@media (max-width: 50em) {
+  :root {
+    --margin-left: 1.5em;
+    --margin-right: 1.5em;
+    --body-width: calc(100vw - var(--margin-left) - var(--margin-right))
+  }
+}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../../../" data-href-stripped="true"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="../../../about/" data-href-stripped="true">About</a></li><li><a href="/posts/" data-href-stripped="true">Posts</a></li><li><a href="/projects/" data-href-stripped="true">Projects</a></li></ul></nav><main><div class="article-title"><h1>Online Batch Selection (and Gradient Descent) for the Uninitiated</h1><div class="article-date">August 22, 2026</div></div><div style="max-width: 50rem; width: 80%; margin: 0 auto; text-align: center;"><img src="img/dataset-3.png" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><hr><p>I am about to start a two-year thesis-based Master’s of Mathematics program with <a href="https://sites.google.com/view/kevin-miller/home" data-href-stripped="true">Dr. Kevin Miller</a>, a professor of mathematics at Brigham Young University. I started researching with him this summer, focusing primarily on methods of online batch selection for deep learning.</p><p>What follows is high-school level treatment of online batch selection in the context of deep learning. I hope to persuade you (as I have persuaded myself) that online batch selection is worth years of devoted study. Advances in the subject will impact artificial intelligence (AI) by reducing training costs and strengthening model robustness. In time, such progress might also improve AI safety.</p><h2>1. An introduction to gradient descent for neural networks</h2><p>Neural networks were inspired by the brain, but in reality they have little to do with it. Rather, a neural network is a kind of mathematical function, one with many parameters (numbers that determine the function’s behavior).</p><p>In mathematics, a function simply takes <em>stuff</em> in, and, based on the input, deterministically outputs other <em>stuff</em>. Neural networks take in some numbers and output other numbers, usually to model something useful. For example, an image is really just a long list of numbers arranged in a meaningful way.</p><div id="example-data" style="width: 100%; text-align: center;"><figure><div style="max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;"><img src="notebooks/example-data.svg" alt style="width: max(60%, 10rem);"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><figcaption>Figure 1:<span style="white-space: pre-wrap">&#x20;&#x20;</span>One sample from FashionMNIST, a dataset of 28×28 grayscale images of clothing. Each image falls into one of ten classes: <em>T-shirt/top</em>, <em>Trouser</em>, <em>Pullover</em>, <em>Dress</em>, <em>Coat</em>, <em>Sandal</em>, <em>Shirt</em>, <em>Sneaker</em>, <em>Bag</em>, or <em>Ankle boot</em>.</figcaption></figure></div><div id="example-data-df" style="width: 100%; text-align: center;"><figure><div style="max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;"><img src="notebooks/example-data-df.png" alt style="width: max(70%, 10rem);"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><figcaption>Figure 2: The image in <a href="#example-data" data-href-stripped="true">Figure 1</a> is really just a long list of numbers arranged in a grid (28×28 = 784 numbers, to be exact).</figcaption></figure></div><p>You can probably tell that the image in <a href="#example-data" data-href-stripped="true">Figure 1</a> and <a href="#example-data-df" data-href-stripped="true">Figure 2</a> isn’t a <em>Sandal</em> or a <em>Trouser</em>, but you might not be certain if it’s a <em>T-shirt/top</em>, a <em>Shirt</em>, or a <em>Bag</em>. I might reasonably claim there’s a 60% chance it’s a <em>T-shirt/top</em>, a 10% chance it’s a <em>Shirt</em>, a 30% chance it’s a <em>Bag</em>, and a 0% chance it’s anything else. I could represent these confidence values as a list of numbers (a <strong>vector</strong>) adding to 1, where each number corresponds to <em>T-shirt/top</em>, <em>Trouser</em>, <em>Pullover</em>, <em>Dress</em>, <em>Coat</em>, <em>Sandal</em>, <em>Shirt</em>, <em>Sneaker</em>, <em>Bag</em>, and <em>Ankle boot</em> respectively:</p><math display="block"><mrow><mo>(</mo><mtable><mtr><mtd><mn>0.6</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0.1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0.3</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr></mtable><mo>)</mo></mrow></math><p>I would then be acting like a function on the dataset: one that takes in FashionMNIST images and outputs how confident I am that it belongs to each class.</p><p>The output of this “me looking at an image” function depends on two things: the image, and the configuration of my brain. Let’s call the function “<math><mtext>matt</mtext></math>”, the image “🖼️”, and my brain “🧠”. Then we could write that</p><math display="block"><msub><mtext>matt</mtext><mi>🧠</mi></msub><mrow><mo>(</mo><mi>🖼️</mi><mo>)</mo></mrow><mo>=</mo><mrow displaystyle="false"><mo>(</mo><mtable><mtr><mtd><mn>0.6</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0.1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0.3</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr></mtable><mo>)</mo></mrow><mi>.</mi></math><p>Neural network classifiers do the same thing: they take in an image and output a vector representing how “confident” it is that the image belongs to each class. They only differ in that their “brain” isn’t made of cells and tissue—it’s just a pile of numbers called “parameters”. One common convention in machine learning is to call the neural network “<math><mi>𝑓</mi></math>”, the input image “<math><mi>𝐱</mi></math>”, and the network’s parameters “<math><mi>𝚯</mi></math>” (the Greek letter <em>theta</em>):</p><math display="block"><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow><mo>=</mo><mrow displaystyle="false"><mo>(</mo><mtable><mtr><mtd><mn>0.6</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0.1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0.3</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr></mtable><mo>)</mo></mrow></math><p>Thus, neural networks are a kind of <strong>model</strong>: they are used to approximate (possibly very complex) mathematical functions like <math><msub><mtext>matt</mtext><mi>🧠</mi></msub><mrow><mo>(</mo><mi>🖼️</mi><mo>)</mo></mrow></math>. Neural networks work by taking the numbers in <math><mi>𝐱</mi></math> and methodically mixing them around with the numbers in <math><mi>𝚯</mi></math> through multiplication and addition. A <em>deep</em> neural network mixes over and over again, with tons of numbers within <math><mi>𝚯</mi></math> to enable extra mixing. Large language models (LLMs) like ChatGPT and Claude are deep neural networks. Instead of classifying images, they “classify” sequences of words, outputting a vector that represents which words are most likely to come next in the sequence. The latest LLMs have over a trillion numbers in their <math><mi>𝚯</mi></math>!</p><p>Of course, the brain (🧠) in my brain-classifier (<math><mtext>matt</mtext></math>) was “trained” through my own life experiences. Since nobody really knows how to directly translate “life experience” into math, we tune the parameters <math><mi>𝚯</mi></math> of a neural network model differently: with calculus!</p><h3>1.1. A “wrongness” measure</h3><p>To train a neural network <math><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math>, we first need to decide what exactly we want it to approximate. With most training datasets like FashionMNIST, we have the correct label for each training image, so we might want it to approximate that. We can define <math><mi>𝑔</mi><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math> to be the “good” function that gives the correct label for any input training image <math><mi>𝐱</mi></math>. For example, let’s call the image in <a href="#example-data" data-href-stripped="true">Figure 1</a> “<math><msup><mi>𝐱</mi><mrow><mo>(</mo><mn>101</mn><mo>)</mo></mrow></msup></math>” (I added <math><mrow><mo>(</mo><mn>101</mn><mo>)</mo></mrow></math> because it’s the 101<sup>st</sup> image in the dataset). It turns out that the correct label for the image is <em>T-shirt/top</em>, so <math><mi>𝑔</mi><mrow><mo>(</mo><msup><mi>𝐱</mi><mrow><mo>(</mo><mn>101</mn><mo>)</mo></mrow></msup><mo>)</mo></mrow></math> says there’s a 100% chance it’s a <em>T-shirt/top:</em></p><math display="block"><mi>𝑔</mi><mrow><mo>(</mo><msup><mi>𝐱</mi><mrow><mo>(</mo><mn>101</mn><mo>)</mo></mrow></msup><mo>)</mo></mrow><mo>=</mo><mrow displaystyle="false"><mo>(</mo><mtable><mtr><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd></mtr></mtable><mo>)</mo></mrow></math><p>Of course, we only know the value of <math><mi>𝑔</mi><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math> for <em>training</em> images, and not for any other images. That’s what we want our neural network model, <math><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math>, to be able to tell us.</p><p>To get <math><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math> to output good confidence values (the same ones <math><mi>𝑔</mi><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math> does) on all the training data, we first need a way to measure how “wrong” <math><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math> currently is. We usually represent this “wrongness” measure as “<math><mi>ℓ</mi></math>”, and we call it the “loss function”. It takes in our model’s prediction for some image and measures how “far” it is from the “good” vector that <math><mi>𝑔</mi><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math> outputs. That is, the “wrongness”, <math><mi>ℓ</mi><mrow><mo>(</mo><mrow><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></mrow><mo>)</mo></mrow></math>, should be high when <math><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math> is very wrong (very far from <math><mi>𝑔</mi><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math>), and it should be low when <math><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math> is close to correct (close to <math><mi>𝑔</mi><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math>).</p><h3>1.2. Minimizing “wrongness” by changing the model parameters</h3><p>We want to figure out what the parameters <math><mi>𝚯</mi></math> should be so that <math><mi>ℓ</mi><mrow><mo>(</mo><mrow><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></mrow><mo>)</mo></mrow></math> is low for most images <math><mi>𝐱</mi></math>. Neural networks are designed such that if I single out just one image—let’s say it’s the <math><mi>𝑖</mi></math><sup>th</sup> one, <math><msup><mi>𝐱</mi><mrow><mo>(</mo><mi>𝑖</mi><mo>)</mo></mrow></msup></math>—it’s pretty easy to figure out in which direction to shift each parameter (each number in <math><mi>𝚯</mi></math>) to decrease <math><mi>ℓ</mi><mrow><mo>(</mo><mrow><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><msup><mi>𝐱</mi><mrow><mo>(</mo><mi>𝑖</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow></mrow><mo>)</mo></mrow></math> (entirely thanks to <a href="https://en.wikipedia.org/wiki/Backpropagation" data-href-stripped="true">backpropagation</a> and GPUs).</p><p>To “train” the model is to randomly pick lots of different images, shifting <math><mi>𝚯</mi></math> just a little in the right direction for each one. This process is called <strong>stochastic gradient descent</strong> (SGD). In math-speak, the right direction to shift the parameters in for the image <math><msup><mi>𝐱</mi><mrow><mo>(</mo><mi>𝑖</mi><mo>)</mo></mrow></msup></math> is called a <strong>derivative</strong>, specifically, the derivative of the model’s “wrongness” for this image (<math><mi>ℓ</mi><mrow><mo>(</mo><mrow><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><msup><mi>𝐱</mi><mrow><mo>(</mo><mi>𝑖</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow></mrow><mo>)</mo></mrow></math>) with respect to the model parameters (<math><mi>𝚯</mi></math>). This is denoted as</p><math display="block"><mo>−</mo><mfrac><mrow><mi>𝜕</mi><mi>ℓ</mi><mrow><mo>(</mo><mrow><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><msup><mi>𝐱</mi><mrow><mo>(</mo><mi>𝑖</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow></mrow><mo>)</mo></mrow></mrow><mrow><mi>𝜕</mi><mi>𝚯</mi></mrow></mfrac><mo rspace="0em">,</mo></math><p>or, for short, just</p><math display="block"><mo>−</mo><mfrac><mrow><mi>𝜕</mi><mi>ℓ</mi></mrow><mrow><mi>𝜕</mi><mi>𝚯</mi></mrow></mfrac><mi>.</mi></math><details class="details-box"><summary>Optional note</summary><div class="details-box-content">The derivative <math><mo>−</mo><mfrac><mrow><mi>𝜕</mi><mi>ℓ</mi></mrow><mrow><mi>𝜕</mi><mi>𝚯</mi></mrow></mfrac></math> tells us in what <em>direction</em> to shift the model parameters (<math><mi>𝚯</mi></math>), but figuring out how <em>far</em> to shift them is a hard problem. If you don’t shift far enough, you might not make <math><mi>ℓ</mi></math> that much lower. If you shift too much, you might overshoot and ruin <math><mi>𝚯</mi></math>, making <math><mi>ℓ</mi></math> increase. The number that determines how far you choose to shift <math><mi>𝚯</mi></math> by is called the <strong>learning rate</strong>, and is often represented by <math><mi>𝜂</mi></math> (the Greek letter <em>eta</em>).</div></details><p>After performing stochastic gradient descent for a while, you hope that <math><mi>ℓ</mi></math> is as small as possible on the training images, meaning your model closely approximates <math><mi>𝑔</mi><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math>. In practice, it works very well, and on a good day, <math><msub><mi>𝑓</mi><mi>𝚯</mi></msub><mrow><mo>(</mo><mi>𝐱</mi><mo>)</mo></mrow></math> ends up much <em>better</em> than <math><msub><mtext>matt</mtext><mi>🧠</mi></msub><mrow><mo>(</mo><mi>🖼️</mi><mo>)</mo></mrow></math>, even on images you never trained your model on!</p><p>The study of the training and application of deep neural networks is called <strong>deep learning</strong>.</p><h2>2. Online batch selection</h2><p>To review, training a neural network involves repeatedly selecting a data point <math><msup><mi>𝐱</mi><mrow><mo>(</mo><mi>𝑖</mi><mo>)</mo></mrow></msup></math> from a training dataset (the data points in FashionMNIST are images), calculating <math><mo>−</mo><mfrac><mrow><mi>𝜕</mi><mi>ℓ</mi></mrow><mrow><mi>𝜕</mi><mi>𝚯</mi></mrow></mfrac></math> on it, and shifting <math><mi>𝚯</mi></math> accordingly.</p><h3>2.1. Batches</h3><p>In fact, for efficiency, we usually pick a few data points at once and calculate <math><mo>−</mo><mfrac><mrow><mi>𝜕</mi><mi>ℓ</mi></mrow><mrow><mi>𝜕</mi><mi>𝚯</mi></mrow></mfrac></math> for them all at the same time (GPUs make this quite easy). The set of data points we train on at each training step is called a <strong>batch</strong>. The batch size can vary from just a couple data points to hundreds at once. Each time we select a batch of data and update <math><mi>𝚯</mi></math> based on the batch is called a <strong>training step</strong>.</p><p>How should we pick which data points go into each batch? Most people treat all the data points equally and pick which ones to add to the batch completely at random, like drawing names from a hat. This approach to selecting data points is called <strong>uniform sampling</strong>.</p><h3 id="calling-uniform-into-question">2.2. Calling uniform sampling into question</h3><p>But why should we treat all the data the same? With practice datasets like FashionMNIST, uniform sampling works fine because the dataset has been prepared very carefully: each image is meticulously aligned, and the distribution of different types of clothing is consistent. However, in most real datasets, some of the data points’ labels are wrong, and the data you’re training on isn’t quite representative of the task you really want your model to perform.</p><p>For example, I used to work on training neural network models to process 3-dimensional images (cryo-ET tomograms) of bacteria and output the location of certain structures in them (if present at all). I put together <a href="https://www.biorxiv.org/content/10.1101/2025.04.23.650258v1.full.pdf" data-href-stripped="true">a dataset of these bacteria</a> for a <a href="https://www.kaggle.com/competitions/byu-locating-bacterial-flagellar-motors-2025" data-href-stripped="true">data science competition</a>. Among other things, I learned that creating a good dataset is hard! Incorrect labels and unintended artifacts creep in, and that can lead to unintended bias in neural networks trained on that data. Aside from errors, real datasets are imbalanced. I did not have access to images of every kind of bacteria for my dataset, and some kinds of bacteria were better represented in the dataset than others.</p><p>If we train a neural network model using uniform sampling on a large dataset that contains many data points of type A, but only a few of an unusual type B, bad things can happen (see <a href="#cat-dog-dataset-1" data-href-stripped="true">Figure 3</a>). For instance, the model might learn a lot about type A data points and just ignore type B. Or it might try to learn about type B, but get confused about some type-A points as a result. For example, imagine a world in which some cats had floppy, dog-like ears. Seeing that dogs almost always have floppy ears could mislead the model to predict that images of floppy-eared cats are instead dogs! How can we ensure that the model learns as much as possible about <em>both</em> types of data?</p><div id="cat-dog-dataset-1" style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="img/dataset-1.png" alt="Many photos of cats on the left, a few photos of dogs on the right" style="width: max(100%, 10rem);"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><figcaption>Figure 3: Many data points of type A, a few of type B. (Image generated by AI)</figcaption></figure></div><p>Another problem is redundant training. Now let’s say that the abundant type-A data points are not just a part of the same category, but most of them are also nearly identical, while the type-B points are more varied (see <a href="#cat-dog-dataset-2" data-href-stripped="true">Figure 4</a>). With uniform sampling, we’ll spend most of the time training on these nearly identical type-A points (black cats, in this case). Not only is that slow, unnecessary, and wasteful, but it further exacerbates the risk that the model just ignores type-B points.</p><div id="cat-dog-dataset-2" style="width: 100%; text-align: center;"><figure><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="img/dataset-3.png" alt="Many photos of cats on the left, a few photos of dogs on the right. Most cats are black, a few are not." style="width: max(100%, 10rem);"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><figcaption>Figure 4: Many type A points, a few of type B, but most type A data points are nearly identical. (Image generated by AI)</figcaption></figure></div><p>Consider that the Internet—the primary source of training data for many large neural networks like LLMs—is full of duplicate or uninteresting data (type A), yet it has rare nuggets of wisdom scattered throughout if you look hard enough (type B). If we could somehow tell our model’s training algorithm to focus more on B data, that might help. Or we could instruct it to pay the most attention to data points that appear “difficult” or “interesting” by some metric.</p><p>People have thought of a lot of ways to choose what data to train on, including the following:</p><ul><li>If we have more data than we need, we can decide which data is the most important, and ignore the rest of it from the very beginning (<a href="https://arxiv.org/pdf/2505.17799" data-href-stripped="true">coreset selection</a>).</li><li>We can periodically review the whole dataset, checking which data is still useful and throwing it out if not (<a href="https://arxiv.org/pdf/2111.12621" data-href-stripped="true">dynamic data pruning</a>).</li><li>Each time we need to select data to train on, we can attempt to identify a set of data points that will be most useful to the model in its current state, by some metric. We don’t completely ignore any data, but we don’t treat all the data equally either. We select what we think will be most beneficial as we go.</li></ul><p>We will focus on the approaches described by the final bullet point, which are called <strong>online batch selection</strong> methods.</p><h3>2.3. Online batch selection methods</h3><p>Online batch selection methods are of particular interest to me because they don’t make the implicit assumption that some data is completely bad, and other data is completely good. Instead, online batch selection methods acknowledge that some data points are more useful than others, and what data is most useful may depend on where we’re at in training.</p><p>The name for these methods was coined by Loshchilov and Hutter in their 2015 paper <a href="https://arxiv.org/abs/1511.06343" data-href-stripped="true">Online Batch Selection for Faster Training of Neural Networks</a>, although the ideas behind it had been developing for a long time. Since then, many papers on intelligent online batch selection methods have been published.</p><p>Some important examples include:</p><ul><li><a href="https://arxiv.org/abs/1803.00942" data-href-stripped="true">Gradient Norm Independence Sampling (2018)</a>, which increases a point’s probability of being selected into a batch when it is predicted to induce the most change in <math><mi>𝚯</mi></math> (the model parameters). Actually figuring out how much a point will change <math><mi>𝚯</mi></math> by would be too expensive to be worth doing, so it uses a clever approximation instead. Messy data can really mess this algorithm up, but on clean datasets, it is faster at training than uniform sampling.</li><li><a href="https://arxiv.org/abs/2206.07137" data-href-stripped="true">RHO-LOSS (Reducible Holdout Loss Selection) (2022)</a>, which, to quote the paper, chooses for each batch “points that are learnable, worth learning, and not yet learnt.” It relies on a pre-trained “teacher” model to help the neural network model-in-training (the “student” model) understand which points are learnable and worth learning. In my experience, when there are mistakes in the dataset’s labels, this method excels.</li><li><a href="https://arxiv.org/abs/2406.04872" data-href-stripped="true">DivBS (Diversified Batch Selection) (2024)</a>, which ensures that in every batch, each data point is unlike the rest in the batch (the batch is “diversified”). It works much better than uniform sampling if the dataset is clean, but if some samples are especially unusual, they’ll be chosen over and over, which can completely derail training. However, DivBS doesn’t need a pre-trained teacher model, and in my experience not only trains faster than uniform sampling, but it also leads to a higher-quality model (speaking technically, the model <em>generalizes</em> better to unseen data).</li></ul><p>Notice that in <a href="#cifar10-test" data-href-stripped="true">Figure 5</a>, all three of these methods (listed as “GradNormIS”, “RhoLoss”, and “DivBS”) yield models that match or exceed uniform sampling’s final accuracy (listed as “Uniform”).</p><div id="cifar10-test" style="width: 100%; text-align: center;"><figure><table><tr><td><div style="max-width: 50rem; width: 100%; margin: 0 auto; text-align: center;"><img src="img/figure-3-8-cifar10.png" alt style="width: max(100%, 10rem);"><div class="caption-text" style="width: 100%; text-align: center;"></div></div></td><td><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="img/figure-3-8-legend.png" alt style="width: max(80%, 10rem);"><div class="caption-text" style="width: 100%; text-align: center;"></div></div></td></tr></table><figcaption>Figure 5: A figure (Figure 3.8) from <a href="https://scholarsarchive.byu.edu/etd/11369/" data-href-stripped="true">Luke Green’s recent Master’s thesis</a> comparing common online batch selection methods. Dataset is the CIFAR10 image classification dataset with 10% of the labels randomly changed to be incorrect (10% label noise), a realistic level of noise when samples are hard for humans to classify.</figcaption></figure></div><h2>3. Why study online batch selection methods?</h2><p>Stochastic gradient descent appeared long ago, in the 1950s, before deep learning was ever conceived. Since then, researchers have come up with hundreds of variants, like momentum (Polyak’s heavy ball method, Nesterov Accelerated Gradient), parameter-specific adaptability (AdaGrad, RMSProp, Adam, AdamW), and other modern methods (<a href="https://jeremybernste.in/writing/deriving-muon" data-href-stripped="true">Muon</a>, <a href="https://arxiv.org/pdf/2502.07529" data-href-stripped="true">Scion</a>). These days, outside of research experiments, few neural network models are trained with plain, momentum-free stochastic gradient descent. We’re seeing that certain variants of SGD are better in almost every way—they require less fiddling around, they train faster, and they often generalize better. Improvements to SGD were a crucial step in building what we now call AI.</p><p>Just like those modifications to SGD, online batch selection is an attempt to accelerate and improve neural network training. Admittedly, no individual online batch selection method has yet proven objectively better than uniform sampling across all contexts, otherwise we’d all be using it. However, some methods appear to perform better than uniform sampling under certain common circumstances. We ask questions similar to those that other optimization researchers pose:</p><ul><li>Are there conditions under which the simplest strategy (uniform sampling) is the best possible strategy, and if so, what are they?</li><li>How does online batch selection change the training dynamics, and are those changes desirable?</li><li>In which scenarios do particular strategies excel? Why or why not?</li><li>Do certain methods have a disastrous worst case, but work well with such high probability that we don’t care?</li></ul><p>We seek to mathematically characterize the behavior of online batch selection methods under simple conditions to eventually exploit their strengths and minimize their weaknesses, facilitating faster and more robust training of neural networks in all kinds of contexts.</p><h3>3.1. Efficient and robust training</h3><p>Understanding the behavior of online batch selection methods will allow us to solve the problems outlined in <a href="#calling-uniform-into-question" data-href-stripped="true">Section 2.2</a>. That is, we can avoid wasting time training on data that is redundant or otherwise uninformative, and we can ensure that the model understands the whole dataset, not just what is easy or abundant.</p><h3>3.2. Ethical AI</h3><p>I became interested in online batch selection only after learning about ways of ensuring AI models are ethical. It is straightforward to train an AI on Internet text, but a lot of that text is false, unethical, or misleading. For example, a hateful rant on Reddit might be useful to teach a large language model about informal language and a particular viewpoint, but could also lead the model to go on hateful rants if it’s prompted just right. Undesirable information present in training data propagates to the final model in ways that are hard to suppress (<a href="https://transformer-circuits.pub/2025/attribution-graphs/biology.html#dives-jailbreak" data-href-stripped="true">this interactive Anthropic analysis</a> on asking Claude how to make a bomb is a fascinating example).</p><p>To minimize the negative effects of training on such data, we <strong>align</strong> AI models with our vision of what good AI should be, intended to keep it from saying and doing terrible things (see <a href="https://www.anthropic.com/constitution" data-href-stripped="true">Claude’s constitution</a>). Alignment techniques like <a href="https://arxiv.org/pdf/2212.08073" data-href-stripped="true"><em>Constitutional AI</em></a> and <a href="https://arxiv.org/pdf/2204.05862" data-href-stripped="true"><em>Reinforcement Learning from Human Feedback</em></a> each involve steps in which, using imperfect information, we identify (or generate) data that will most help the model be ethical. In online batch selection, we solve a related problem: we must decide what training data will most improve model performance. Thus, I think it is possible that a deeper understanding of online batch selection could eventually lead to progress in AI alignment as well.</p><h2>4. Conclusion</h2><p>Machine learning researchers hope to eventually attain a complete grasp on how AI works and how to reliably control its behavior, though that may take a very long time. Quantifying how training data affects model behavior throughout training—the primary objective of our online batch selection research—is a key aspect of that quest. While we won’t be able to answer all of our questions soon, we <em>can</em> answer some, which will streamline current AI training techniques and strengthen model reliability.</p></main><footer>© 2026 Matthew Ward — <a href="https://typst.app/home/" data-href-stripped="true">Typst 0.15</a></footer></body></html>

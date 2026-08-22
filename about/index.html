@@ -135,7 +135,7 @@ mover[accent="true" i] > :not(:first-child) {
   --primary-light: color-mix(in srgb, var(--primary) 30%, white);
   --secondary: #88a;
   --secondary-dark: color-mix(in srgb, var(--secondary) 80%, black);
-  --secondary-light: color-mix(in srgb, var(--secondary) 80%, white);
+  --secondary-light: color-mix(in srgb, var(--secondary) 20%, white);
   --background: #FEFDFA;
   --text: #111827;
   --text-medium: color-mix(in srgb, var(--text) 80%, white);
@@ -143,18 +143,19 @@ mover[accent="true" i] > :not(:first-child) {
 }
 
 :root {
-  --margin-right: 38vw;
   --margin-left: 22vw;
+  --body-width: 40em;
+  --margin-right: calc(100vw - var(--margin-left) - var(--body-width))
 }
 
 html {
-  /* scroll-padding-top: 5rem; */
+  scroll-padding-top: 4rem;
   background-color: var(--background);
 }
 
 body {
   margin: 0 var(--margin-right) 0 var(--margin-left);
-  width: auto;
+  width: var(--body-width);
   font-family: 'Libertinus Serif';
   font-size: 1.2rem;
   background-color: var(--background);
@@ -212,6 +213,10 @@ nav.top-nav-bar * {
   line-height: 1em;
   margin: 0;
 }
+
+nav.top-nav-bar li {
+  display: block;
+}
 /* 
 main {
   padding-top: 0.5rem;
@@ -222,7 +227,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 1em;
+  margin-bottom: 0.9em;
   font-family: 'Libertinus Sans';
 }
 p, li {
@@ -249,13 +254,35 @@ figcaption,
 
 span.small-text {
   font-size: 1.1rem;
+  line-height: 1.1;
+  display: inline-block;
 }
 
 div.centered-frame {
-  margin: 0.5em 0;
   display: block;
-  text-align: center;
   overflow-x: auto;
+  margin: 0.5em 0;
+}
+
+div.centered-frame > svg {
+  margin: 0 auto;
+}
+
+details.details-box {
+  border: 1px solid var(--text);
+  background-color: var(--secondary-light);
+  border-radius: 0.5em;
+  padding: 0.5em 0.8em;
+  margin: 1em 0;
+}
+
+details.details-box summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+details.details-box[open] summary {
+  margin-bottom: 0.5em;
 }
 
 div.article-link {
@@ -307,18 +334,23 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* For narrower screens */
-@media (max-width: 1500px) {
+
+/* For narrower screens. Threshold is where the wide-screen 22vw margin-left
+   already equals the centered value, so the switch to centering is seamless. */
+@media (max-width: 84em) {
   :root {
-    --margin-left: 15vw;
-    --margin-right: 25vw;
+    --body-width: 40em;
+    --margin-left: calc((100vw - var(--body-width)) / 2);
+    --margin-right: var(--margin-left)
+    
   }
 }
 
 /* For phone screens */
-@media (max-width: 1000px) {
+@media (max-width: 50em) {
   :root {
-    --margin-left: 1.5rem;
-    --margin-right: 1.5rem;
+    --margin-left: 1.5em;
+    --margin-right: 1.5em;
+    --body-width: calc(100vw - var(--margin-left) - var(--margin-right))
   }
-}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../" data-href-stripped="true"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="#" data-href-stripped="true">About</a></li><li><a href="/posts/" data-href-stripped="true">Posts</a></li><li><a href="/projects/" data-href-stripped="true">Projects</a></li></ul></nav><main><div class="article-title"><h2>About Me</h2><div class="article-date">Last updated on June 18, 2026</div></div><p>I’m Matthew Ward, a recent graduate of the <a href="https://acme.byu.edu/" data-href-stripped="true">Applied and Computational Mathematics Emphasis (ACME)</a> program at Brigham Young University. Now I’m starting my Master’s in mathematics at BYU with Dr. Kevin Miller, studying theory and algorithms for data-efficient machine learning.</p><p>I was previously a data engineer intern working on Geiger-mode lidar at <a href="https://3deolidar.com/" data-href-stripped="true">3DEO, Inc.</a> and a member of the <a href="https://byu-biophysics.github.io/" data-href-stripped="true">BYU Biophysics Group</a>. In both positions I gained significant experience working with 3-dimensional image data.</p><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="imgs/us.jpg" alt style="width: 100%;"><div class="caption-text" style="width: 100%; text-align: center;"><em>My wife and I</em></div></div><p>When I’m not studying, I like to sing my wife songs at the piano. She and I enjoy playing strings together and spending time in the beautiful outdoors here in Utah.</p></main><footer>© 2026 Matthew Ward — <a href="https://typst.app/home/" data-href-stripped="true">Typst 0.15</a></footer></body></html>
+}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../" data-href-stripped="true"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="#" data-href-stripped="true">About</a></li><li><a href="/posts/" data-href-stripped="true">Posts</a></li><li><a href="/projects/" data-href-stripped="true">Projects</a></li></ul></nav><main><div class="article-title"><h1>About Me</h1><div class="article-date">Last updated on June 18, 2026</div></div><p>I’m Matthew Ward, a recent graduate of the <a href="https://acme.byu.edu/" data-href-stripped="true">Applied and Computational Mathematics Emphasis (ACME)</a> program at Brigham Young University. Now I’m starting my Master’s in mathematics at BYU with Dr. Kevin Miller, studying theory and algorithms for data-efficient machine learning.</p><p>I was previously a data engineer intern working on Geiger-mode lidar at <a href="https://3deolidar.com/" data-href-stripped="true">3DEO, Inc.</a> and a member of the <a href="https://byu-biophysics.github.io/" data-href-stripped="true">BYU Biophysics Group</a>. In both positions I gained significant experience working with 3-dimensional image data.</p><div style="max-width: 20rem; margin: 0 auto; text-align: center;"><img src="imgs/us.jpg" alt style="width: max(100%, 10rem);"><div class="caption-text" style="width: 100%; text-align: center;"><em>My wife and I</em></div></div><p>When I’m not studying, I like to sing my wife songs at the piano. She and I enjoy playing strings together and spending time in the beautiful outdoors here in Utah.</p></main><footer>© 2026 Matthew Ward — <a href="https://typst.app/home/" data-href-stripped="true">Typst 0.15</a></footer></body></html>

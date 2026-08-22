@@ -135,7 +135,7 @@ mover[accent="true" i] > :not(:first-child) {
   --primary-light: color-mix(in srgb, var(--primary) 30%, white);
   --secondary: #88a;
   --secondary-dark: color-mix(in srgb, var(--secondary) 80%, black);
-  --secondary-light: color-mix(in srgb, var(--secondary) 80%, white);
+  --secondary-light: color-mix(in srgb, var(--secondary) 20%, white);
   --background: #FEFDFA;
   --text: #111827;
   --text-medium: color-mix(in srgb, var(--text) 80%, white);
@@ -143,18 +143,19 @@ mover[accent="true" i] > :not(:first-child) {
 }
 
 :root {
-  --margin-right: 38vw;
   --margin-left: 22vw;
+  --body-width: 40em;
+  --margin-right: calc(100vw - var(--margin-left) - var(--body-width))
 }
 
 html {
-  /* scroll-padding-top: 5rem; */
+  scroll-padding-top: 4rem;
   background-color: var(--background);
 }
 
 body {
   margin: 0 var(--margin-right) 0 var(--margin-left);
-  width: auto;
+  width: var(--body-width);
   font-family: 'Libertinus Serif';
   font-size: 1.2rem;
   background-color: var(--background);
@@ -212,6 +213,10 @@ nav.top-nav-bar * {
   line-height: 1em;
   margin: 0;
 }
+
+nav.top-nav-bar li {
+  display: block;
+}
 /* 
 main {
   padding-top: 0.5rem;
@@ -222,7 +227,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 1em;
+  margin-bottom: 0.9em;
   font-family: 'Libertinus Sans';
 }
 p, li {
@@ -249,13 +254,35 @@ figcaption,
 
 span.small-text {
   font-size: 1.1rem;
+  line-height: 1.1;
+  display: inline-block;
 }
 
 div.centered-frame {
-  margin: 0.5em 0;
   display: block;
-  text-align: center;
   overflow-x: auto;
+  margin: 0.5em 0;
+}
+
+div.centered-frame > svg {
+  margin: 0 auto;
+}
+
+details.details-box {
+  border: 1px solid var(--text);
+  background-color: var(--secondary-light);
+  border-radius: 0.5em;
+  padding: 0.5em 0.8em;
+  margin: 1em 0;
+}
+
+details.details-box summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+details.details-box[open] summary {
+  margin-bottom: 0.5em;
 }
 
 div.article-link {
@@ -307,18 +334,23 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* For narrower screens */
-@media (max-width: 1500px) {
+
+/* For narrower screens. Threshold is where the wide-screen 22vw margin-left
+   already equals the centered value, so the switch to centering is seamless. */
+@media (max-width: 84em) {
   :root {
-    --margin-left: 15vw;
-    --margin-right: 25vw;
+    --body-width: 40em;
+    --margin-left: calc((100vw - var(--body-width)) / 2);
+    --margin-right: var(--margin-left)
+    
   }
 }
 
 /* For phone screens */
-@media (max-width: 1000px) {
+@media (max-width: 50em) {
   :root {
-    --margin-left: 1.5rem;
-    --margin-right: 1.5rem;
+    --margin-left: 1.5em;
+    --margin-right: 1.5em;
+    --body-width: calc(100vw - var(--margin-left) - var(--margin-right))
   }
-}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../../../" data-href-stripped="true"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="../../../about/" data-href-stripped="true">About</a></li><li><a href="/posts/" data-href-stripped="true">Posts</a></li><li><a href="/projects/" data-href-stripped="true">Projects</a></li></ul></nav><main><div class="article-title"><h2>tomogram-datasets</h2><div class="article-date">November 13, 2024</div></div><div style="max-width: 50rem; width: 80%; margin: 0 auto; text-align: center;"><img src="imgs/cover.png" alt style="width: 75%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>This project is hosted on <a href="https://www.github.com/byu-biophysics/tomogram-datasets" data-href-stripped="true">GitHub</a>.</p><hr><p>In the BYU Biophysics research group, we spend much of our time working with 3-dimensional images of bacteria called tomograms. Researchers have spent a lot of time looking for structures in these tomograms, and save their findings in annotation files. <code>tomogram_datasets</code> makes it easier to navigate the web of tomograms and annotations we have, simplifying analysis and dataset creation. While it’s something I’m still working on, I use it every day in my research.</p><p>The code is hosted on <a href="https://github.com/byu-biophysics/tomogram-datasets/tree/master" data-href-stripped="true">GitHub</a>.</p><p>It puts tomograms and their respective annotations into an object-oriented framework, so that accessing attributes of a particular tomogram, like annotations, supercomputer filepath, or header data, is quick and easy. This is primarily to facilitate the creation and analysis of competition datasets. Our group has already done a couple <a href="https://www.kaggle.com/competitions/byu-locating-bacterial-flagellar-motors-v2" data-href-stripped="true">Kaggle competitions</a> internally at BYU, and as we prepare to launch our first worldwide competition, I found myself in need of an easier way to work with our tomograms.</p><p>The project was also an opportunity to practice robust coding practices (<a href="https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/test/test_tomogram.py" data-href-stripped="true">implementing unit tests</a>, <a href="https://byu-biophysics.github.io/tomogram-datasets/" data-href-stripped="true">thorough documentation</a>), scripting (<a href="https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/tomogram_datasets/supercomputer_utils.py" data-href-stripped="true">file management on a supercomputer</a>, <a href="https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/tomogram_datasets/tomogram.py" data-href-stripped="true">file loading</a>), as well as <a href="https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/tomogram_datasets/subtomogram.py" data-href-stripped="true">data processing</a>.</p><p>In addition, I learned a lot about Python libraries making this, like how to define the dependencies of my project so users could install it without having to think about that. I think my favorite part was learning to generate a <a href="https://byu-biophysics.github.io/tomogram-datasets/" data-href-stripped="true">documentation site</a> automatically from the code’s docstrings using <a href="https://www.mkdocs.org/" data-href-stripped="true">MkDocs</a>. Seeing it update itself as I added features was fascinating.</p></main><footer>© 2026 Matthew Ward — <a href="https://typst.app/home/" data-href-stripped="true">Typst 0.15</a></footer></body></html>
+}</style><link rel="icon" type="image/x-icon" href="/_assets/favicon/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/_assets/favicon/favicon-48x48.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicon/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="512x512" href="/_assets/favicon/android-chrome-512x512.png"><link rel="apple-touch-icon" href="/_assets/favicon/apple-touch-icon.png"><nav class="top-nav-bar"><ul><li><a href="../../../" data-href-stripped="true"><img alt="Headshot of Matthew Ward" style="height: 2.5rem; width: 2.5rem;" src="/_assets/headshot.jpg"> <strong>Matthew Ward</strong></a></li><li><a href="../../../about/" data-href-stripped="true">About</a></li><li><a href="/posts/" data-href-stripped="true">Posts</a></li><li><a href="/projects/" data-href-stripped="true">Projects</a></li></ul></nav><main><div class="article-title"><h1>tomogram-datasets</h1><div class="article-date">November 13, 2024</div></div><div style="max-width: 50rem; width: 80%; margin: 0 auto; text-align: center;"><img src="imgs/cover.png" alt style="width: 75%;"><div class="caption-text" style="width: 100%; text-align: center;"></div></div><p>This project is hosted on <a href="https://www.github.com/byu-biophysics/tomogram-datasets" data-href-stripped="true">GitHub</a>.</p><hr><p>In the BYU Biophysics research group, we spend much of our time working with 3-dimensional images of bacteria called tomograms. Researchers have spent a lot of time looking for structures in these tomograms, and save their findings in annotation files. <code>tomogram_datasets</code> makes it easier to navigate the web of tomograms and annotations we have, simplifying analysis and dataset creation. While it’s something I’m still working on, I use it every day in my research.</p><p>The code is hosted on <a href="https://github.com/byu-biophysics/tomogram-datasets/tree/master" data-href-stripped="true">GitHub</a>.</p><p>It puts tomograms and their respective annotations into an object-oriented framework, so that accessing attributes of a particular tomogram, like annotations, supercomputer filepath, or header data, is quick and easy. This is primarily to facilitate the creation and analysis of competition datasets. Our group has already done a couple <a href="https://www.kaggle.com/competitions/byu-locating-bacterial-flagellar-motors-v2" data-href-stripped="true">Kaggle competitions</a> internally at BYU, and as we prepare to launch our first worldwide competition, I found myself in need of an easier way to work with our tomograms.</p><p>The project was also an opportunity to practice robust coding practices (<a href="https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/test/test_tomogram.py" data-href-stripped="true">implementing unit tests</a>, <a href="https://byu-biophysics.github.io/tomogram-datasets/" data-href-stripped="true">thorough documentation</a>), scripting (<a href="https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/tomogram_datasets/supercomputer_utils.py" data-href-stripped="true">file management on a supercomputer</a>, <a href="https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/tomogram_datasets/tomogram.py" data-href-stripped="true">file loading</a>), as well as <a href="https://github.com/byu-biophysics/tomogram-datasets/blob/3823769f406fc5e84e14e635c78e38e924f626f7/tomogram_datasets/subtomogram.py" data-href-stripped="true">data processing</a>.</p><p>In addition, I learned a lot about Python libraries making this, like how to define the dependencies of my project so users could install it without having to think about that. I think my favorite part was learning to generate a <a href="https://byu-biophysics.github.io/tomogram-datasets/" data-href-stripped="true">documentation site</a> automatically from the code’s docstrings using <a href="https://www.mkdocs.org/" data-href-stripped="true">MkDocs</a>. Seeing it update itself as I added features was fascinating.</p></main><footer>© 2026 Matthew Ward — <a href="https://typst.app/home/" data-href-stripped="true">Typst 0.15</a></footer></body></html>
