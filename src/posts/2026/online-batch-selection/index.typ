@@ -7,9 +7,6 @@
   #let bm(it) = $bold(upright(it))$
   #set heading(numbering: "1.1.1.")
 
-  #show math.equation.where(block: false): it => inline-frame(it)
-  #show math.equation.where(block: true): it => centered-frame(html.frame(it))
-
   #divider()
 
   I am about to start a two-year thesis-based Master's of Mathematics program with #link("https://sites.google.com/view/kevin-miller/home")[Dr. Kevin Miller], a professor of mathematics at Brigham Young University. I started researching with him this summer, focusing primarily on methods of online batch selection for deep learning.
@@ -75,9 +72,9 @@
 
   == Minimizing "wrongness" by changing the model parameters
 
-  We want to figure out what the parameters $bold(Theta)$ should be so that $ell(f_bold(Theta) (bm(x)))$ is low for most images $bm(x)$. Neural networks are designed such that if I single out just one image---let's say it's the $i$#super[th] one, $bm(x)^((i))$---it's pretty easy to figure out in which direction to shift each parameter (each number in $bold(Theta)$) to decrease $ell(f_bold(Theta) (bm(x)^((i))))$ (entirely thanks to #link("https://en.wikipedia.org/wiki/Backpropagation")[backpropagation] and GPUs). 
+  We want to figure out what the parameters $bold(Theta)$ should be so that $ell(f_bold(Theta) (bm(x)))$ is low for most images $bm(x)$. Neural networks are designed such that if I single out just one image---let's say it's the $i$#super[th] one, $bm(x)^((i))$---it's pretty easy to figure out in which direction to shift each parameter (each number in $bold(Theta)$) to decrease $ell(f_bold(Theta) (bm(x)^((i))))$ (thanks to #link("https://en.wikipedia.org/wiki/Backpropagation")[backpropagation] and GPUs). 
   
-  To "train" the model is to randomly pick lots of different images, shifting $bold(Theta)$ just a little in the right direction for each one. This process is called *stochastic gradient descent* (SGD). In math-speak, the right direction to shift the parameters in for the image $bm(x)^((i))$ is called a *derivative*, specifically, the derivative of the model's "wrongness" for this image ($ell (f_bold(Theta) (bm(x)^((i))))$) with respect to the model parameters ($bold(Theta)$). This is denoted as
+  To "train" the model is to randomly pick lots of different images, shifting $bold(Theta)$ just a little in the right direction for each one. This process is called *stochastic gradient descent* (SGD). In math-speak, the right direction to shift the parameters in for the image $bm(x)^((i))$ is called a *derivative*, specifically, the derivative of the model's "wrongness" for this image ($ell$) with respect to the model parameters ($bold(Theta)$). This is denoted as
 
   #let derivative-xi = $-(partial ell(f_bold(Theta) (bm(x)^((i)))))/(partial bold(Theta))$
   #let derivative-x = $-(partial ell(f_bold(Theta) (bm(x))))/(partial bold(Theta))$

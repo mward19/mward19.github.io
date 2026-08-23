@@ -1,5 +1,5 @@
 /* Get Libertinus fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Libertinus+Math&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 
 .libertinus-serif-regular {
   font-family: "Libertinus Serif", serif;
@@ -53,4 +53,14 @@
   font-family: "Libertinus Sans", sans-serif;
   font-weight: 400;
   font-style: italic;
+}
+
+.libertinus-math-regular {
+  font-family: "Libertinus Math", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+math {
+  font-family: "Libertinus Math", serif;
 }

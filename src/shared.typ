@@ -100,6 +100,12 @@
     style: "width: 100%; text-align: center;",
     it
   )
+
+  show math.equation: set text(font: "Libertinus Math")
+
+  // Temporary, I hope. Chrome doesn't support MathML very well
+  show math.equation.where(block: false): it => inline-frame(it)
+  show math.equation.where(block: true): it => centered-frame(html.frame(it))
   body
 }
 
