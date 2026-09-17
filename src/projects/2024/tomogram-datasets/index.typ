@@ -4,7 +4,7 @@
 
   #cover("imgs/cover.png", width: 75%)
 
-  This project is hosted on #link("https://www.github.com/byu-biophysics/tomogram-datasets")[GitHub].
+  This project is hosted on #link("https://www.github.com/byu-biophysics/tomogram-datasets")[GitHub]. _Update: see the \$65,000 funded #link("https://www.kaggle.com/competitions/byu-locating-bacterial-flagellar-motors-2025")[Kaggle competition] that used this dataset._
 
   #html.hr()
 
